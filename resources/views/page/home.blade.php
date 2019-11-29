@@ -24,7 +24,7 @@
         <div class="position-absolute-bottom p-2">
             <div class="row justify-content-between">
                 <div class="col text-center">
-                    <h4 class="display-4 font-weight-bold text-white">Viaje a Perú</h4>
+                    <h4 class="display-4 font-weight-bold text-white">Viaje a Peru</h4>
                     <span class="text-white h4">Descubra el pais de los Incas</span>
                 </div>
                 <div class="col-4 text-center">
