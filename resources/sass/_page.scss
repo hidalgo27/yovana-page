@@ -102,7 +102,7 @@
         list-style: none;
         padding: 0;
         position: relative;
-        background: hsla(0,0%,100%,.1);
+        background: rgba(0,0,0,.6);
         //position: relative;
         /* IF .menu position=relative -> ul = container width, ELSE ul = 100% width */
         -webkit-box-sizing: border-box;
@@ -519,7 +519,7 @@ header .overlay {
 .box16 .social li{display:inline-block}
 .box16 .social li a{display:block;width:40px;height:40px;line-height:40px;background:$orange;margin-right:10px;transition:all .3s ease 0s}
 .box17 .icon li,.box17 .icon li a{display:inline-block}
-.box16 .social li a:hover{background:$g-green}
+.box16 .social li a:hover{background:red}
 .box16 .social li:last-child a{margin-right:0}
 @media only screen and (max-width:990px){
     .box16{margin-bottom:30px}

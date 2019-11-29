@@ -24,18 +24,16 @@ $info: #00b4e9;
 //font
 $fa-font-path:        "../webfonts";
 
-$carousel-control-color: #333333;
-$g-green:    #7F8429 !default;
-$g-yellow:   #f9a825 !default;
-$g-dark:   #333333 !default;
-$g-dark-light: #969696 !default;
+$red-primary:    #fd0000 !default;
+$red-light:    #f05545 !default;
+$red-dark:    #7f0000 !default;
 
+$carousel-control-color: #333333;
 $theme-colors: () !default;
 $theme-colors: map-merge((
-    "g-green": $g-green,
-    "g-yellow": $g-yellow,
-    "g-dark": $g-dark,
-    "g-dark-light": $g-dark-light,
+    "red-primary": $red-primary,
+    "red-light": $red-light,
+    "red-dark": $red-dark
 ), $theme-colors);
 
 $headings-line-height:        1.2 !default;
