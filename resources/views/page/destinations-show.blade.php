@@ -138,24 +138,24 @@
 {{--                            </div>--}}
 {{--                        </div>--}}
 
-                        <div class="row pt-4" id="maps">
-                            <div class="col-12">
-                                <h3 class="font-weight-bold">Maps</h3>
-                                <div class="line-subtitle"></div>
-                            </div>
-                            <div class="col-12">
+{{--                        <div class="row pt-4" id="maps">--}}
+{{--                            <div class="col-12">--}}
+{{--                                <h3 class="font-weight-bold">Maps</h3>--}}
+{{--                                <div class="line-subtitle"></div>--}}
+{{--                            </div>--}}
+{{--                            <div class="col-12">--}}
 
-                                @foreach($ubicacion->results as $ubicacions)
-                                    @foreach($ubicacions->geometry->location as  $ubicacion2)
-                                        @php $ubicacion3[] = $ubicacion2; @endphp
-                                    @endforeach
-                                @endforeach
+{{--                                @foreach($ubicacion->results as $ubicacions)--}}
+{{--                                    @foreach($ubicacions->geometry->location as  $ubicacion2)--}}
+{{--                                        @php $ubicacion3[] = $ubicacion2; @endphp--}}
+{{--                                    @endforeach--}}
+{{--                                @endforeach--}}
 
 
 {{--                                <div id="map"></div>--}}
 
-                            </div>
-                        </div>
+{{--                            </div>--}}
+{{--                        </div>--}}
 
 {{--                    <div class="row pt-5" id="hotels">--}}
 
