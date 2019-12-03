@@ -18,7 +18,7 @@
                     <h1 class="font-weight-lighter h2 mt-5">DESTINOS EN {{strtoupper($destinos->nombre)}}</h1>
                     <div>
                         <div class="tl-1"></div>
-                        <div class="tl-2"><img src="{{asset('images/logo-andes-ave-white.png')}}" alt="" class="w-100"></div>
+{{--                        <div class="tl-2"><img src="{{asset('images/logo-andes-ave-white.png')}}" alt="" class="w-100"></div>--}}
                         <div class="tl-3"></div>
                     </div>
                     {{--                    <div class="mt-4">--}}
@@ -359,21 +359,21 @@
     {{--            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab, aliquam architecto corporis dicta error facilis ipsam magni, mollitia necessitatibus odio quasi quo, repudiandae saepe sapiente sed. Cum qui sed veritatis!--}}
     {{--        </div>--}}
     @endforeach
-    <section id="consulte" class="pt-5">
-        <div class="container-fluid">
-            <div class="row justify-content-center my-4">
-                <div class="col-2">
-                    <img src="{{asset('images/logo-andes-y.png')}}" alt="" class="w-100">
-                </div>
-            </div>
-            <div class="row justify-content-center">
-                <div class="col-7">
-                    <h5 class="font-weight-bold text-center">CONSULTA DE VIAJES</h5>
-                    <form-inquire></form-inquire>
-                </div>
-            </div>
-        </div>
-    </section>
+{{--    <section id="consulte" class="pt-5">--}}
+{{--        <div class="container-fluid">--}}
+{{--            <div class="row justify-content-center my-4">--}}
+{{--                <div class="col-2">--}}
+{{--                    <img src="{{asset('images/logo-andes-y.png')}}" alt="" class="w-100">--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--            <div class="row justify-content-center">--}}
+{{--                <div class="col-7">--}}
+{{--                    <h5 class="font-weight-bold text-center">CONSULTA DE VIAJES</h5>--}}
+{{--                    <form-inquire></form-inquire>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </div>--}}
+{{--    </section>--}}
 
 @endsection
 

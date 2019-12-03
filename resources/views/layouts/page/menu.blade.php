@@ -69,7 +69,7 @@
 {{--                <li><a href="#">Sport</a></li>--}}
 {{--            </ul>--}}
         </li>
-        <li><a href="{{route('sobre_nosotros_path')}}">SOBRE NOSOTROS</a></li>
-        <li><a href="{{route('responsabilidad_path')}}">RESPONSABILIDAD SOCIAL</a></li>
+        <li><a href="#">SOBRE NOSOTROS</a></li>
+        <li><a href="#">RESPONSABILIDAD SOCIAL</a></li>
     </ul>
 </div>
