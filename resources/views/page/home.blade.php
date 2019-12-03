@@ -278,7 +278,7 @@
                                         <div class="clearfix"></div>
                                     </ul>
                                     <h5 class="titl-h5">{{$categorias->nombre}}</h5>
-                                    <p>{!! $categorias->descripcion !!}</p>
+{{--                                    <p>{!! $categorias->descripcion !!}</p>--}}
                                     <a class="btn btn-red-primary btn-sm" href="{{route('category_show_path', ''.$categorias->url.'')}}">+ Paquetes de categoria {{$categorias->nombre}}</a>
                                 </div>
                             </div>
