@@ -78,7 +78,7 @@
                         <div class="row mt-4">
                             <div class="col">
                                 <button type="button" class="btn btn-link p-0 text-secondary float-left font-weight-lighter">SABER MÁS SOBRE {{mb_strtoupper($destinos->nombre)}}</button>
-                                <a href="{{route('destination_show_path', $destinos->url)}}" class="btn btn-g-green text-white rounded-0 float-right">VER PAQUETES</a>
+                                <a href="{{route('destination_show_path', $destinos->url)}}" class="btn btn-red-primary text-white rounded-0 float-right">VER PAQUETES</a>
                             </div>
                         </div>
                     </div>

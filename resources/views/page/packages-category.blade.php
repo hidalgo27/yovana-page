@@ -88,7 +88,7 @@
                         <div class="row mt-4">
                             <div class="col">
 {{--                                <button type="button" class="btn btn-link p-0 text-secondary float-left font-weight-lighter" onclick="view_itinerary()">SABER MÁS DE LIMA</button>--}}
-                                <a href="{{route('category_show_path', $categorias->url)}}" class="btn btn-g-green text-white rounded-0 float-right">VER PAQUETES</a>
+                                <a href="{{route('category_show_path', $categorias->url)}}" class="btn btn-red-primary text-white rounded-0 float-right">VER PAQUETES</a>
                             </div>
                         </div>
                     </div>
