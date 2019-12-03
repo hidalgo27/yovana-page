@@ -266,7 +266,7 @@
                 </div>
             </div>
             <div class="row">
-                @foreach($categoria as $categorias)
+                @foreach($categoria->take(3) as $categorias)
                     <div class="col">
                         <div class="transperent_block">
                             <img src="{{$categorias->imagen}}" class="img-responsive" alt="">
@@ -279,7 +279,7 @@
                                     </ul>
                                     <h5 class="titl-h5">{{$categorias->nombre}}</h5>
                                     <p>{!! $categorias->descripcion !!}</p>
-                                    <a class="btn btn-red-primary btn-sm" href="{{route('category_show_path', $categorias->url)}}">+ Paquetes de categoria {{$categorias->nombre}}</a>
+                                    <a class="btn btn-red-primary btn-sm" href="{{route('category_show_path', ''.$categorias->url.'')}}">+ Paquetes de categoria {{$categorias->nombre}}</a>
                                 </div>
                             </div>
                         </div>
@@ -383,16 +383,16 @@
                 </div>
             </div>
             <div class="row">
-                @foreach($destino as $destinos)
+                @foreach($destino->take(3) as $destinos)
                 <div class="col">
                     <div class="home-banner-destinations">
                         <figure class="cc-imagewrapper">
-                            <a href="{{route('destination_show_path', $destinos->url)}}" class="text-center">
+                            <a href="{{route('destination_show_path', ''.$destinos->url.'')}}" class="text-center">
                                 <img src="{{$destinos->imagen}}" alt="" class="w-100">
                             </a>
                             <figcaption>
                                 <small class="d-block">{{$destinos->pais}}</small>
-                                {{$destinos->nombre}}
+                                {{$destinos->url}}
                             </figcaption>
                         </figure>
                     </div>
