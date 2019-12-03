@@ -51,7 +51,7 @@
                         <div class="col-12 mb-4">
                             {{--<h3 class="text-g-yellow font-weight-bold">Tours</h3>--}}
 {{--                            <h1 class="text-secondary font-weight-bold">Cusco Tours</h1>--}}
-                            {{$destinos->resumen}}
+                            {!! $destinos->resumen !!}
                             <div class="alert alert-primary rounded-0 mt-4 text-center" role="alert">
                                 <h5 class="font-weight-normal">Operadores Locales en Perú: Los mejores guias de la región, encantadores hoteles, excursiones únicas, y amistosos representantes.
                                     #gotoperu #TuconexionconPeru</h5>
@@ -209,7 +209,7 @@
                     <div class="sticky-top">
                         <nav id="navbar-scroll" class="navbar navbar-light nav-goto-side w-100">
                             <nav class="nav nav-pills flex-column w-100">
-                                <a class="nav-link active text-capitalize" href="#tours">Cusco Tours</a>
+                                <a class="nav-link active text-capitalize" href="#tours">{{ucwords(strtolower($destinos->nombre))}} Tours</a>
                                 <a class="nav-link" href="#maps">Localizacion</a>
                                 {{--                                <a class="nav-link {{$h_resumen}}" href="#history">History</a>--}}
                                 {{--                                <a class="nav-link {{$h_resumen}}" href="#geography">Geography</a>--}}
