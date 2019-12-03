@@ -266,7 +266,7 @@
                 </div>
             </div>
             <div class="row">
-                @foreach($categoria->take(3) as $categorias)
+                @foreach($categoria as $categorias)
                     <div class="col">
                         <div class="transperent_block">
                             <img src="{{$categorias->imagen}}" class="img-responsive" alt="">
@@ -274,12 +274,12 @@
                                 <div class="blur"></div>
                                 <div class="black_hover_block_text">
                                     <ul class="text-center bg_black m-0 p-0">
-                                        <li>{{$categorias->nombre}}</li>
+                                        <li>{{$categorias->url}}</li>
                                         <div class="clearfix"></div>
                                     </ul>
                                     <h5 class="titl-h5">{{$categorias->nombre}}</h5>
 {{--                                    <p>{!! $categorias->descripcion !!}</p>--}}
-                                    <a class="btn btn-red-primary btn-sm" href="{{route('category_show_path', ''.$categorias->url.'')}}">+ Paquetes de categoria {{$categorias->nombre}}</a>
+                                    <a class="btn btn-red-primary btn-sm" href="{{route('category_show_path', $categorias->url)}}">+ Paquetes de categoria {{$categorias->nombre}}</a>
                                 </div>
                             </div>
                         </div>
