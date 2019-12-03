@@ -305,7 +305,7 @@
                     <div class="col">
                         <h2 class="h5">Bienvenido</h2>
                         <h4 class="font-weight-bold h1">INCAS PERU TRAVEL</h4>
-                        <p>Somos su opción ideal para un viaje inolvidable por Perú. En KOLIBRI PERU TRAVEL combinamos naturaleza variada con la cultura de nuestros antepasados, alojamiento especialmente seleccionado y excelente comida.</p>
+                        <p>Somos su opción ideal para un viaje inolvidable por Perú. En INCAS PERU TRAVEL combinamos naturaleza variada con la cultura de nuestros antepasados, alojamiento especialmente seleccionado y excelente comida.</p>
                         <p>Déjate hechizar por una de las culturas más místicas de la tierra.</p>
 {{--                        <div class="row mt-4">--}}
 {{--                            <div class="col text-center">--}}
