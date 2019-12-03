@@ -152,7 +152,7 @@
                                 @endforeach
 
 
-                                <div id="map"></div>
+{{--                                <div id="map"></div>--}}
 
                             </div>
                         </div>
@@ -214,7 +214,7 @@
                                 {{--                                <a class="nav-link {{$h_resumen}}" href="#history">History</a>--}}
                                 {{--                                <a class="nav-link {{$h_resumen}}" href="#geography">Geography</a>--}}
 {{--                                <a class="nav-link" href="#hotels">Hoteles</a>--}}
-                                <a class="nav-link" href="#clima">Clima</a>
+{{--                                <a class="nav-link" href="#clima">Clima</a>--}}
                                 {{--<a class="nav-link" href="#photos">Photos</a>--}}
                             </nav>
                         </nav>
@@ -223,7 +223,7 @@
 
                         <div>
                             <div class="tl-1"></div>
-                            <div class="tl-2"><img src="{{asset('images/logo-ave-grey.png')}}" alt="" class="w-100"></div>
+{{--                            <div class="tl-2"><img src="{{asset('images/logo-ave-grey.png')}}" alt="" class="w-100"></div>--}}
                             <div class="tl-3"></div>
                         </div>
 
@@ -421,20 +421,20 @@
         }
 
 
-        function initMap() {
-            var lat1 = parseFloat("{{$ubicacion3[0]}}");
-            var lng1 = parseFloat("{{$ubicacion3[1]}}");
+        {{--function initMap() {--}}
+        {{--    var lat1 = parseFloat("{{$ubicacion3[0]}}");--}}
+        {{--    var lng1 = parseFloat("{{$ubicacion3[1]}}");--}}
 
-            var uluru = {lat: lat1, lng: lng1};
-            var map = new google.maps.Map(document.getElementById('map'), {
-                zoom: 6,
-                center: uluru
-            });
-            var marker = new google.maps.Marker({
-                position: uluru,
-                map: map
-            });
-        }
+        {{--    var uluru = {lat: lat1, lng: lng1};--}}
+        {{--    var map = new google.maps.Map(document.getElementById('map'), {--}}
+        {{--        zoom: 6,--}}
+        {{--        center: uluru--}}
+        {{--    });--}}
+        {{--    var marker = new google.maps.Marker({--}}
+        {{--        position: uluru,--}}
+        {{--        map: map--}}
+        {{--    });--}}
+        {{--}--}}
 
         !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
     </script>
