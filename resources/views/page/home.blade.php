@@ -392,7 +392,7 @@
                             </a>
                             <figcaption>
                                 <small class="d-block">{{$destinos->pais}}</small>
-                                {{$destinos->url}}
+                                {{$destinos->nombre}}
                             </figcaption>
                         </figure>
                     </div>
