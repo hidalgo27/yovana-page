@@ -445,9 +445,7 @@ class HomepageController extends Controller
 
         $destinos_all = TDestino::all();
 
-        $ubicacion = \GoogleMaps::load('geocoding')
-            ->setParam (['address' =>''.$url.''])
-            ->get();
+        $ubicacion = 'cusco';
         $ubicacion = json_decode($ubicacion);
 
 //        dd($ubicacion);
