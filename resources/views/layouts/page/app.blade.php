@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html>
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -30,7 +30,7 @@
 {{--                    </div>--}}
 {{--                </div>--}}
                 <div class="col-auto">
-                    <a href="{{route('home_path')}}"><img src="{{asset('images/logo-incasperu.png')}}" width="250" alt="logo andesviagens" class="img-fluid"></a>
+                    <a href="{{route('home_path')}}"><img src="{{asset('images/logo-yovana.png')}}" width="250" alt="logo andesviagens" class="img-fluid"></a>
                 </div>
                 <div class="col-3 text-right">
                     <a href="#consulte" class="btn btn-red-primary float-right ml-3 font-weight-bold px-4 rounded-0">COTIZAR VIAJE</a>
