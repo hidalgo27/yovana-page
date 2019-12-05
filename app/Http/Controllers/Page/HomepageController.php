@@ -20,7 +20,7 @@ class HomepageController extends Controller
         $paquete = TPaquete::with('paquetes_destinos.destinos','paquetes_categoria.categoria', 'precio_paquetes')->where('estado', 1)->get();
         $tours = TTour::with('tours_destinos.destinos')->get();
         $paquete_destinos = TPaqueteDestino::with('destinos')->get();
-        $categoria = TCategoria::all();
+        $categoria = TCategoria::where('estado', 1)->get();
         $destino = TDestino::where('estado', 1)->get();
 
         return view('page.home',
@@ -445,9 +445,7 @@ class HomepageController extends Controller
 
         $destinos_all = TDestino::all();
 
-        $ubicacion = \GoogleMaps::load('geocoding')
-            ->setParam (['address' =>''.$url.''])
-            ->get();
+        $ubicacion = 'cusco';
         $ubicacion = json_decode($ubicacion);
 
 //        dd($ubicacion);

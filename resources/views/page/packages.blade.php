@@ -14,7 +14,7 @@
                     <h1 class="font-weight-lighter h2 mt-5">PAQUETES DE VIAJE A PERÚ</h1>
                     <div>
                         <div class="tl-1"></div>
-                        <div class="tl-2"><img src="{{asset('images/logo-andes-ave-white.png')}}" alt="" class="w-100"></div>
+{{--                        <div class="tl-2"><img src="{{asset('images/logo-andes-ave-white.png')}}" alt="" class="w-100"></div>--}}
                         <div class="tl-3"></div>
                     </div>
                     {{--                    <div class="mt-4">--}}
@@ -48,7 +48,7 @@
                     <p class="lead">Nuestros paquetes más populares En Perú, Estos paquetes pueden ser usados como referencia para personalizar tu viaje. En GOTOPERU Nos especializamos en la elaboración de experiencias personalizadas basadas en sus preferencias; invitamos a revisar estos programas para tener una idea de los destinos más importantes, por ejemplo, Machu Picchu, Lake Titicaca, Nazca y el Amazonas.</p>
                 </div>
             </div>
-            <search-package-page></search-package-page>
+{{--            <search-package-page></search-package-page>--}}
             <div class="row d-none">
                 <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-4 d-flex mb-3">
                     <div class="card w-100 shadow-sm">
@@ -265,21 +265,21 @@
     {{--            <p>...</p>--}}
     {{--            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab, aliquam architecto corporis dicta error facilis ipsam magni, mollitia necessitatibus odio quasi quo, repudiandae saepe sapiente sed. Cum qui sed veritatis!--}}
     {{--        </div>--}}
-    <section id="consulte" class="pt-5">
-        <div class="container-fluid">
-            <div class="row justify-content-center my-4">
-                <div class="col-2">
-                    <img src="{{asset('images/logo-andes-y.png')}}" alt="" class="w-100">
-                </div>
-            </div>
-            <div class="row justify-content-center">
-                <div class="col-7">
-                    <h5 class="font-weight-bold text-center">CONSULTA DE VIAJES</h5>
-                    <form-inquire></form-inquire>
-                </div>
-            </div>
-        </div>
-    </section>
+{{--    <section id="consulte" class="pt-5">--}}
+{{--        <div class="container-fluid">--}}
+{{--            <div class="row justify-content-center my-4">--}}
+{{--                <div class="col-2">--}}
+{{--                    <img src="{{asset('images/logo-andes-y.png')}}" alt="" class="w-100">--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--            <div class="row justify-content-center">--}}
+{{--                <div class="col-7">--}}
+{{--                    <h5 class="font-weight-bold text-center">CONSULTA DE VIAJES</h5>--}}
+{{--                    <form-inquire></form-inquire>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </div>--}}
+{{--    </section>--}}
 
 @endsection
 

@@ -75,14 +75,15 @@ Route::get('/destination/{url}', [
 ]);
 
 //category
+Route::get('/categorias/{title}', [
+    'uses' => 'Page\HomepageController@category_show',
+    'as' => 'category_show_path',
+]);
 Route::get('/category', [
     'uses' => 'Page\HomepageController@category',
     'as' => 'category_path',
 ]);
-Route::get('/category/{url}', [
-    'uses' => 'Page\HomepageController@category_show',
-    'as' => 'category_show_path',
-]);
+
 
 //about
 Route::get('/sobre-nosotros', [

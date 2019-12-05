@@ -274,11 +274,11 @@
                                 <div class="blur"></div>
                                 <div class="black_hover_block_text">
                                     <ul class="text-center bg_black m-0 p-0">
-                                        <li>{{$categorias->nombre}}</li>
+                                        <li>{{$categorias->url}}</li>
                                         <div class="clearfix"></div>
                                     </ul>
                                     <h5 class="titl-h5">{{$categorias->nombre}}</h5>
-                                    <p>{!! $categorias->descripcion !!}</p>
+{{--                                    <p>{!! $categorias->descripcion !!}</p>--}}
                                     <a class="btn btn-red-primary btn-sm" href="{{route('category_show_path', $categorias->url)}}">+ Paquetes de categoria {{$categorias->nombre}}</a>
                                 </div>
                             </div>
@@ -305,7 +305,7 @@
                     <div class="col">
                         <h2 class="h5">Bienvenido</h2>
                         <h4 class="font-weight-bold h1">INCAS PERU TRAVEL</h4>
-                        <p>Somos su opción ideal para un viaje inolvidable por Perú. En KOLIBRI PERU TRAVEL combinamos naturaleza variada con la cultura de nuestros antepasados, alojamiento especialmente seleccionado y excelente comida.</p>
+                        <p>Somos su opción ideal para un viaje inolvidable por Perú. En INCAS PERU TRAVEL combinamos naturaleza variada con la cultura de nuestros antepasados, alojamiento especialmente seleccionado y excelente comida.</p>
                         <p>Déjate hechizar por una de las culturas más místicas de la tierra.</p>
 {{--                        <div class="row mt-4">--}}
 {{--                            <div class="col text-center">--}}
@@ -383,7 +383,7 @@
                 </div>
             </div>
             <div class="row">
-                @foreach($destino as $destinos)
+                @foreach($destino->take(3) as $destinos)
                 <div class="col">
                     <div class="home-banner-destinations">
                         <figure class="cc-imagewrapper">

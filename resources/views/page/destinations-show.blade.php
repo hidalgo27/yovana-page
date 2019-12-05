@@ -18,7 +18,7 @@
                     <h1 class="font-weight-lighter h2 mt-5">DESTINOS EN {{strtoupper($destinos->nombre)}}</h1>
                     <div>
                         <div class="tl-1"></div>
-                        <div class="tl-2"><img src="{{asset('images/logo-andes-ave-white.png')}}" alt="" class="w-100"></div>
+{{--                        <div class="tl-2"><img src="{{asset('images/logo-andes-ave-white.png')}}" alt="" class="w-100"></div>--}}
                         <div class="tl-3"></div>
                     </div>
                     {{--                    <div class="mt-4">--}}
@@ -51,7 +51,7 @@
                         <div class="col-12 mb-4">
                             {{--<h3 class="text-g-yellow font-weight-bold">Tours</h3>--}}
 {{--                            <h1 class="text-secondary font-weight-bold">Cusco Tours</h1>--}}
-                            {{$destinos->resumen}}
+                            {!! $destinos->resumen !!}
                             <div class="alert alert-primary rounded-0 mt-4 text-center" role="alert">
                                 <h5 class="font-weight-normal">Operadores Locales en Perú: Los mejores guias de la región, encantadores hoteles, excursiones únicas, y amistosos representantes.
                                     #gotoperu #TuconexionconPeru</h5>
@@ -138,24 +138,24 @@
 {{--                            </div>--}}
 {{--                        </div>--}}
 
-                        <div class="row pt-4" id="maps">
-                            <div class="col-12">
-                                <h3 class="font-weight-bold">Maps</h3>
-                                <div class="line-subtitle"></div>
-                            </div>
-                            <div class="col-12">
+{{--                        <div class="row pt-4" id="maps">--}}
+{{--                            <div class="col-12">--}}
+{{--                                <h3 class="font-weight-bold">Maps</h3>--}}
+{{--                                <div class="line-subtitle"></div>--}}
+{{--                            </div>--}}
+{{--                            <div class="col-12">--}}
 
-                                @foreach($ubicacion->results as $ubicacions)
-                                    @foreach($ubicacions->geometry->location as  $ubicacion2)
-                                        @php $ubicacion3[] = $ubicacion2; @endphp
-                                    @endforeach
-                                @endforeach
+{{--                                @foreach($ubicacion->results as $ubicacions)--}}
+{{--                                    @foreach($ubicacions->geometry->location as  $ubicacion2)--}}
+{{--                                        @php $ubicacion3[] = $ubicacion2; @endphp--}}
+{{--                                    @endforeach--}}
+{{--                                @endforeach--}}
 
 
-                                <div id="map"></div>
+{{--                                <div id="map"></div>--}}
 
-                            </div>
-                        </div>
+{{--                            </div>--}}
+{{--                        </div>--}}
 
 {{--                    <div class="row pt-5" id="hotels">--}}
 
@@ -209,12 +209,12 @@
                     <div class="sticky-top">
                         <nav id="navbar-scroll" class="navbar navbar-light nav-goto-side w-100">
                             <nav class="nav nav-pills flex-column w-100">
-                                <a class="nav-link active text-capitalize" href="#tours">Cusco Tours</a>
+                                <a class="nav-link active text-capitalize" href="#tours">{{ucwords(strtolower($destinos->nombre))}} Tours</a>
                                 <a class="nav-link" href="#maps">Localizacion</a>
                                 {{--                                <a class="nav-link {{$h_resumen}}" href="#history">History</a>--}}
                                 {{--                                <a class="nav-link {{$h_resumen}}" href="#geography">Geography</a>--}}
 {{--                                <a class="nav-link" href="#hotels">Hoteles</a>--}}
-                                <a class="nav-link" href="#clima">Clima</a>
+{{--                                <a class="nav-link" href="#clima">Clima</a>--}}
                                 {{--<a class="nav-link" href="#photos">Photos</a>--}}
                             </nav>
                         </nav>
@@ -223,7 +223,7 @@
 
                         <div>
                             <div class="tl-1"></div>
-                            <div class="tl-2"><img src="{{asset('images/logo-ave-grey.png')}}" alt="" class="w-100"></div>
+{{--                            <div class="tl-2"><img src="{{asset('images/logo-ave-grey.png')}}" alt="" class="w-100"></div>--}}
                             <div class="tl-3"></div>
                         </div>
 
@@ -359,21 +359,21 @@
     {{--            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab, aliquam architecto corporis dicta error facilis ipsam magni, mollitia necessitatibus odio quasi quo, repudiandae saepe sapiente sed. Cum qui sed veritatis!--}}
     {{--        </div>--}}
     @endforeach
-    <section id="consulte" class="pt-5">
-        <div class="container-fluid">
-            <div class="row justify-content-center my-4">
-                <div class="col-2">
-                    <img src="{{asset('images/logo-andes-y.png')}}" alt="" class="w-100">
-                </div>
-            </div>
-            <div class="row justify-content-center">
-                <div class="col-7">
-                    <h5 class="font-weight-bold text-center">CONSULTA DE VIAJES</h5>
-                    <form-inquire></form-inquire>
-                </div>
-            </div>
-        </div>
-    </section>
+{{--    <section id="consulte" class="pt-5">--}}
+{{--        <div class="container-fluid">--}}
+{{--            <div class="row justify-content-center my-4">--}}
+{{--                <div class="col-2">--}}
+{{--                    <img src="{{asset('images/logo-andes-y.png')}}" alt="" class="w-100">--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--            <div class="row justify-content-center">--}}
+{{--                <div class="col-7">--}}
+{{--                    <h5 class="font-weight-bold text-center">CONSULTA DE VIAJES</h5>--}}
+{{--                    <form-inquire></form-inquire>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </div>--}}
+{{--    </section>--}}
 
 @endsection
 
@@ -421,20 +421,20 @@
         }
 
 
-        function initMap() {
-            var lat1 = parseFloat("{{$ubicacion3[0]}}");
-            var lng1 = parseFloat("{{$ubicacion3[1]}}");
+        {{--function initMap() {--}}
+        {{--    var lat1 = parseFloat("{{$ubicacion3[0]}}");--}}
+        {{--    var lng1 = parseFloat("{{$ubicacion3[1]}}");--}}
 
-            var uluru = {lat: lat1, lng: lng1};
-            var map = new google.maps.Map(document.getElementById('map'), {
-                zoom: 6,
-                center: uluru
-            });
-            var marker = new google.maps.Marker({
-                position: uluru,
-                map: map
-            });
-        }
+        {{--    var uluru = {lat: lat1, lng: lng1};--}}
+        {{--    var map = new google.maps.Map(document.getElementById('map'), {--}}
+        {{--        zoom: 6,--}}
+        {{--        center: uluru--}}
+        {{--    });--}}
+        {{--    var marker = new google.maps.Marker({--}}
+        {{--        position: uluru,--}}
+        {{--        map: map--}}
+        {{--    });--}}
+        {{--}--}}
 
         !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
     </script>

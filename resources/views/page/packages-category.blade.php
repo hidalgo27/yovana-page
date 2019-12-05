@@ -15,7 +15,7 @@
                     <h1 class="font-weight-lighter h2 mt-5">LOS MEJORES DESTINOS EN PERÚ</h1>
                     <div>
                         <div class="tl-1"></div>
-                        <div class="tl-2"><img src="{{asset('images/logo-andes-ave-white.png')}}" alt="" class="w-100"></div>
+{{--                        <div class="tl-2"><img src="{{asset('images/logo-andes-ave-white.png')}}" alt="" class="w-100"></div>--}}
                         <div class="tl-3"></div>
                     </div>
                     {{--                    <div class="mt-4">--}}
@@ -88,7 +88,7 @@
                         <div class="row mt-4">
                             <div class="col">
 {{--                                <button type="button" class="btn btn-link p-0 text-secondary float-left font-weight-lighter" onclick="view_itinerary()">SABER MÁS DE LIMA</button>--}}
-                                <a href="{{route('category_show_path', $categorias->url)}}" class="btn btn-g-green text-white rounded-0 float-right">VER PAQUETES</a>
+                                <a href="{{route('category_show_path', $categorias->url)}}" class="btn btn-red-primary text-white rounded-0 float-right">VER PAQUETES</a>
                             </div>
                         </div>
                     </div>
@@ -110,21 +110,21 @@
     {{--            <p>...</p>--}}
     {{--            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab, aliquam architecto corporis dicta error facilis ipsam magni, mollitia necessitatibus odio quasi quo, repudiandae saepe sapiente sed. Cum qui sed veritatis!--}}
     {{--        </div>--}}
-    <section id="consulte" class="pt-5">
-        <div class="container-fluid">
-            <div class="row justify-content-center my-4">
-                <div class="col-2">
-                    <img src="{{asset('images/logo-andes-y.png')}}" alt="" class="w-100">
-                </div>
-            </div>
-            <div class="row justify-content-center">
-                <div class="col-7">
-                    <h5 class="font-weight-bold text-center">CONSULTA DE VIAJES</h5>
-                    <form-inquire></form-inquire>
-                </div>
-            </div>
-        </div>
-    </section>
+{{--    <section id="consulte" class="pt-5">--}}
+{{--        <div class="container-fluid">--}}
+{{--            <div class="row justify-content-center my-4">--}}
+{{--                <div class="col-2">--}}
+{{--                    <img src="{{asset('images/logo-andes-y.png')}}" alt="" class="w-100">--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--            <div class="row justify-content-center">--}}
+{{--                <div class="col-7">--}}
+{{--                    <h5 class="font-weight-bold text-center">CONSULTA DE VIAJES</h5>--}}
+{{--                    <form-inquire></form-inquire>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </div>--}}
+{{--    </section>--}}
 
 @endsection
 
