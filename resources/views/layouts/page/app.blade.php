@@ -46,7 +46,7 @@
 
     @yield('content')
 
-    <footer class="bg-dark text-center font-weight-bold p-3 mt-4">
+    <footer class="bg-dark text-center text-white font-weight-bold p-3 mt-4">
         xoddo 2019
     </footer>
 
