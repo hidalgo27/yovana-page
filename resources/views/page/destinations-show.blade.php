@@ -54,7 +54,7 @@
                             {!! $destinos->resumen !!}
                             <div class="alert alert-primary rounded-0 mt-4 text-center" role="alert">
                                 <h5 class="font-weight-normal">Operadores Locales en Perú: Los mejores guias de la región, encantadores hoteles, excursiones únicas, y amistosos representantes.
-                                    #gotoperu #TuconexionconPeru</h5>
+                                    </h5>
                             </div>
                         </div>
 
