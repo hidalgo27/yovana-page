@@ -46,8 +46,8 @@
 
     @yield('content')
 
-    <footer>
-        <img src="{{asset('images/footer.jpg')}}" alt="" class="w-100">
+    <footer class="bg-dark text-center font-weight-bold p-3 mt-4">
+        xoddo 2019
     </footer>
 
 </div>
