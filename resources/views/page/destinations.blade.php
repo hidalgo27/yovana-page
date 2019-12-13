@@ -60,42 +60,47 @@
 
     <section class="my-">
         <div class="container">
-            @foreach($destino as $destinos)
-            <div class="row mb-4 no-gutters align-items-center align-items-resumen shadow-sm bg-white">
-                <div class="col-6">
-                    <div class="p-5" id="box-resumen">
-                        {{--                        <div class="exp-unica">--}}
-                        {{--                            <div class="buton">--}}
-                        {{--                                <div class="arrow">--}}
-                        {{--                                    <span class="icon-estrella"></span>--}}
-                        {{--                                </div>--}}
-                        {{--                                <span>hola</span>--}}
-                        {{--                            </div>--}}
-                        {{--                        </div>--}}
-                        <h4>{{$destinos->nombre}}</h4>
-                        <div class="line-subtitle"></div>
-                        {!! $destinos->descripcion !!}
-                        <div class="row mt-4">
-                            <div class="col">
-                                <button type="button" class="btn btn-link p-0 text-secondary float-left font-weight-lighter">SABER MÁS SOBRE {{mb_strtoupper($destinos->nombre)}}</button>
-                                <a href="{{route('destination_show_path', $destinos->url)}}" class="btn btn-red-primary text-white rounded-0 float-right">VER PAQUETES</a>
+
+            <div class="row mb-4">
+                @foreach($destino as $destinos)
+                    <div class="col-6">
+                        <div class="row align-items-center mb-4">
+                            <div class="col-12">
+                                <div class="swiper-container swiper-container-gallery">
+                                    <div class="swiper-wrapper">
+                                        @foreach($destinos->destino_imagen as $imagen_destinos)
+                                            <a class="venobox swiper-slide" data-gall="myGallery" href="{{$imagen_destinos->nombre}}"><img src="{{$imagen_destinos->nombre}}" class="w-100"></a>
+                                        @endforeach
+                                    </div>
+                                    <!-- Add Pagination -->
+                                    <div class="swiper-pagination"></div>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="p-4 align-items-resumen shadow-sm bg-white" id="box-resumen">
+                                    {{--                        <div class="exp-unica">--}}
+                                    {{--                            <div class="buton">--}}
+                                    {{--                                <div class="arrow">--}}
+                                    {{--                                    <span class="icon-estrella"></span>--}}
+                                    {{--                                </div>--}}
+                                    {{--                                <span>hola</span>--}}
+                                    {{--                            </div>--}}
+                                    {{--                        </div>--}}
+                                    <h4><a href="{{route('destination_show_path', $destinos->url)}}" class="text-dark">{{$destinos->nombre}}</a></h4>
+{{--                                    <div class="line-subtitle"></div>--}}
+{{--                                    {!! $destinos->descripcion !!}--}}
+{{--                                    <div class="row mt-4">--}}
+{{--                                        <div class="col">--}}
+{{--                                            <button type="button" class="btn btn-link p-0 text-secondary float-left font-weight-lighter">SABER MÁS SOBRE {{mb_strtoupper($destinos->nombre)}}</button>--}}
+{{--                                            <a href="{{route('destination_show_path', $destinos->url)}}" class="btn btn-red-primary text-white rounded-0 float-right">VER PAQUETES</a>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-6">
-                    <div class="swiper-container swiper-container-gallery">
-                        <div class="swiper-wrapper">
-                            @foreach($destinos->destino_imagen as $imagen_destinos)
-                            <a class="venobox swiper-slide" data-gall="myGallery" href="{{$imagen_destinos->nombre}}"><img src="{{$imagen_destinos->nombre}}" class="w-100"></a>
-                            @endforeach
-                        </div>
-                        <!-- Add Pagination -->
-                        <div class="swiper-pagination"></div>
-                    </div>
-                </div>
+                @endforeach
             </div>
-            @endforeach
         </div>
     </section>
 

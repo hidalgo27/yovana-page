@@ -45,211 +45,81 @@
             <div class="row my-5">
                 <div class="col text-center">
                     <h2 class="font-weight-bold display-4 text-g-yellow">Paquetes de Viaje <strong class="text-g-green">Destacados</strong></h2>
-                    <p class="lead">Nuestros paquetes más populares En Perú, Estos paquetes pueden ser usados como referencia para personalizar tu viaje. En GOTOPERU Nos especializamos en la elaboración de experiencias personalizadas basadas en sus preferencias; invitamos a revisar estos programas para tener una idea de los destinos más importantes, por ejemplo, Machu Picchu, Lake Titicaca, Nazca y el Amazonas.</p>
+                    <p class="lead">Nuestros paquetes más populares En Perú, Estos paquetes pueden ser usados como referencia para personalizar tu viaje. En INCAS PERU Nos especializamos en la elaboración de experiencias personalizadas basadas en sus preferencias; invitamos a revisar estos programas para tener una idea de los destinos más importantes, por ejemplo, Machu Picchu, Lake Titicaca, Nazca y el Amazonas.</p>
                 </div>
             </div>
-{{--            <search-package-page></search-package-page>--}}
-            <div class="row d-none">
-                <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-4 d-flex mb-3">
-                    <div class="card w-100 shadow-sm">
-                        <div class="header-img-packages position-relative">
-                            <a href="'package/'+paquete_p.titulo"><img class="card-img-top" src="{{asset('images/packages/AV400.jpg')}}" alt=""></a>
-                            <div class="position-absolute-bottom bg-rgba-dark-3 px-3 py-2">
 
-                                <h5 class="text-white m-0">Cuso Clasico</h5>
+        </div>
+    </section>
 
-                                        <small class="text-white">Lima, Machu Picchu, Valle Sagrado</small>
+    <section>
+        <div class="container">
+            <div class="row">
+                @foreach($paquete as $paquetes)
 
-                            </div>
-                        </div>
-                        <div class="card-footer bg-white">
-                            <div class="row align-items-center">
-                                <div class="col">
-                                    <p class="font-weight-bold h5 m-0">6 Días</p>
-                                </div>
-                                <div class="col-auto">
-                                    <p class="font-weight-bold text-primary h5 m-0"><sup class="small"><small>desde</small></sup> $120<small>USD</small></p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-4 d-flex mb-3">
-                    <div class="card w-100 shadow-sm">
-                        <div class="header-img-packages position-relative">
-                            <a href="'package/'+paquete_p.titulo"><img class="card-img-top" src="{{asset('images/packages/AV400.jpg')}}" alt=""></a>
-                            <div class="position-absolute-bottom bg-rgba-dark-3 px-3 py-2">
 
-                                <h5 class="text-white m-0">Cuso Clasico</h5>
-
-                                <small class="text-white">Lima, Machu Picchu, Valle Sagrado</small>
-
-                            </div>
-                        </div>
-                        <div class="card-footer bg-white">
-                            <div class="row align-items-center">
-                                <div class="col">
-                                    <p class="font-weight-bold h5 m-0">6 Días</p>
-                                </div>
-                                <div class="col-auto">
-                                    <p class="font-weight-bold text-primary h5 m-0"><sup class="small"><small>desde</small></sup> $120<small>USD</small></p>
+                    <div class="col-12 col-sm-12 col-md-6 col-lg-4 d-flex mb-4">
+                        <div class="card w-100 shadow-sm">
+                            <div class="header-img-packages position-relative">
+                                <a href="{{route('detail_path', $paquetes->url)}}"><img class="card-img-top" src="{{$paquetes->imagen}}" alt=""></a>
+                                <div class="position-absolute-bottom bg-rgba-dark-3 px-3 py-2">
+                                    {{--                                                <h5 class="text-white m-0">{{$paquetes->titulo}}</h5>--}}
+                                    <div class="row">
+                                        <div class="col">
+                                            <small class="text-white">
+                                                <i class="fas fa-map-marker-alt"></i>
+                                                @php
+                                                    $i = 1;
+                                                    $num_des = count($paquete_destinos->where('idpaquetes',$paquetes->id));
+                                                @endphp
+                                                @foreach($paquete_destinos->where('idpaquetes',$paquetes->id) as $paquete_destino)
+                                                    {{ucwords(strtolower($paquete_destino->destinos->nombre))}}@if($i < $num_des),@else.@endif
+                                                    @php $i++; @endphp
+                                                @endforeach
+                                            </small>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-4 d-flex mb-3">
-                    <div class="card w-100 shadow-sm">
-                        <div class="header-img-packages position-relative">
-                            <a href="'package/'+paquete_p.titulo"><img class="card-img-top" src="{{asset('images/packages/AV400.jpg')}}" alt=""></a>
-                            <div class="position-absolute-bottom bg-rgba-dark-3 px-3 py-2">
+                            <!--            <div class="card-body">-->
 
-                                <h5 class="text-white m-0">Cuso Clasico</h5>
+                            <!--                <span class="font-weight-normal text-secondary">-->
+                            <!--                    <i class="fa fa-map-marker-alt"></i>-->
 
-                                <small class="text-white">Lima, Machu Picchu, Valle Sagrado</small>
-
-                            </div>
-                        </div>
-                        <div class="card-footer bg-white">
-                            <div class="row align-items-center">
-                                <div class="col">
-                                    <p class="font-weight-bold h5 m-0">6 Días</p>
+                            <!--                </span>-->
+                            <!--            </div>-->
+                            <div class="card-footer bg-white">
+                                <div class="row">
+                                    <div class="col text-center">
+                                        <h5 class="font-weight-bold text-secondary m-0">{{$paquetes->titulo}}</h5>
+                                    </div>
                                 </div>
-                                <div class="col-auto">
-                                    <p class="font-weight-bold text-primary h5 m-0"><sup class="small"><small>desde</small></sup> $120<small>USD</small></p>
+                                <div class="row mt-2">
+                                    {{--                                                <div class="col">--}}
+                                    {{--                                                    --}}
+                                    {{--                                                </div>--}}
+                                    <div class="col text-center">
+                                        {{--                                                    <p class="font-weight-bold text-red-primary h5 m-0">{{$paquetes->duracion}} Días</p>--}}
+                                        @foreach($paquetes->precio_paquetes as $precio)
+                                            @if($precio->estrellas == 2)
+                                                @if($precio->precio_d > 0)
+                                                    <p class="font-weight-bold text-center text-primary  m-0"><span class="text-dark">{{$paquetes->duracion}} Días</span> <i class="fas fa-long-arrow-alt-right"></i> <sup class="small"><small class="text-secondary">desde</small></sup> ${{$precio->precio_d}}<small>USD</small></p>
+                                                @else
+                                                    <span class="text-danger">Consulte</span>
+                                                @endif
+                                            @endif
+                                        @endforeach
+                                    </div>
                                 </div>
+
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-4 d-flex mb-3">
-                    <div class="card w-100 shadow-sm">
-                        <div class="header-img-packages position-relative">
-                            <a href="'package/'+paquete_p.titulo"><img class="card-img-top" src="{{asset('images/packages/AV400.jpg')}}" alt=""></a>
-                            <div class="position-absolute-bottom bg-rgba-dark-3 px-3 py-2">
 
-                                <h5 class="text-white m-0">Cuso Clasico</h5>
+                @endforeach
 
-                                <small class="text-white">Lima, Machu Picchu, Valle Sagrado</small>
-
-                            </div>
-                        </div>
-                        <div class="card-footer bg-white">
-                            <div class="row align-items-center">
-                                <div class="col">
-                                    <p class="font-weight-bold h5 m-0">6 Días</p>
-                                </div>
-                                <div class="col-auto">
-                                    <p class="font-weight-bold text-primary h5 m-0"><sup class="small"><small>desde</small></sup> $120<small>USD</small></p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-{{--                <div class="col-6 mb-4">--}}
-{{--                    <div class="row">--}}
-{{--                        <div class="col">--}}
-{{--                            <div class="swiper-container swiper-container-gallery position-relative">--}}
-{{--                                <div class="swiper-wrapper">--}}
-{{--                                    <a class="venobox swiper-slide" data-gall="myGallery" href="{{asset('images/itinerary/15681356773571.2.jpg')}}">--}}
-{{--                                        <img src="{{asset('images/itinerary/15681356773571.2.jpg')}}" class="w-100">--}}
-{{--                                    </a>--}}
-{{--                                    <a class="venobox swiper-slide" data-gall="myGallery" href="{{asset('images/itinerary/1571243284484Humantay lake.png')}}"><img src="{{asset('images/itinerary/1571243284484Humantay lake.png')}}" class="w-100"></a>--}}
-{{--                                </div>--}}
-{{--                                <!-- Add Pagination -->--}}
-{{--                                <div class="swiper-pagination"></div>--}}
-{{--                                <div class="position-absolute-top text-center">--}}
-{{--                                    <div class="row align-items-center">--}}
-{{--                                        <div class="col">--}}
-{{--                                            <span class="badge badge-danger">Classic</span>--}}
-{{--                                        </div>--}}
-{{--                                    </div>--}}
-
-{{--                                </div>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                    <div class="bg-white shadow-sm p-4">--}}
-{{--                        <div class="row align-items-center">--}}
-{{--                            <div class="col">--}}
-{{--                                <h5 class="font-weight-bold text-"> MACHUPICCHU EXPRESS EN LIMA Y CUSCO</h5>--}}
-{{--                            </div>--}}
-{{--                            <div class="col-auto">--}}
-{{--                                <div class="card p-2 shadow-sm">--}}
-{{--                                    <span class="font-weight-bold text-danger">Desde $<b class="h1 font-weight-bold">1109</b>usd</span>--}}
-{{--                                </div>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                        <div class="line-subtitle"></div>--}}
-{{--                        <div class="row">--}}
-{{--                            <div class="col">--}}
-{{--                                <p class="text-info font-weight-bold"><i data-feather="clock" class="text-" stroke-width="1"></i> 6 Días</p>--}}
-{{--                                <p class=""><i data-feather="map-pin" class="text-" stroke-width="1"></i> Lima, CaÑon Del Colca, Lineas De Nazca, Arequipa, Puno Y Lago Titicaca, Valle Sagrado, Machu Picchu, Cusco.</p>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-
-{{--                        <div class="row align-items-center mt-3">--}}
-{{--                            <div class="col text-left">--}}
-{{--                                <a href="{{route('detail_path', 'hola')}}" class="btn btn-sm btn-outline-secondary font-weight-bold rounded-0" onclick="view_itinerary()"> Solicitar cotización</a>--}}
-{{--                            </div>--}}
-{{--                            <div class="col text-right">--}}
-{{--                                <a href="{{route('detail_path', 'hola')}}" class="btn btn-outline-primary font-weight-bold rounded-0" onclick="view_itinerary()">Ver Detalle del Paquete <i data-feather="chevron-right" class="text-" stroke-width="3"></i></a>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-
-{{--                <div class="col-6 mb-4">--}}
-{{--                    <div class="row">--}}
-{{--                        <div class="col">--}}
-{{--                            <div class="swiper-container swiper-container-gallery position-relative">--}}
-{{--                                <div class="swiper-wrapper">--}}
-{{--                                    <a class="venobox swiper-slide" data-gall="myGallery" href="{{asset('images/itinerary/15681356773571.2.jpg')}}">--}}
-{{--                                        <img src="{{asset('images/itinerary/15681356773571.2.jpg')}}" class="w-100">--}}
-{{--                                    </a>--}}
-{{--                                    <a class="venobox swiper-slide" data-gall="myGallery" href="{{asset('images/itinerary/1571243284484Humantay lake.png')}}"><img src="{{asset('images/itinerary/1571243284484Humantay lake.png')}}" class="w-100"></a>--}}
-{{--                                </div>--}}
-{{--                                <!-- Add Pagination -->--}}
-{{--                                <div class="swiper-pagination"></div>--}}
-{{--                                <div class="position-absolute-top text-center">--}}
-{{--                                    <div class="row align-items-center">--}}
-{{--                                        <div class="col">--}}
-{{--                                            <span class="badge badge-danger">Classic</span>--}}
-{{--                                        </div>--}}
-{{--                                    </div>--}}
-
-{{--                                </div>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                    <div class="bg-white shadow-sm p-4">--}}
-{{--                        <div class="row">--}}
-{{--                            <div class="col">--}}
-{{--                                <h5 class="font-weight-bold text-secondary"><mark class="text-dark">6 Días</mark> MACHUPICCHU EXPRESS </h5>--}}
-{{--                                <span class="font-weight-bold text-danger">Desde $1109usd</span>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                        <div class="line-subtitle"></div>--}}
-{{--                        <div class="row mt- mb-3">--}}
-
-{{--                            <div class="col">--}}
-{{--                                <span class="font-weight-bold">Lima, Cusco, Machu Picchu, Puno.</span>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-
-{{--                        --}}{{--                        <p>Si sentir la adrenalina es lo tuyo, este paquete es para ti. Desde los rapidos del Río Urubamba hasta la sensación de libertad y vertigo del Zipline o el derrape en el tour a Maras y Moray en cuatrimotos. En fin, este personalmente es uno de nuestros paquetes preferidos, por supuesto con los mejores especialistas en cada día y con la visita a una de las 7 maravillas del mundo moderno ¡MACHUPICCHU! </p>--}}
-{{--                        <div class="row mt-4">--}}
-{{--                            --}}{{--                            <div class="col">--}}
-{{--                            --}}{{--                                <span class="badge badge-danger">Classic</span>--}}
-{{--                            --}}{{--                            </div>--}}
-{{--                            <div class="col-12 text-center">--}}
-{{--                                <a href="{{route('detail_path', 'hola')}}" class="btn btn-g-yellow text-white rounded-0" onclick="view_itinerary()">DETALLE DEL PAQUETE</a>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
             </div>
+
 
         </div>
     </section>

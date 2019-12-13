@@ -395,7 +395,19 @@ class HomepageController extends Controller
     }
 
     public function packages(){
-        return view('page.packages');
+        $paquete = TPaquete::with('paquetes_destinos.destinos','paquetes_categoria.categoria', 'precio_paquetes')->get()->sortBy('duracion');
+
+        $paquete_destinos = TPaqueteDestino::with('destinos')->get();
+        $categoria = TCategoria::where('estado', 1)->get();
+        $destino = TDestino::where('estado', 1)->get();
+
+        return view('page.packages',
+            compact(
+                'paquete',
+                'categoria',
+                'destino',
+                'paquete_destinos'
+            ));
     }
 
 

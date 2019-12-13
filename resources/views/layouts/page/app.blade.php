@@ -47,7 +47,7 @@
     @yield('content')
 
     <footer>
-        <img src="{{asset('images/footer.jpg')}}" alt="" class="w-100">
+        <img src="{{asset('images/footer.png')}}" alt="" class="w-100">
     </footer>
 
 </div>

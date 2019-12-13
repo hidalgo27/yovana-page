@@ -46,16 +46,54 @@
     <section class="bg-white py-5" id="title_section">
         <div class="container">
             <div class="row">
+                <div class="col-12 col-sm-5 col-md-4 col-xl-3 d-none d-sm-block">
+                    <div class="sticky-top">
+{{--                        <nav id="navbar-scroll" class="navbar navbar-light nav-goto-side w-100">--}}
+{{--                            <nav class="nav nav-pills flex-column w-100">--}}
+{{--                                <a class="nav-link active text-capitalize" href="#tours">{{ucwords(strtolower($destinos->nombre))}} Tours</a>--}}
+{{--                                <a class="nav-link" href="#maps">Localizacion</a>--}}
+{{--                                --}}{{--                                <a class="nav-link {{$h_resumen}}" href="#history">History</a>--}}
+{{--                                --}}{{--                                <a class="nav-link {{$h_resumen}}" href="#geography">Geography</a>--}}
+{{--                                --}}{{--                                <a class="nav-link" href="#hotels">Hoteles</a>--}}
+{{--                                --}}{{--                                <a class="nav-link" href="#clima">Clima</a>--}}
+{{--                                --}}{{--<a class="nav-link" href="#photos">Photos</a>--}}
+{{--                            </nav>--}}
+{{--                        </nav>--}}
+
+                        {{--                        <div clpaquete_p.titul--}}
+
+{{--                        <div>--}}
+{{--                            <div class="tl-1"></div>--}}
+{{--                            --}}{{--                            <div class="tl-2"><img src="{{asset('images/logo-ave-grey.png')}}" alt="" class="w-100"></div>--}}
+{{--                            <div class="tl-3"></div>--}}
+{{--                        </div>--}}
+
+                        <div class="row mt-4">
+                            <div class="col">
+                                <ul class="list-group list-group-flush">
+                                    @foreach($destinos_all as $destinos_alls)
+                                        <a href="{{$destinos_alls->url}}" class="list-group-item font-weight-bold text-secondary">
+                                            <img src="{{$destinos_alls->imagen}}" alt="" width="40" height="40" class="rounded-circle" data-toggle="tooltip" data-placement="top" title="{{$destinos_alls->nombre}}">
+                                            <span class="pl-3">{{$destinos_alls->nombre}}</span>
+                                        </a>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
                 <div class="col-12 col-sm-7 col-md-8 col-xl-9">
                     <div class="row" id="tours">
                         <div class="col-12 mb-4">
                             {{--<h3 class="text-g-yellow font-weight-bold">Tours</h3>--}}
 {{--                            <h1 class="text-secondary font-weight-bold">Cusco Tours</h1>--}}
                             {!! $destinos->resumen !!}
-                            <div class="alert alert-primary rounded-0 mt-4 text-center" role="alert">
-                                <h5 class="font-weight-normal">Operadores Locales en Perú: Los mejores guias de la región, encantadores hoteles, excursiones únicas, y amistosos representantes.
-                                    #gotoperu #TuconexionconPeru</h5>
-                            </div>
+{{--                            <div class="alert alert-primary rounded-0 mt-4 text-center" role="alert">--}}
+{{--                                <h5 class="font-weight-normal">Operadores Locales en Perú: Los mejores guias de la región, encantadores hoteles, excursiones únicas, y amistosos representantes.--}}
+{{--                                    #gotoperu #TuconexionconPeru</h5>--}}
+{{--                            </div>--}}
                         </div>
 
                         @foreach($paquetes_de as $paquetes_des)
@@ -188,61 +226,24 @@
 
 {{--                    </div>--}}
 
-                    <div class="row pt-5" id="clima">
+{{--                    <div class="row pt-5" id="clima">--}}
 
-                        <div class="col-12">
-                            <h3 class="font-weight-bold">Clima</h3>
-                            <div class="line-subtitle"></div>
-                        </div>
-                        <div class="col-12">
-                            <a class="weatherwidget-io" href="https://forecast7.com/en/n13d53n71d97/cusco/?unit=us" data-label_1="CUSCO" data-label_2="WEATHER" data-theme="original" >Cusco</a>
-                        </div>
+{{--                        <div class="col-12">--}}
+{{--                            <h3 class="font-weight-bold">Clima</h3>--}}
+{{--                            <div class="line-subtitle"></div>--}}
+{{--                        </div>--}}
+{{--                        <div class="col-12">--}}
+{{--                            <a class="weatherwidget-io" href="https://forecast7.com/en/n13d53n71d97/cusco/?unit=us" data-label_1="CUSCO" data-label_2="WEATHER" data-theme="original" >Cusco</a>--}}
+{{--                        </div>--}}
 
-                    </div>
+{{--                    </div>--}}
 
-                    <div class="row" id="photos">
+{{--                    <div class="row" id="photos">--}}
 
-                    </div>
-
-                </div>
-                <div class="col-12 col-sm-5 col-md-4 col-xl-3 d-none d-sm-block">
-                    <div class="sticky-top">
-                        <nav id="navbar-scroll" class="navbar navbar-light nav-goto-side w-100">
-                            <nav class="nav nav-pills flex-column w-100">
-                                <a class="nav-link active text-capitalize" href="#tours">{{ucwords(strtolower($destinos->nombre))}} Tours</a>
-                                <a class="nav-link" href="#maps">Localizacion</a>
-                                {{--                                <a class="nav-link {{$h_resumen}}" href="#history">History</a>--}}
-                                {{--                                <a class="nav-link {{$h_resumen}}" href="#geography">Geography</a>--}}
-{{--                                <a class="nav-link" href="#hotels">Hoteles</a>--}}
-{{--                                <a class="nav-link" href="#clima">Clima</a>--}}
-                                {{--<a class="nav-link" href="#photos">Photos</a>--}}
-                            </nav>
-                        </nav>
-
-{{--                        <div clpaquete_p.titul--}}
-
-                        <div>
-                            <div class="tl-1"></div>
-{{--                            <div class="tl-2"><img src="{{asset('images/logo-ave-grey.png')}}" alt="" class="w-100"></div>--}}
-                            <div class="tl-3"></div>
-                        </div>
-
-                        <div class="row mt-4">
-                            <div class="col">
-                                <ul class="list-group list-group-flush">
-                                    @foreach($destinos_all as $destinos_alls)
-                                    <a href="{{$destinos_alls->url}}" class="list-group-item font-weight-bold text-secondary">
-                                        <img src="{{$destinos_alls->imagen}}" alt="" width="40" height="40" class="rounded-circle" data-toggle="tooltip" data-placement="top" title="{{$destinos_alls->nombre}}">
-                                        <span class="pl-3">{{$destinos_alls->nombre}}</span>
-                                    </a>
-                                    @endforeach
-                                </ul>
-                            </div>
-                        </div>
-
-                    </div>
+{{--                    </div>--}}
 
                 </div>
+
             </div>
 
         </div>
