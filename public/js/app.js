@@ -3861,11 +3861,66 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+var categoryOptions = ['Economico', 'Normal', 'Superior', 'Lujo'];
+var destinationOptions = ['Machu Picchu', 'Cusco', 'Lima', 'Montaña 7 colores', 'Lago Titicaca', 'Camino Inca'];
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
       datos: [],
-      category_hotel: [{
+      category: [{
         nombre: 'Economico',
         estrellas: '2',
         value: '1'
@@ -3882,40 +3937,41 @@ __webpack_require__.r(__webpack_exports__);
         estrellas: '5',
         value: '4'
       }],
-      destinations_form: [{
+      destinationss: [{
         nombre: 'Machu Picchu',
-        value: '1'
+        value: '5',
+        imagen: 'https://yovana.s3-us-west-1.amazonaws.com/destinations/1574460035212cusco-machupicchu_1574460039.jpg'
       }, {
         nombre: 'Cusco',
-        value: '2'
+        value: '6',
+        imagen: 'http://yovana.s3-us-west-1.amazonaws.com/destinations/1574460035212cusco-machupicchu_1574460039.jpg'
       }, {
         nombre: 'Lima',
-        value: '3'
+        value: '7',
+        imagen: 'http://yovana.s3-us-west-1.amazonaws.com/destinations/1574460229871lima_1574460231.jpg'
       }, {
         nombre: 'Montaña 7 colores',
-        value: '4'
+        value: '8',
+        imagen: 'http://yovana.s3-us-west-1.amazonaws.com/destinations/1575062725008montana-de-colores_1575062729.jpg'
       }, {
         nombre: 'Lago Titicaca',
-        value: '5'
+        value: '9',
+        imagen: 'http://yovana.s3-us-west-1.amazonaws.com/destinations/1574460494324puno-lago-titicaca_1574460496.jpg'
       }, {
-        nombre: 'Camino inca',
-        value: '6'
+        nombre: 'Arequipa',
+        value: '10',
+        imagen: 'http://yovana.s3-us-west-1.amazonaws.com/destinations/1574448750450arequipa_1574448752.jpg'
       }],
       travellers_form: [{
-        nombre: 'Machu Picchu',
-        value: '1'
+        nombre: 'Machu Picchu'
       }, {
-        nombre: 'Cusco',
-        value: '2'
+        nombre: 'Cusco'
       }, {
-        nombre: 'Lima',
-        value: '3'
+        nombre: 'Lima'
       }, {
-        nombre: 'Montaña 7 colores',
-        value: '4'
+        nombre: 'Montaña 7 colores'
       }, {
-        nombre: 'Lago Titicaca',
-        value: '5'
+        nombre: 'Lago Titicaca'
       }],
       durations_form: [{
         duration: '3-5'
@@ -3964,54 +4020,42 @@ __webpack_require__.r(__webpack_exports__);
       pasajerosSeleccionadosForm: [],
       duracionSeleccionadosForm: [],
       loadingdesign: false,
-      btnviewdesign: true
+      btnviewdesign: true,
+      formshow: true,
+      checkedCategories: [],
+      checkedDestinations: [],
+      // category: categoryOptions,
+      destinations: [],
+      numeropasajeros: 1,
+      duracion: 1
     };
   },
+  created: function created() {
+    var _this = this;
+
+    axios.get('/loaddestinos/destinos').then(function (res) {
+      _this.destinations = res.data;
+    });
+  },
   methods: {
-    selectDestino: function selectDestino(destinoForm, checked) {
-      if (checked) {
-        this.destinosSeleccionadosForm.push(destinoForm);
-        console.log(destinoForm);
-      } else {
-        var index = this.destinosSeleccionadosForm.indexOf(destinoForm);
-        this.$delete(this.destinosSeleccionadosForm, index);
-        console.log(index);
-      }
+    handleChangePasajeros: function handleChangePasajeros(value) {
+      // console.log(value);
+      console.log(this.numeropasajeros);
     },
-    selectCategoryForm: function selectCategoryForm(categoriaForm, checked) {
-      if (checked) {
-        this.categoriasSeleccionadosForm.push(categoriaForm);
-        console.log(categoriaForm);
-      } else {
-        var index = this.categoriasSeleccionadosForm.indexOf(categoriaForm);
-        this.$delete(this.categoriasSeleccionadosForm, index);
-        console.log(index);
-      } // console.log(this.categoriasSeleccionadosForm);
-
+    handleChangeDuracion: function handleChangeDuracion(value) {
+      console.log(value);
     },
-    selectNumeroPasajerosForm: function selectNumeroPasajerosForm(pasajerosForm, checked) {
-      if (checked) {
-        this.pasajerosSeleccionadosForm.push(pasajerosForm);
-        console.log(pasajerosForm);
-      } else {
-        var index = this.pasajerosSeleccionadosForm.indexOf(pasajerosForm);
-        this.$delete(this.pasajerosSeleccionadosForm, index);
-        console.log(index);
-      }
+    handleCheckedCitiesChange: function handleCheckedCitiesChange(value) {
+      console.log(this.checkedCategories);
     },
-    selectDuracionForm: function selectDuracionForm(duracionForm, checked) {
-      if (checked) {
-        this.duracionSeleccionadosForm.push(duracionForm);
-        console.log(duracionForm);
-      } else {
-        var index = this.duracionSeleccionadosForm.indexOf(duracionForm);
-        this.$delete(this.duracionSeleccionadosForm, index);
-        console.log(index);
-      } // console.log(this.duracionSeleccionadosForm);
-
+    handleCheckedDestinationsChange: function handleCheckedDestinationsChange(value) {
+      // let checkedCount = value.length;
+      // this.checkAll = checkedCount === this.category.length;
+      // this.isIndeterminate = checkedCount > 0 && checkedCount < this.category.length;
+      console.log(this.checkedDestinations);
     },
     agregar: function agregar() {
-      var _this = this;
+      var _this2 = this;
 
       if (this.el_nombre.trim() === '' || this.el_email.trim() === '') {
         alert('Por favor complete "Nombre" o "Email"');
@@ -4019,10 +4063,10 @@ __webpack_require__.r(__webpack_exports__);
       }
 
       var obj = {
-        category_d: this.categoriasSeleccionadosForm,
-        destino_d: this.destinosSeleccionadosForm,
-        pasajeros_d: this.pasajerosSeleccionadosForm,
-        duracion_d: this.duracionSeleccionadosForm,
+        category_d: this.checkedCategories,
+        destino_d: this.checkedDestinations,
+        pasajeros_d: this.numeropasajeros,
+        duracion_d: this.duracion,
         tap_form_show: this.tap_form_show,
         el_nombre: this.el_nombre,
         el_email: this.el_email,
@@ -4033,15 +4077,38 @@ __webpack_require__.r(__webpack_exports__);
       var self = this;
       this.loadingdesign = true;
       this.btnviewdesign = false;
+      this.tap_form_show = false;
+      this.formshow = true;
       axios.post('/formulario-diseno', obj).then(function (res) {
         self.loadingdesign = false;
-        _this.btnviewdesign = true;
+        _this2.btnviewdesign = true;
+        _this2.tap_form_show = true;
+        _this2.formshow = false;
         var datoServidor = res.data;
 
-        _this.datos.push(datoServidor);
+        _this2.datos.push(datoServidor);
 
-        console.log(datoServidor);
+        console.log(datoServidor); // this.$forceUpdate();
+        // console.log(this.categoriasSeleccionadosForm);
       });
+    },
+    updateComponent: function updateComponent() {
+      // this.$forceUpdate();
+      this.formshow = true;
+      this.categoriasSeleccionadosForm = [];
+      this.destinosSeleccionadosForm = [];
+      this.pasajerosSeleccionadosForm = [];
+      this.duracionSeleccionadosForm = [];
+      this.el_nombre = '';
+      this.el_email = '';
+      this.el_fecha = '';
+      this.el_telefono = '';
+      this.el_textarea = '';
+      this.numeropasajeros = 1;
+      this.duracion = 1;
+      this.checkedCategories = [];
+      this.checkedDestinations = [];
+      console.log(this.categoriasSeleccionadosForm); // console.log('test');
     }
   }
 });
@@ -4251,12 +4318,62 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['paquetesId'],
   data: function data() {
     return {
       datos: [],
-      category_hotel: [{
+      category: [{
         nombre: 'Economico',
         estrellas: '2',
         value: '1'
@@ -4272,33 +4389,6 @@ __webpack_require__.r(__webpack_exports__);
         nombre: 'Lujo',
         estrellas: '5',
         value: '4'
-      }],
-      travellers_form: [{
-        nombre: 'Machu Picchu',
-        value: '1'
-      }, {
-        nombre: 'Cusco',
-        value: '2'
-      }, {
-        nombre: 'Lima',
-        value: '3'
-      }, {
-        nombre: 'Montaña 7 colores',
-        value: '4'
-      }, {
-        nombre: 'Lago Titicaca',
-        value: '5'
-      }],
-      durations_form: [{
-        duration: '3-5'
-      }, {
-        duration: '6-8'
-      }, {
-        duration: '9-11'
-      }, {
-        duration: '12-15'
-      }, {
-        duration: '16+'
       }],
       tap_form_show: true,
       el_nombre: '',
@@ -4331,47 +4421,42 @@ __webpack_require__.r(__webpack_exports__);
           }
         }]
       },
-      categoriasSeleccionadosForm: [],
-      pasajerosSeleccionadosForm: [],
-      duracionSeleccionadosForm: [],
       loadingdesign: false,
-      btnviewdesign: true
+      btnviewdesign: true,
+      formshow: true,
+      checkedCategories: [],
+      // category: categoryOptions,
+      destinations: [],
+      numeropasajeros: 1,
+      duracion: 1
     };
   },
-  methods: {
-    selectCategoryForm: function selectCategoryForm(categoriaForm, checked) {
-      if (checked) {
-        this.categoriasSeleccionadosForm.push(categoriaForm);
-        console.log(categoriaForm);
-      } else {
-        var index = this.categoriasSeleccionadosForm.indexOf(categoriaForm);
-        this.$delete(this.categoriasSeleccionadosForm, index);
-        console.log(index);
-      }
-    },
-    selectNumeroPasajerosForm: function selectNumeroPasajerosForm(pasajerosForm, checked) {
-      if (checked) {
-        this.pasajerosSeleccionadosForm.push(pasajerosForm);
-        console.log(pasajerosForm);
-      } else {
-        var index = this.pasajerosSeleccionadosForm.indexOf(pasajerosForm);
-        this.$delete(this.pasajerosSeleccionadosForm, index);
-        console.log(index);
-      }
-    },
-    selectDuracionForm: function selectDuracionForm(duracionForm, checked) {
-      if (checked) {
-        this.duracionSeleccionadosForm.push(duracionForm);
-        console.log(duracionForm);
-      } else {
-        var index = this.duracionSeleccionadosForm.indexOf(duracionForm);
-        this.$delete(this.duracionSeleccionadosForm, index);
-        console.log(index);
-      } // console.log(this.duracionSeleccionadosForm);
+  created: function created() {
+    var _this = this;
 
+    axios.get('/loaddestinos/destinos').then(function (res) {
+      _this.destinations = res.data;
+    });
+  },
+  methods: {
+    handleChangePasajeros: function handleChangePasajeros(value) {
+      // console.log(value);
+      console.log(this.numeropasajeros);
+    },
+    handleChangeDuracion: function handleChangeDuracion(value) {
+      console.log(value);
+    },
+    handleCheckedCitiesChange: function handleCheckedCitiesChange(value) {
+      console.log(this.checkedCategories);
+    },
+    handleCheckedDestinationsChange: function handleCheckedDestinationsChange(value) {
+      // let checkedCount = value.length;
+      // this.checkAll = checkedCount === this.category.length;
+      // this.isIndeterminate = checkedCount > 0 && checkedCount < this.category.length;
+      console.log(this.checkedDestinations);
     },
     agregar: function agregar() {
-      var _this = this;
+      var _this2 = this;
 
       if (this.el_nombre.trim() === '' || this.el_email.trim() === '') {
         alert('Por favor complete "Nombre" o "Email"');
@@ -4380,9 +4465,9 @@ __webpack_require__.r(__webpack_exports__);
 
       var obj = {
         paquete_id: this.paquetesId,
-        category_d: this.categoriasSeleccionadosForm,
-        pasajeros_d: this.pasajerosSeleccionadosForm,
-        duracion_d: this.duracionSeleccionadosForm,
+        category_d: this.checkedCategories,
+        pasajeros_d: this.numeropasajeros,
+        duracion_d: this.duracion,
         tap_form_show: this.tap_form_show,
         el_nombre: this.el_nombre,
         el_email: this.el_email,
@@ -4393,15 +4478,33 @@ __webpack_require__.r(__webpack_exports__);
       var self = this;
       this.loadingdesign = true;
       this.btnviewdesign = false;
+      this.tap_form_show = false;
+      this.formshow = true;
       axios.post('/formulario-detail', obj).then(function (res) {
         self.loadingdesign = false;
-        _this.btnviewdesign = true;
+        _this2.btnviewdesign = true;
+        _this2.tap_form_show = true;
+        _this2.formshow = false;
         var datoServidor = res.data;
 
-        _this.datos.push(datoServidor);
+        _this2.datos.push(datoServidor);
 
-        console.log(datoServidor);
+        console.log(datoServidor); // this.$forceUpdate();
+        // console.log(this.categoriasSeleccionadosForm);
       });
+    },
+    updateComponent: function updateComponent() {
+      // this.$forceUpdate();
+      this.formshow = true;
+      this.el_nombre = '';
+      this.el_email = '';
+      this.el_fecha = '';
+      this.el_telefono = '';
+      this.el_textarea = '';
+      this.numeropasajeros = 1;
+      this.duracion = 1;
+      this.checkedCategories = [];
+      console.log(this.categoriasSeleccionadosForm); // console.log('test');
     }
   }
 });
@@ -100839,406 +100942,593 @@ var render = function() {
       }
     },
     [
-      _c(
-        "div",
-        {
-          directives: [
-            {
-              name: "show",
-              rawName: "v-show",
-              value: _vm.tap_form_show,
-              expression: "tap_form_show"
-            }
-          ]
-        },
-        [
-          _vm._m(0),
-          _vm._v(" "),
-          _c(
+      _vm.formshow
+        ? _c(
             "div",
-            { staticClass: "row align-items-center no-gutters border" },
             [
-              _vm._m(1),
-              _vm._v(" "),
-              _c("div", { staticClass: "col px-3" }, [
-                _c(
-                  "div",
-                  { staticClass: "row mt-2" },
-                  [
-                    _vm._l(_vm.category_hotel, function(categoriaForm) {
-                      return [
-                        _c("categoria-form", {
-                          attrs: {
-                            categoriaForm: categoriaForm,
-                            categoriasSeleccionadosForm:
-                              _vm.categoriasSeleccionadosForm
-                          },
-                          on: { checked: _vm.selectCategoryForm }
-                        })
-                      ]
-                    })
-                  ],
-                  2
-                )
-              ])
-            ]
-          ),
-          _vm._v(" "),
-          _vm._m(2),
-          _vm._v(" "),
-          _c(
-            "div",
-            { staticClass: "row align-items-center no-gutters border" },
-            [
-              _vm._m(3),
-              _vm._v(" "),
-              _c("div", { staticClass: "col px-3" }, [
-                _c(
-                  "div",
-                  { staticClass: "row mt-2" },
-                  [
-                    _vm._l(_vm.destinations_form, function(destinoForm) {
-                      return [
-                        _c("destino-form", {
-                          attrs: {
-                            destinoForm: destinoForm,
-                            destinosSeleccionadosForm:
-                              _vm.destinosSeleccionadosForm
-                          },
-                          on: { checked: _vm.selectDestino }
-                        })
-                      ]
-                    }),
-                    _vm._v(" "),
-                    _vm._m(4)
-                  ],
-                  2
-                )
-              ])
-            ]
-          ),
-          _vm._v(" "),
-          _vm._m(5),
-          _vm._v(" "),
-          _c(
-            "div",
-            { staticClass: "row align-items-center no-gutters border" },
-            [
-              _vm._m(6),
-              _vm._v(" "),
-              _c("div", { staticClass: "col px-3" }, [
-                _c(
-                  "div",
-                  { staticClass: "row mt-2 no-gutters" },
-                  [
-                    _vm._l(_vm.travellers_form, function(numeroPasajerosForm) {
-                      return [
-                        _c("numero-pasajeros-form", {
-                          attrs: {
-                            numeroPasajerosForm: numeroPasajerosForm,
-                            pasajerosSeleccionadosForm:
-                              _vm.pasajerosSeleccionadosForm
-                          },
-                          on: { checked: _vm.selectNumeroPasajerosForm }
-                        })
-                      ]
-                    }),
-                    _vm._v(" "),
-                    _vm._m(7)
-                  ],
-                  2
-                )
-              ])
-            ]
-          ),
-          _vm._v(" "),
-          _vm._m(8),
-          _vm._v(" "),
-          _c(
-            "div",
-            { staticClass: "row align-items-center no-gutters border" },
-            [
-              _vm._m(9),
-              _vm._v(" "),
-              _c("div", { staticClass: "col px-3" }, [
-                _c(
-                  "div",
-                  { staticClass: "row mt-2 no-gutters" },
-                  [
-                    _vm._l(_vm.durations_form, function(duracionForm) {
-                      return [
-                        _c("duracion-form", {
-                          attrs: {
-                            duracionForm: duracionForm,
-                            duracionSeleccionadosForm:
-                              _vm.duracionSeleccionadosForm
-                          },
-                          on: { checked: _vm.selectDuracionForm }
-                        })
-                      ]
-                    }),
-                    _vm._v(" "),
-                    _vm._m(10)
-                  ],
-                  2
-                )
-              ])
-            ]
-          )
-        ]
-      ),
-      _vm._v(" "),
-      _c("transition", { attrs: { name: "fade" } }, [
-        _c(
-          "div",
-          {
-            directives: [
-              {
-                name: "show",
-                rawName: "v-show",
-                value: !_vm.tap_form_show,
-                expression: "!tap_form_show"
-              }
-            ]
-          },
-          [
-            _c("div", { staticClass: "row mb-3 align-items-center" }, [
               _c(
                 "div",
-                { staticClass: "col-1 text-center rounded bg-secondary" },
-                [
-                  _c("div", { staticClass: "py-4 text-white" }, [
-                    _c("i", {
-                      attrs: { "data-feather": "user", "stroke-width": "1" }
-                    })
-                  ])
-                ]
-              ),
-              _vm._v(" "),
-              _c(
-                "div",
-                { staticClass: "col px-3" },
-                [
-                  _c("el-input", {
-                    attrs: { placeholder: "Nombre Completo", clearable: "" },
-                    model: {
-                      value: _vm.el_nombre,
-                      callback: function($$v) {
-                        _vm.el_nombre = $$v
-                      },
-                      expression: "el_nombre"
-                    }
-                  })
-                ],
-                1
-              )
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "row mb-3 align-items-center" }, [
-              _c(
-                "div",
-                { staticClass: "col-1 text-center rounded bg-secondary" },
-                [
-                  _c("div", { staticClass: "py-4 text-white" }, [
-                    _c("i", {
-                      attrs: { "data-feather": "mail", "stroke-width": "1" }
-                    })
-                  ])
-                ]
-              ),
-              _vm._v(" "),
-              _c(
-                "div",
-                { staticClass: "col px-3" },
-                [
-                  _c("el-input", {
-                    attrs: { placeholder: "Email", clearable: "" },
-                    model: {
-                      value: _vm.el_email,
-                      callback: function($$v) {
-                        _vm.el_email = $$v
-                      },
-                      expression: "el_email"
-                    }
-                  })
-                ],
-                1
-              )
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "row mb-3 align-items-center" }, [
-              _c(
-                "div",
-                { staticClass: "col-1 text-center rounded bg-secondary" },
-                [
-                  _c("div", { staticClass: "py-4 text-white" }, [
-                    _c("i", {
-                      attrs: { "data-feather": "calendar", "stroke-width": "1" }
-                    })
-                  ])
-                ]
-              ),
-              _vm._v(" "),
-              _c(
-                "div",
-                { staticClass: "col px-3" },
-                [
-                  _c("el-date-picker", {
-                    attrs: { type: "date", placeholder: "Fecha de viaje" },
-                    model: {
-                      value: _vm.el_fecha,
-                      callback: function($$v) {
-                        _vm.el_fecha = $$v
-                      },
-                      expression: "el_fecha"
-                    }
-                  })
-                ],
-                1
-              )
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "row mb-3 align-items-center" }, [
-              _c(
-                "div",
-                { staticClass: "col-1 text-center rounded bg-secondary" },
-                [
-                  _c("div", { staticClass: "py-4 text-white" }, [
-                    _c("i", {
-                      attrs: { "data-feather": "phone", "stroke-width": "1" }
-                    })
-                  ])
-                ]
-              ),
-              _vm._v(" "),
-              _c(
-                "div",
-                { staticClass: "col px-3" },
-                [
-                  _c("vue-tel-input", {
-                    model: {
-                      value: _vm.el_telefono,
-                      callback: function($$v) {
-                        _vm.el_telefono = $$v
-                      },
-                      expression: "el_telefono"
-                    }
-                  })
-                ],
-                1
-              )
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "row mb-3 align-items-center" }, [
-              _c(
-                "div",
-                { staticClass: "col-1 text-center rounded bg-secondary" },
-                [
-                  _c("div", { staticClass: "py-4 text-white" }, [
-                    _c("i", {
-                      attrs: { "data-feather": "edit", "stroke-width": "1" }
-                    })
-                  ])
-                ]
-              ),
-              _vm._v(" "),
-              _c(
-                "div",
-                { staticClass: "col px-3" },
-                [
-                  _c("el-input", {
-                    attrs: {
-                      type: "textarea",
-                      autosize: { minRows: 2, maxRows: 4 },
-                      placeholder: "¿Tienes alguna duda o pregunta?"
-                    },
-                    model: {
-                      value: _vm.el_textarea,
-                      callback: function($$v) {
-                        _vm.el_textarea = $$v
-                      },
-                      expression: "el_textarea"
-                    }
-                  })
-                ],
-                1
-              )
-            ])
-          ]
-        )
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "row mt-5" }, [
-        _c("div", { staticClass: "col text-right" }, [
-          _vm.tap_form_show === true
-            ? _c(
-                "button",
-                {
-                  staticClass:
-                    "btn btn-g-yellow btn-lg text-white font-weight-bold",
-                  attrs: { type: "button" },
-                  on: {
-                    click: function($event) {
-                      _vm.tap_form_show = !_vm.tap_form_show
-                    }
-                  }
-                },
-                [_vm._v("\n                Siguiente >>\n            ")]
-              )
-            : _c(
-                "button",
-                {
-                  staticClass:
-                    "btn btn-secondary btn mx-3 text-white font-weight-normal",
-                  attrs: { type: "button" },
-                  on: {
-                    click: function($event) {
-                      _vm.tap_form_show = !_vm.tap_form_show
-                    }
-                  }
-                },
-                [_vm._v("\n                < Atrás\n            ")]
-              ),
-          _vm._v(" "),
-          _vm.tap_form_show === false
-            ? _c(
-                "button",
                 {
                   directives: [
                     {
                       name: "show",
                       rawName: "v-show",
-                      value: _vm.btnviewdesign,
-                      expression: "btnviewdesign"
+                      value: _vm.tap_form_show,
+                      expression: "tap_form_show"
                     }
-                  ],
-                  staticClass:
-                    "btn btn-success btn-lg text-white font-weight-bold",
-                  attrs: { type: "submit" }
+                  ]
                 },
-                [_vm._v("\n                Enviar\n            ")]
-              )
-            : _vm._e(),
-          _vm._v(" "),
-          _c("div", { staticClass: "text-center fa-2x" }, [
-            _c("i", {
-              directives: [
-                {
-                  name: "show",
-                  rawName: "v-show",
-                  value: _vm.loadingdesign,
-                  expression: "loadingdesign"
-                }
-              ],
-              staticClass: "fas fa-circle-notch fa-spin"
-            })
-          ])
-        ])
-      ]),
+                [
+                  _vm._m(0),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    { staticClass: "row align-items-center no-gutters" },
+                    [
+                      _c("div", { staticClass: "col" }, [
+                        _c(
+                          "div",
+                          { staticClass: "row mt-2 justify-content-center" },
+                          [
+                            _c(
+                              "div",
+                              { staticClass: "col-auto" },
+                              [
+                                _c(
+                                  "el-checkbox-group",
+                                  {
+                                    attrs: {
+                                      fill: "#00b4e9",
+                                      "text-color": "#ffffff"
+                                    },
+                                    on: {
+                                      change: _vm.handleCheckedCitiesChange
+                                    },
+                                    model: {
+                                      value: _vm.checkedCategories,
+                                      callback: function($$v) {
+                                        _vm.checkedCategories = $$v
+                                      },
+                                      expression: "checkedCategories"
+                                    }
+                                  },
+                                  _vm._l(_vm.category, function(
+                                    categories,
+                                    indice
+                                  ) {
+                                    return _c(
+                                      "el-checkbox-button",
+                                      {
+                                        key: categories.value,
+                                        attrs: {
+                                          label: categories.nombre,
+                                          size: "medium"
+                                        }
+                                      },
+                                      [
+                                        _vm._v(
+                                          "\n                                    " +
+                                            _vm._s(categories.nombre) +
+                                            "\n                                    "
+                                        ),
+                                        _c(
+                                          "span",
+                                          {
+                                            staticClass:
+                                              "d-block small font-weight-bold mt-2 text-dark"
+                                          },
+                                          [
+                                            _vm._v(
+                                              _vm._s(indice + 2) + " estrellas"
+                                            )
+                                          ]
+                                        )
+                                      ]
+                                    )
+                                  }),
+                                  1
+                                )
+                              ],
+                              1
+                            )
+                          ]
+                        )
+                      ])
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _vm._m(1),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    { staticClass: "row align-items-center no-gutters" },
+                    [
+                      _c("div", { staticClass: "col px-3" }, [
+                        _c(
+                          "div",
+                          { staticClass: "row mt-2 justify-content-center" },
+                          [
+                            _c(
+                              "div",
+                              { staticClass: "col-auto" },
+                              [
+                                _c(
+                                  "el-checkbox-group",
+                                  {
+                                    attrs: {
+                                      fill: "#00b4e9",
+                                      "text-color": "#ffffff"
+                                    },
+                                    on: {
+                                      change:
+                                        _vm.handleCheckedDestinationsChange
+                                    },
+                                    model: {
+                                      value: _vm.checkedDestinations,
+                                      callback: function($$v) {
+                                        _vm.checkedDestinations = $$v
+                                      },
+                                      expression: "checkedDestinations"
+                                    }
+                                  },
+                                  _vm._l(_vm.destinations.destino, function(
+                                    destino
+                                  ) {
+                                    return _c(
+                                      "el-checkbox-button",
+                                      {
+                                        key: destino.value,
+                                        attrs: {
+                                          label: destino.nombre,
+                                          size: "medium"
+                                        }
+                                      },
+                                      [
+                                        _c("el-avatar", {
+                                          staticClass: "d-block mx-auto",
+                                          attrs: { src: destino.imagen }
+                                        }),
+                                        _vm._v(" "),
+                                        _c(
+                                          "span",
+                                          {
+                                            staticClass:
+                                              "d-block small font-weight-bold mt-2 text-dark"
+                                          },
+                                          [_vm._v(_vm._s(destino.nombre))]
+                                        )
+                                      ],
+                                      1
+                                    )
+                                  }),
+                                  1
+                                )
+                              ],
+                              1
+                            )
+                          ]
+                        )
+                      ])
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    { staticClass: "row align-items-center no-gutters" },
+                    [
+                      _c("div", { staticClass: "col px-3" }, [
+                        _vm._m(2),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "row mt-2 no-gutters" }, [
+                          _c(
+                            "div",
+                            { staticClass: "col text-center" },
+                            [
+                              _c("el-input-number", {
+                                attrs: { min: 1, max: 10 },
+                                on: { change: _vm.handleChangePasajeros },
+                                model: {
+                                  value: _vm.numeropasajeros,
+                                  callback: function($$v) {
+                                    _vm.numeropasajeros = $$v
+                                  },
+                                  expression: "numeropasajeros"
+                                }
+                              })
+                            ],
+                            1
+                          )
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col px-3" }, [
+                        _vm._m(3),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "row mt-2 no-gutters" }, [
+                          _c(
+                            "div",
+                            { staticClass: "col text-center" },
+                            [
+                              _c("el-input-number", {
+                                attrs: { min: 1, max: 10 },
+                                on: { change: _vm.handleChangeDuracion },
+                                model: {
+                                  value: _vm.duracion,
+                                  callback: function($$v) {
+                                    _vm.duracion = $$v
+                                  },
+                                  expression: "duracion"
+                                }
+                              })
+                            ],
+                            1
+                          )
+                        ])
+                      ])
+                    ]
+                  )
+                ]
+              ),
+              _vm._v(" "),
+              _c("transition", { attrs: { name: "fade" } }, [
+                _c(
+                  "div",
+                  {
+                    directives: [
+                      {
+                        name: "show",
+                        rawName: "v-show",
+                        value: !_vm.tap_form_show,
+                        expression: "!tap_form_show"
+                      }
+                    ]
+                  },
+                  [
+                    _c("div", { staticClass: "container" }, [
+                      _c(
+                        "div",
+                        { staticClass: "row mt-5 justify-content-center" },
+                        [
+                          _c("div", { staticClass: "col-8" }, [
+                            _c(
+                              "div",
+                              { staticClass: "row mb-3 align-items-center" },
+                              [
+                                _c(
+                                  "div",
+                                  { staticClass: "col px-3" },
+                                  [
+                                    _c(
+                                      "p",
+                                      {
+                                        staticClass:
+                                          "font-weight-bold text-secondary small"
+                                      },
+                                      [
+                                        _c(
+                                          "span",
+                                          { staticClass: "text-danger" },
+                                          [_vm._v("*")]
+                                        ),
+                                        _vm._v("Nombre Completo")
+                                      ]
+                                    ),
+                                    _vm._v(" "),
+                                    _c("el-input", {
+                                      attrs: {
+                                        placeholder: "Nombre Completo",
+                                        clearable: ""
+                                      },
+                                      model: {
+                                        value: _vm.el_nombre,
+                                        callback: function($$v) {
+                                          _vm.el_nombre = $$v
+                                        },
+                                        expression: "el_nombre"
+                                      }
+                                    })
+                                  ],
+                                  1
+                                )
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "div",
+                              { staticClass: "row mb-3 align-items-center" },
+                              [
+                                _c(
+                                  "div",
+                                  { staticClass: "col px-3" },
+                                  [
+                                    _c(
+                                      "p",
+                                      {
+                                        staticClass:
+                                          "font-weight-bold text-secondary small"
+                                      },
+                                      [
+                                        _c(
+                                          "span",
+                                          { staticClass: "text-danger" },
+                                          [_vm._v("*")]
+                                        ),
+                                        _vm._v("Email")
+                                      ]
+                                    ),
+                                    _vm._v(" "),
+                                    _c("el-input", {
+                                      attrs: {
+                                        placeholder: "Email",
+                                        clearable: ""
+                                      },
+                                      model: {
+                                        value: _vm.el_email,
+                                        callback: function($$v) {
+                                          _vm.el_email = $$v
+                                        },
+                                        expression: "el_email"
+                                      }
+                                    })
+                                  ],
+                                  1
+                                )
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "div",
+                              { staticClass: "row mb-3 align-items-center" },
+                              [
+                                _c(
+                                  "div",
+                                  { staticClass: "col px-3" },
+                                  [
+                                    _c(
+                                      "p",
+                                      {
+                                        staticClass:
+                                          "font-weight-bold text-secondary small"
+                                      },
+                                      [_vm._v("Teléfono")]
+                                    ),
+                                    _vm._v(" "),
+                                    _c("vue-tel-input", {
+                                      model: {
+                                        value: _vm.el_telefono,
+                                        callback: function($$v) {
+                                          _vm.el_telefono = $$v
+                                        },
+                                        expression: "el_telefono"
+                                      }
+                                    })
+                                  ],
+                                  1
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "div",
+                                  { staticClass: "col px-3" },
+                                  [
+                                    _c(
+                                      "p",
+                                      {
+                                        staticClass:
+                                          "font-weight-bold text-secondary small"
+                                      },
+                                      [_vm._v("Fecha de Viaje")]
+                                    ),
+                                    _vm._v(" "),
+                                    _c("el-date-picker", {
+                                      attrs: {
+                                        type: "date",
+                                        placeholder: "Fecha de viaje"
+                                      },
+                                      model: {
+                                        value: _vm.el_fecha,
+                                        callback: function($$v) {
+                                          _vm.el_fecha = $$v
+                                        },
+                                        expression: "el_fecha"
+                                      }
+                                    })
+                                  ],
+                                  1
+                                )
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "div",
+                              { staticClass: "row mb-3 align-items-center" },
+                              [
+                                _c(
+                                  "div",
+                                  { staticClass: "col px-3" },
+                                  [
+                                    _c(
+                                      "p",
+                                      {
+                                        staticClass:
+                                          "font-weight-bold text-secondary small"
+                                      },
+                                      [_vm._v("¿Alguna Duda?")]
+                                    ),
+                                    _vm._v(" "),
+                                    _c("el-input", {
+                                      attrs: {
+                                        type: "textarea",
+                                        autosize: { minRows: 2, maxRows: 4 },
+                                        placeholder:
+                                          "¿Tienes alguna duda o pregunta?"
+                                      },
+                                      model: {
+                                        value: _vm.el_textarea,
+                                        callback: function($$v) {
+                                          _vm.el_textarea = $$v
+                                        },
+                                        expression: "el_textarea"
+                                      }
+                                    })
+                                  ],
+                                  1
+                                )
+                              ]
+                            )
+                          ])
+                        ]
+                      )
+                    ])
+                  ]
+                )
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "row mt-5" }, [
+                _c(
+                  "div",
+                  { staticClass: "col text-right" },
+                  [
+                    _vm.tap_form_show === true
+                      ? _c(
+                          "button",
+                          {
+                            staticClass:
+                              "btn btn-info btn-lg text-white font-weight-bold",
+                            attrs: { type: "button" },
+                            on: {
+                              click: function($event) {
+                                _vm.tap_form_show = !_vm.tap_form_show
+                              }
+                            }
+                          },
+                          [
+                            _vm._v(
+                              "\n                        Siguiente >>\n                    "
+                            )
+                          ]
+                        )
+                      : _c(
+                          "button",
+                          {
+                            staticClass:
+                              "btn btn-secondary btn mx-3 text-white font-weight-normal",
+                            attrs: { type: "button" },
+                            on: {
+                              click: function($event) {
+                                _vm.tap_form_show = !_vm.tap_form_show
+                              }
+                            }
+                          },
+                          [
+                            _vm._v(
+                              "\n                        < Atrás\n                    "
+                            )
+                          ]
+                        ),
+                    _vm._v(" "),
+                    _vm.tap_form_show === false
+                      ? _c(
+                          "button",
+                          {
+                            directives: [
+                              {
+                                name: "show",
+                                rawName: "v-show",
+                                value: _vm.btnviewdesign,
+                                expression: "btnviewdesign"
+                              }
+                            ],
+                            staticClass:
+                              "btn btn-success btn-lg text-white font-weight-bold",
+                            attrs: { type: "submit" }
+                          },
+                          [
+                            _vm._v(
+                              "\n                        Enviar\n                    "
+                            )
+                          ]
+                        )
+                      : _vm._e(),
+                    _vm._v(" "),
+                    _c("transition", { attrs: { name: "fade" } }, [
+                      _c(
+                        "button",
+                        {
+                          directives: [
+                            {
+                              name: "show",
+                              rawName: "v-show",
+                              value: _vm.loadingdesign,
+                              expression: "loadingdesign"
+                            }
+                          ],
+                          staticClass:
+                            "btn btn-dark btn-lg text-white font-weight-bold",
+                          attrs: { type: "submit" }
+                        },
+                        [
+                          _c("i", {
+                            staticClass: "fas fa-circle-notch fa-spin"
+                          })
+                        ]
+                      )
+                    ])
+                  ],
+                  1
+                )
+              ])
+            ],
+            1
+          )
+        : _vm._e(),
       _vm._v(" "),
-      _vm._m(11)
-    ],
-    1
+      _vm._m(4),
+      _vm._v(" "),
+      !_vm.formshow
+        ? _c("div", { staticClass: "row mt-4" }, [
+            _c("div", { staticClass: "col" }, [
+              _c("div", { staticClass: "alert alert-success" }, [
+                _c("div", { staticClass: "row align-items-center" }, [
+                  _vm._m(5),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col text-center" }, [
+                    _c("h4", { staticClass: "font-weight-bold" }, [
+                      _vm._v("Gracias por contactar con nosotros")
+                    ]),
+                    _vm._v(" "),
+                    _c("p", { staticClass: "font-weight-nomal" }, [
+                      _vm._v(
+                        "Un representante de INCAS PERU se comunicará con usted a la brevedad."
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-primary",
+                        attrs: { type: "button" },
+                        on: { click: _vm.updateComponent }
+                      },
+                      [
+                        _vm._v("Enviar Nuevo "),
+                        _c("i", {
+                          staticClass: "text-white",
+                          attrs: {
+                            "data-feather": "rotate-ccw",
+                            "stroke-width": "1"
+                          }
+                        })
+                      ]
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _vm._m(6)
+                ])
+              ])
+            ])
+          ])
+        : _vm._e()
+    ]
   )
 }
 var staticRenderFns = [
@@ -101264,20 +101554,6 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "col-2 text-center rounded-left bg-secondary" },
-      [
-        _c("div", { staticClass: "py-4 text-white" }, [
-          _c("i", { attrs: { "data-feather": "home", "stroke-width": "1" } })
-        ])
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
     return _c("div", { staticClass: "row mt-4" }, [
       _c("div", { staticClass: "col text-center" }, [
         _c("h5", { staticClass: "font-weight-bold" }, [
@@ -101290,36 +101566,9 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "col-2 text-center rounded-left bg-secondary" },
-      [
-        _c("div", { staticClass: "py-5 text-white" }, [
-          _c("i", { attrs: { "data-feather": "map-pin", "stroke-width": "1" } })
-        ])
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-3" }, [
-      _c("div", { staticClass: "input-group input-group-sm" }, [
-        _c("input", {
-          staticClass: "form-control font-weight-bold",
-          attrs: { type: "text", placeholder: "Otros" }
-        })
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
     return _c("div", { staticClass: "row mt-4" }, [
       _c("div", { staticClass: "col text-center" }, [
-        _c("h5", { staticClass: "font-weight-bold" }, [
+        _c("h6", { staticClass: "font-weight-bold" }, [
           _vm._v("NUMERO DE PASAJEROS")
         ])
       ])
@@ -101329,65 +101578,11 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "col-2 text-center rounded-left bg-secondary" },
-      [
-        _c("div", { staticClass: "py-4 text-white" }, [
-          _c("i", { attrs: { "data-feather": "users", "stroke-width": "1" } })
-        ])
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-2" }, [
-      _c("div", { staticClass: "input-group input-group-sm" }, [
-        _c("input", {
-          staticClass: "form-control font-weight-bold",
-          attrs: { type: "text", placeholder: "Especifica" }
-        })
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
     return _c("div", { staticClass: "row mt-4" }, [
       _c("div", { staticClass: "col text-center" }, [
-        _c("h5", { staticClass: "font-weight-bold" }, [
+        _c("h6", { staticClass: "font-weight-bold" }, [
           _vm._v("DURACIÓN DE VIAJE")
         ])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "col-2 text-center rounded-left bg-secondary" },
-      [
-        _c("div", { staticClass: "py-4 text-white" }, [
-          _c("i", { attrs: { "data-feather": "clock", "stroke-width": "1" } })
-        ])
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-2" }, [
-      _c("div", { staticClass: "input-group input-group-sm" }, [
-        _c("input", {
-          staticClass: "form-control font-weight-bold",
-          attrs: { type: "text", placeholder: "Especifica" }
-        })
       ])
     ])
   },
@@ -101403,10 +101598,22 @@ var staticRenderFns = [
             staticClass: "btn btn-link font-weight-bold py-2 px-0",
             attrs: { href: "mailto:info@gotoperu.com.mx" }
           },
-          [_vm._v("info@gotoperu.com.mx")]
+          [_vm._v("info@incasperutours.travel")]
         )
       ])
     ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-3" }, [_c("hr")])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-3" }, [_c("hr")])
   }
 ]
 render._withStripped = true
@@ -101441,372 +101648,518 @@ var render = function() {
       }
     },
     [
-      _c(
-        "div",
-        {
-          directives: [
-            {
-              name: "show",
-              rawName: "v-show",
-              value: _vm.tap_form_show,
-              expression: "tap_form_show"
-            }
-          ]
-        },
-        [
-          _vm._m(0),
-          _vm._v(" "),
-          _c(
+      _vm.formshow
+        ? _c(
             "div",
-            { staticClass: "row align-items-center no-gutters border" },
             [
-              _vm._m(1),
-              _vm._v(" "),
-              _c("div", { staticClass: "col px-3" }, [
-                _c(
-                  "div",
-                  { staticClass: "row mt-2" },
-                  [
-                    _vm._l(_vm.category_hotel, function(categoriaForm) {
-                      return [
-                        _c("categoria-form", {
-                          attrs: {
-                            categoriaForm: categoriaForm,
-                            categoriasSeleccionadosForm:
-                              _vm.categoriasSeleccionadosForm
-                          },
-                          on: { checked: _vm.selectCategoryForm }
-                        })
-                      ]
-                    })
-                  ],
-                  2
-                )
-              ])
-            ]
-          ),
-          _vm._v(" "),
-          _vm._m(2),
-          _vm._v(" "),
-          _c(
-            "div",
-            { staticClass: "row align-items-center no-gutters border" },
-            [
-              _vm._m(3),
-              _vm._v(" "),
-              _c("div", { staticClass: "col px-3" }, [
-                _c(
-                  "div",
-                  { staticClass: "row mt-2 no-gutters" },
-                  [
-                    _vm._l(_vm.travellers_form, function(numeroPasajerosForm) {
-                      return [
-                        _c("numero-pasajeros-form", {
-                          attrs: {
-                            numeroPasajerosForm: numeroPasajerosForm,
-                            pasajerosSeleccionadosForm:
-                              _vm.pasajerosSeleccionadosForm
-                          },
-                          on: { checked: _vm.selectNumeroPasajerosForm }
-                        })
-                      ]
-                    }),
-                    _vm._v(" "),
-                    _vm._m(4)
-                  ],
-                  2
-                )
-              ])
-            ]
-          ),
-          _vm._v(" "),
-          _vm._m(5),
-          _vm._v(" "),
-          _c(
-            "div",
-            { staticClass: "row align-items-center no-gutters border" },
-            [
-              _vm._m(6),
-              _vm._v(" "),
-              _c("div", { staticClass: "col px-3" }, [
-                _c(
-                  "div",
-                  { staticClass: "row mt-2 no-gutters" },
-                  [
-                    _vm._l(_vm.durations_form, function(duracionForm) {
-                      return [
-                        _c("duracion-form", {
-                          attrs: {
-                            duracionForm: duracionForm,
-                            duracionSeleccionadosForm:
-                              _vm.duracionSeleccionadosForm
-                          },
-                          on: { checked: _vm.selectDuracionForm }
-                        })
-                      ]
-                    }),
-                    _vm._v(" "),
-                    _vm._m(7)
-                  ],
-                  2
-                )
-              ])
-            ]
-          )
-        ]
-      ),
-      _vm._v(" "),
-      _c("transition", { attrs: { name: "fade" } }, [
-        _c(
-          "div",
-          {
-            directives: [
-              {
-                name: "show",
-                rawName: "v-show",
-                value: !_vm.tap_form_show,
-                expression: "!tap_form_show"
-              }
-            ]
-          },
-          [
-            _c("div", { staticClass: "row mb-3 align-items-center" }, [
               _c(
                 "div",
-                { staticClass: "col-1 text-center rounded bg-secondary" },
-                [
-                  _c("div", { staticClass: "py-4 text-white" }, [
-                    _c("i", {
-                      attrs: { "data-feather": "user", "stroke-width": "1" }
-                    })
-                  ])
-                ]
-              ),
-              _vm._v(" "),
-              _c(
-                "div",
-                { staticClass: "col px-3" },
-                [
-                  _c("el-input", {
-                    attrs: { placeholder: "Nombre Completo", clearable: "" },
-                    model: {
-                      value: _vm.el_nombre,
-                      callback: function($$v) {
-                        _vm.el_nombre = $$v
-                      },
-                      expression: "el_nombre"
-                    }
-                  })
-                ],
-                1
-              )
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "row mb-3 align-items-center" }, [
-              _c(
-                "div",
-                { staticClass: "col-1 text-center rounded bg-secondary" },
-                [
-                  _c("div", { staticClass: "py-4 text-white" }, [
-                    _c("i", {
-                      attrs: { "data-feather": "mail", "stroke-width": "1" }
-                    })
-                  ])
-                ]
-              ),
-              _vm._v(" "),
-              _c(
-                "div",
-                { staticClass: "col px-3" },
-                [
-                  _c("el-input", {
-                    attrs: { placeholder: "Email", clearable: "" },
-                    model: {
-                      value: _vm.el_email,
-                      callback: function($$v) {
-                        _vm.el_email = $$v
-                      },
-                      expression: "el_email"
-                    }
-                  })
-                ],
-                1
-              )
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "row mb-3 align-items-center" }, [
-              _c(
-                "div",
-                { staticClass: "col-1 text-center rounded bg-secondary" },
-                [
-                  _c("div", { staticClass: "py-4 text-white" }, [
-                    _c("i", {
-                      attrs: { "data-feather": "calendar", "stroke-width": "1" }
-                    })
-                  ])
-                ]
-              ),
-              _vm._v(" "),
-              _c(
-                "div",
-                { staticClass: "col px-3" },
-                [
-                  _c("el-date-picker", {
-                    attrs: { type: "date", placeholder: "Fecha de viaje" },
-                    model: {
-                      value: _vm.el_fecha,
-                      callback: function($$v) {
-                        _vm.el_fecha = $$v
-                      },
-                      expression: "el_fecha"
-                    }
-                  })
-                ],
-                1
-              )
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "row mb-3 align-items-center" }, [
-              _c(
-                "div",
-                { staticClass: "col-1 text-center rounded bg-secondary" },
-                [
-                  _c("div", { staticClass: "py-4 text-white" }, [
-                    _c("i", {
-                      attrs: { "data-feather": "phone", "stroke-width": "1" }
-                    })
-                  ])
-                ]
-              ),
-              _vm._v(" "),
-              _c(
-                "div",
-                { staticClass: "col px-3" },
-                [
-                  _c("vue-tel-input", {
-                    model: {
-                      value: _vm.el_telefono,
-                      callback: function($$v) {
-                        _vm.el_telefono = $$v
-                      },
-                      expression: "el_telefono"
-                    }
-                  })
-                ],
-                1
-              )
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "row mb-3 align-items-center" }, [
-              _c(
-                "div",
-                { staticClass: "col-1 text-center rounded bg-secondary" },
-                [
-                  _c("div", { staticClass: "py-4 text-white" }, [
-                    _c("i", {
-                      attrs: { "data-feather": "edit", "stroke-width": "1" }
-                    })
-                  ])
-                ]
-              ),
-              _vm._v(" "),
-              _c(
-                "div",
-                { staticClass: "col px-3" },
-                [
-                  _c("el-input", {
-                    attrs: {
-                      type: "textarea",
-                      autosize: { minRows: 2, maxRows: 4 },
-                      placeholder: "¿Tienes alguna duda o pregunta?"
-                    },
-                    model: {
-                      value: _vm.el_textarea,
-                      callback: function($$v) {
-                        _vm.el_textarea = $$v
-                      },
-                      expression: "el_textarea"
-                    }
-                  })
-                ],
-                1
-              )
-            ])
-          ]
-        )
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "row mt-5" }, [
-        _c("div", { staticClass: "col text-right" }, [
-          _vm.tap_form_show === true
-            ? _c(
-                "button",
-                {
-                  staticClass:
-                    "btn btn-g-yellow btn-lg text-white font-weight-bold",
-                  attrs: { type: "button" },
-                  on: {
-                    click: function($event) {
-                      _vm.tap_form_show = !_vm.tap_form_show
-                    }
-                  }
-                },
-                [_vm._v("\n                Siguiente >>\n            ")]
-              )
-            : _c(
-                "button",
-                {
-                  staticClass:
-                    "btn btn-secondary btn mx-3 text-white font-weight-normal",
-                  attrs: { type: "button" },
-                  on: {
-                    click: function($event) {
-                      _vm.tap_form_show = !_vm.tap_form_show
-                    }
-                  }
-                },
-                [_vm._v("\n                < Atrás\n            ")]
-              ),
-          _vm._v(" "),
-          _vm.tap_form_show === false
-            ? _c(
-                "button",
                 {
                   directives: [
                     {
                       name: "show",
                       rawName: "v-show",
-                      value: _vm.btnviewdesign,
-                      expression: "btnviewdesign"
+                      value: _vm.tap_form_show,
+                      expression: "tap_form_show"
                     }
-                  ],
-                  staticClass:
-                    "btn btn-success btn-lg text-white font-weight-bold",
-                  attrs: { type: "submit" }
+                  ]
                 },
-                [_vm._v("\n                Enviar\n            ")]
-              )
-            : _vm._e(),
-          _vm._v(" "),
-          _c("div", { staticClass: "text-center fa-2x" }, [
-            _c("i", {
-              directives: [
-                {
-                  name: "show",
-                  rawName: "v-show",
-                  value: _vm.loadingdesign,
-                  expression: "loadingdesign"
-                }
-              ],
-              staticClass: "fas fa-circle-notch fa-spin"
-            })
-          ])
-        ])
-      ]),
+                [
+                  _vm._m(0),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    { staticClass: "row align-items-center no-gutters" },
+                    [
+                      _c("div", { staticClass: "col" }, [
+                        _c(
+                          "div",
+                          { staticClass: "row mt-2 justify-content-center" },
+                          [
+                            _c(
+                              "div",
+                              { staticClass: "col-auto" },
+                              [
+                                _c(
+                                  "el-checkbox-group",
+                                  {
+                                    attrs: {
+                                      fill: "#00b4e9",
+                                      "text-color": "#ffffff"
+                                    },
+                                    on: {
+                                      change: _vm.handleCheckedCitiesChange
+                                    },
+                                    model: {
+                                      value: _vm.checkedCategories,
+                                      callback: function($$v) {
+                                        _vm.checkedCategories = $$v
+                                      },
+                                      expression: "checkedCategories"
+                                    }
+                                  },
+                                  _vm._l(_vm.category, function(
+                                    categories,
+                                    indice
+                                  ) {
+                                    return _c(
+                                      "el-checkbox-button",
+                                      {
+                                        key: categories.value,
+                                        attrs: {
+                                          label: categories.nombre,
+                                          size: "medium"
+                                        }
+                                      },
+                                      [
+                                        _vm._v(
+                                          "\n                                    " +
+                                            _vm._s(categories.nombre) +
+                                            "\n                                    "
+                                        ),
+                                        _c(
+                                          "span",
+                                          {
+                                            staticClass:
+                                              "d-block small font-weight-bold mt-2 text-dark"
+                                          },
+                                          [
+                                            _vm._v(
+                                              _vm._s(indice + 2) + " estrellas"
+                                            )
+                                          ]
+                                        )
+                                      ]
+                                    )
+                                  }),
+                                  1
+                                )
+                              ],
+                              1
+                            )
+                          ]
+                        )
+                      ])
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    { staticClass: "row align-items-center no-gutters" },
+                    [
+                      _c("div", { staticClass: "col px-3" }, [
+                        _vm._m(1),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "row mt-2 no-gutters" }, [
+                          _c(
+                            "div",
+                            { staticClass: "col text-center" },
+                            [
+                              _c("el-input-number", {
+                                attrs: { min: 1, max: 10 },
+                                on: { change: _vm.handleChangePasajeros },
+                                model: {
+                                  value: _vm.numeropasajeros,
+                                  callback: function($$v) {
+                                    _vm.numeropasajeros = $$v
+                                  },
+                                  expression: "numeropasajeros"
+                                }
+                              })
+                            ],
+                            1
+                          )
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "col px-3" }, [
+                        _vm._m(2),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "row mt-2 no-gutters" }, [
+                          _c(
+                            "div",
+                            { staticClass: "col text-center" },
+                            [
+                              _c("el-input-number", {
+                                attrs: { min: 1, max: 10 },
+                                on: { change: _vm.handleChangeDuracion },
+                                model: {
+                                  value: _vm.duracion,
+                                  callback: function($$v) {
+                                    _vm.duracion = $$v
+                                  },
+                                  expression: "duracion"
+                                }
+                              })
+                            ],
+                            1
+                          )
+                        ])
+                      ])
+                    ]
+                  )
+                ]
+              ),
+              _vm._v(" "),
+              _c("transition", { attrs: { name: "fade" } }, [
+                _c(
+                  "div",
+                  {
+                    directives: [
+                      {
+                        name: "show",
+                        rawName: "v-show",
+                        value: !_vm.tap_form_show,
+                        expression: "!tap_form_show"
+                      }
+                    ]
+                  },
+                  [
+                    _c("div", { staticClass: "container" }, [
+                      _c(
+                        "div",
+                        { staticClass: "row mt-5 justify-content-center" },
+                        [
+                          _c("div", { staticClass: "col-8" }, [
+                            _c(
+                              "div",
+                              { staticClass: "row mb-3 align-items-center" },
+                              [
+                                _c(
+                                  "div",
+                                  { staticClass: "col px-3" },
+                                  [
+                                    _c(
+                                      "p",
+                                      {
+                                        staticClass:
+                                          "font-weight-bold text-secondary small"
+                                      },
+                                      [
+                                        _c(
+                                          "span",
+                                          { staticClass: "text-danger" },
+                                          [_vm._v("*")]
+                                        ),
+                                        _vm._v("Nombre Completo")
+                                      ]
+                                    ),
+                                    _vm._v(" "),
+                                    _c("el-input", {
+                                      attrs: {
+                                        placeholder: "Nombre Completo",
+                                        clearable: ""
+                                      },
+                                      model: {
+                                        value: _vm.el_nombre,
+                                        callback: function($$v) {
+                                          _vm.el_nombre = $$v
+                                        },
+                                        expression: "el_nombre"
+                                      }
+                                    })
+                                  ],
+                                  1
+                                )
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "div",
+                              { staticClass: "row mb-3 align-items-center" },
+                              [
+                                _c(
+                                  "div",
+                                  { staticClass: "col px-3" },
+                                  [
+                                    _c(
+                                      "p",
+                                      {
+                                        staticClass:
+                                          "font-weight-bold text-secondary small"
+                                      },
+                                      [
+                                        _c(
+                                          "span",
+                                          { staticClass: "text-danger" },
+                                          [_vm._v("*")]
+                                        ),
+                                        _vm._v("Email")
+                                      ]
+                                    ),
+                                    _vm._v(" "),
+                                    _c("el-input", {
+                                      attrs: {
+                                        placeholder: "Email",
+                                        clearable: ""
+                                      },
+                                      model: {
+                                        value: _vm.el_email,
+                                        callback: function($$v) {
+                                          _vm.el_email = $$v
+                                        },
+                                        expression: "el_email"
+                                      }
+                                    })
+                                  ],
+                                  1
+                                )
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "div",
+                              { staticClass: "row mb-3 align-items-center" },
+                              [
+                                _c(
+                                  "div",
+                                  { staticClass: "col px-3" },
+                                  [
+                                    _c(
+                                      "p",
+                                      {
+                                        staticClass:
+                                          "font-weight-bold text-secondary small"
+                                      },
+                                      [_vm._v("Teléfono")]
+                                    ),
+                                    _vm._v(" "),
+                                    _c("vue-tel-input", {
+                                      model: {
+                                        value: _vm.el_telefono,
+                                        callback: function($$v) {
+                                          _vm.el_telefono = $$v
+                                        },
+                                        expression: "el_telefono"
+                                      }
+                                    })
+                                  ],
+                                  1
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "div",
+                                  { staticClass: "col px-3" },
+                                  [
+                                    _c(
+                                      "p",
+                                      {
+                                        staticClass:
+                                          "font-weight-bold text-secondary small"
+                                      },
+                                      [_vm._v("Fecha de Viaje")]
+                                    ),
+                                    _vm._v(" "),
+                                    _c("el-date-picker", {
+                                      attrs: {
+                                        type: "date",
+                                        placeholder: "Fecha de viaje"
+                                      },
+                                      model: {
+                                        value: _vm.el_fecha,
+                                        callback: function($$v) {
+                                          _vm.el_fecha = $$v
+                                        },
+                                        expression: "el_fecha"
+                                      }
+                                    })
+                                  ],
+                                  1
+                                )
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "div",
+                              { staticClass: "row mb-3 align-items-center" },
+                              [
+                                _c(
+                                  "div",
+                                  { staticClass: "col px-3" },
+                                  [
+                                    _c(
+                                      "p",
+                                      {
+                                        staticClass:
+                                          "font-weight-bold text-secondary small"
+                                      },
+                                      [_vm._v("¿Alguna Duda?")]
+                                    ),
+                                    _vm._v(" "),
+                                    _c("el-input", {
+                                      attrs: {
+                                        type: "textarea",
+                                        autosize: { minRows: 2, maxRows: 4 },
+                                        placeholder:
+                                          "¿Tienes alguna duda o pregunta?"
+                                      },
+                                      model: {
+                                        value: _vm.el_textarea,
+                                        callback: function($$v) {
+                                          _vm.el_textarea = $$v
+                                        },
+                                        expression: "el_textarea"
+                                      }
+                                    })
+                                  ],
+                                  1
+                                )
+                              ]
+                            )
+                          ])
+                        ]
+                      )
+                    ])
+                  ]
+                )
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "row mt-5" }, [
+                _c(
+                  "div",
+                  { staticClass: "col text-right" },
+                  [
+                    _vm.tap_form_show === true
+                      ? _c(
+                          "button",
+                          {
+                            staticClass:
+                              "btn btn-info btn-lg text-white font-weight-bold",
+                            attrs: { type: "button" },
+                            on: {
+                              click: function($event) {
+                                _vm.tap_form_show = !_vm.tap_form_show
+                              }
+                            }
+                          },
+                          [
+                            _vm._v(
+                              "\n                    Siguiente >>\n                "
+                            )
+                          ]
+                        )
+                      : _c(
+                          "button",
+                          {
+                            staticClass:
+                              "btn btn-secondary btn mx-3 text-white font-weight-normal",
+                            attrs: { type: "button" },
+                            on: {
+                              click: function($event) {
+                                _vm.tap_form_show = !_vm.tap_form_show
+                              }
+                            }
+                          },
+                          [
+                            _vm._v(
+                              "\n                    < Atrás\n                "
+                            )
+                          ]
+                        ),
+                    _vm._v(" "),
+                    _vm.tap_form_show === false
+                      ? _c(
+                          "button",
+                          {
+                            directives: [
+                              {
+                                name: "show",
+                                rawName: "v-show",
+                                value: _vm.btnviewdesign,
+                                expression: "btnviewdesign"
+                              }
+                            ],
+                            staticClass:
+                              "btn btn-success btn-lg text-white font-weight-bold",
+                            attrs: { type: "submit" }
+                          },
+                          [
+                            _vm._v(
+                              "\n                    Enviar\n                "
+                            )
+                          ]
+                        )
+                      : _vm._e(),
+                    _vm._v(" "),
+                    _c("transition", { attrs: { name: "fade" } }, [
+                      _c(
+                        "button",
+                        {
+                          directives: [
+                            {
+                              name: "show",
+                              rawName: "v-show",
+                              value: _vm.loadingdesign,
+                              expression: "loadingdesign"
+                            }
+                          ],
+                          staticClass:
+                            "btn btn-dark btn-lg text-white font-weight-bold",
+                          attrs: { type: "submit" }
+                        },
+                        [
+                          _c("i", {
+                            staticClass: "fas fa-circle-notch fa-spin"
+                          })
+                        ]
+                      )
+                    ])
+                  ],
+                  1
+                )
+              ])
+            ],
+            1
+          )
+        : _vm._e(),
       _vm._v(" "),
-      _vm._m(8)
-    ],
-    1
+      _vm._m(3),
+      _vm._v(" "),
+      !_vm.formshow
+        ? _c("div", { staticClass: "row mt-4" }, [
+            _c("div", { staticClass: "col" }, [
+              _c("div", { staticClass: "alert alert-success" }, [
+                _c("div", { staticClass: "row align-items-center" }, [
+                  _vm._m(4),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "col text-center" }, [
+                    _c("h4", { staticClass: "font-weight-bold" }, [
+                      _vm._v("Gracias por contactar con nosotros")
+                    ]),
+                    _vm._v(" "),
+                    _c("p", { staticClass: "font-weight-nomal" }, [
+                      _vm._v(
+                        "Un representante de INCAS PERU se comunicará con usted a la brevedad."
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-primary",
+                        attrs: { type: "button" },
+                        on: { click: _vm.updateComponent }
+                      },
+                      [
+                        _vm._v("Enviar Nuevo "),
+                        _c("i", {
+                          staticClass: "text-white",
+                          attrs: {
+                            "data-feather": "rotate-ccw",
+                            "stroke-width": "1"
+                          }
+                        })
+                      ]
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _vm._m(5)
+                ])
+              ])
+            ])
+          ])
+        : _vm._e()
+    ]
   )
 }
 var staticRenderFns = [
@@ -101832,23 +102185,9 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "col-2 text-center rounded-left bg-secondary" },
-      [
-        _c("div", { staticClass: "py-4 text-white" }, [
-          _c("i", { attrs: { "data-feather": "home", "stroke-width": "1" } })
-        ])
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
     return _c("div", { staticClass: "row mt-4" }, [
       _c("div", { staticClass: "col text-center" }, [
-        _c("h5", { staticClass: "font-weight-bold" }, [
+        _c("h6", { staticClass: "font-weight-bold" }, [
           _vm._v("NUMERO DE PASAJEROS")
         ])
       ])
@@ -101858,65 +102197,11 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "col-2 text-center rounded-left bg-secondary" },
-      [
-        _c("div", { staticClass: "py-4 text-white" }, [
-          _c("i", { attrs: { "data-feather": "users", "stroke-width": "1" } })
-        ])
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-2" }, [
-      _c("div", { staticClass: "input-group input-group-sm" }, [
-        _c("input", {
-          staticClass: "form-control font-weight-bold",
-          attrs: { type: "text", placeholder: "Especifica" }
-        })
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
     return _c("div", { staticClass: "row mt-4" }, [
       _c("div", { staticClass: "col text-center" }, [
-        _c("h5", { staticClass: "font-weight-bold" }, [
+        _c("h6", { staticClass: "font-weight-bold" }, [
           _vm._v("DURACIÓN DE VIAJE")
         ])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "col-2 text-center rounded-left bg-secondary" },
-      [
-        _c("div", { staticClass: "py-4 text-white" }, [
-          _c("i", { attrs: { "data-feather": "clock", "stroke-width": "1" } })
-        ])
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-2" }, [
-      _c("div", { staticClass: "input-group input-group-sm" }, [
-        _c("input", {
-          staticClass: "form-control font-weight-bold",
-          attrs: { type: "text", placeholder: "Especifica" }
-        })
       ])
     ])
   },
@@ -101932,10 +102217,22 @@ var staticRenderFns = [
             staticClass: "btn btn-link font-weight-bold py-2 px-0",
             attrs: { href: "mailto:info@gotoperu.com.mx" }
           },
-          [_vm._v("info@gotoperu.com.mx")]
+          [_vm._v("info@incasperutours.travel")]
         )
       ])
     ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-3" }, [_c("hr")])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-3" }, [_c("hr")])
   }
 ]
 render._withStripped = true

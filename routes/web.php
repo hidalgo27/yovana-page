@@ -34,6 +34,11 @@ Route::get('/load/packages', [
     'as' => 'load_path',
 ]);
 
+Route::get('/loaddestinos/destinos', [
+    'uses' => 'Page\HomepageController@destinoform',
+    'as' => 'destinoform_path',
+]);
+
 Route::get('/load/packages-all', [
     'uses' => 'Page\HomepageController@load_all',
     'as' => 'load_all_path',

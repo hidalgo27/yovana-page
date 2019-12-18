@@ -178,6 +178,15 @@ class HomepageController extends Controller
 
     }
 
+    public function destinoform(Request $request){
+        $destinations = TDestino::where('form', 1)->get();
+        return response()->json(
+            [
+                'destino' => $destinations
+            ]);
+
+    }
+
     public function load_all(Request $request){
         $paquetes = TPaquete::with('precio_paquetes')->get();
         $destinations = TPaqueteDestino::with('destinos')->get();
@@ -196,7 +205,7 @@ class HomepageController extends Controller
     public function formulario_diseno(Request $request)
     {
 
-        $from = 'info@gotoperu.com.mx';
+        $from = 'hidalgochponce@gmail.com';
 
         $category_all = '';
         if ($request->category_d){
@@ -218,20 +227,12 @@ class HomepageController extends Controller
 
         $travellers_all = '';
         if ($request->pasajeros_d){
-            foreach ($request->pasajeros_d as $pasajeros){
-                if (isset($pasajeros)){
-                    $travellers_all.=$pasajeros.',';
-                }
-            }
+            $travellers_all = $request->pasajeros_d;
         }
 
         $duration_all = '';
         if ($request->duracion_d){
-            foreach ($request->duracion_d as $duracion){
-                if (isset($duracion)){
-                    $duration_all.=$duracion.',';
-                }
-            }
+            $duration_all = $request->duracion_d;
         }
 
         $nombre = '';
@@ -263,9 +264,9 @@ class HomepageController extends Controller
         try {
             Mail::send(['html' => 'notifications.page.client-form-design'], ['nombre' => $nombre], function ($messaje) use ($email, $nombre) {
                 $messaje->to($email, $nombre)
-                    ->subject('GotoPeru')
+                    ->subject('Incas Peru Tours')
                     /*->attach('ruta')*/
-                    ->from('info@gotoperu.com.mx', 'GotoPeru');
+                    ->from('info@incasperutours.travel', 'Incas Peru Tours');
             });
             Mail::send(['html' => 'notifications.page.admin-form-contact'], [
                 'category_all' => $category_all,
@@ -280,11 +281,11 @@ class HomepageController extends Controller
                 'comentario' => $comentario,
 
             ], function ($messaje) use ($from) {
-                $messaje->to($from, 'GotoPeru')
-                    ->subject('GotoPeru')
+                $messaje->to($from, 'Incas Peru Tours')
+                    ->subject('Incas Peru Tours')
 //                    ->cc($from2, 'GotoPeru')
                     /*->attach('ruta')*/
-                    ->from('info@gotoperu.com.mx', 'GotoPeru');
+                    ->from('info@incasperutours.travel', 'Incas Peru Tours');
             });
 
             return 'Thank you.';
@@ -298,7 +299,7 @@ class HomepageController extends Controller
     public function formulario_detail(Request $request)
     {
 
-        $from = 'info@gotoperu.com.mx';
+        $from = 'info@incasperutours.travel';
 
         $category_all = '';
         if ($request->category_d){
@@ -311,20 +312,12 @@ class HomepageController extends Controller
 
         $travellers_all = '';
         if ($request->pasajeros_d){
-            foreach ($request->pasajeros_d as $pasajeros){
-                if (isset($pasajeros)){
-                    $travellers_all.=$pasajeros.',';
-                }
-            }
+            $travellers_all = $request->pasajeros_d;
         }
 
         $duration_all = '';
         if ($request->duracion_d){
-            foreach ($request->duracion_d as $duracion){
-                if (isset($duracion)){
-                    $duration_all.=$duracion.',';
-                }
-            }
+            $duration_all = $request->duracion_d;
         }
 
         $titulo_package = '';
@@ -362,9 +355,9 @@ class HomepageController extends Controller
         try {
             Mail::send(['html' => 'notifications.page.client-form-design'], ['nombre' => $nombre], function ($messaje) use ($email, $nombre) {
                 $messaje->to($email, $nombre)
-                    ->subject('GotoPeru')
+                    ->subject('Incas Peru Tours')
                     /*->attach('ruta')*/
-                    ->from('info@gotoperu.com.mx', 'GotoPeru');
+                    ->from('info@incasperutours.travel', 'Incas Peru Tours');
             });
             Mail::send(['html' => 'notifications.page.admin-form-contact-detail'], [
                 'category_all' => $category_all,
@@ -379,11 +372,11 @@ class HomepageController extends Controller
                 'comentario' => $comentario,
 
             ], function ($messaje) use ($from) {
-                $messaje->to($from, 'GotoPeru')
-                    ->subject('GotoPeru')
+                $messaje->to($from, 'Incas Peru Tours')
+                    ->subject('Incas Peru Tours')
 //                    ->cc($from2, 'GotoPeru')
                     /*->attach('ruta')*/
-                    ->from('info@gotoperu.com.mx', 'GotoPeru');
+                    ->from('info@incasperutours.travel', 'Incas Peru Tours');
             });
 
             return 'Thank you.';

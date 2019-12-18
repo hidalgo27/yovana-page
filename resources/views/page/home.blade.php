@@ -22,12 +22,12 @@
 {{--            </div>--}}
 {{--        </div>--}}
         <div class="position-absolute-bottom p-2">
-            <div class="row justify-content-between">
+            <div class="row justify-content-between mb-5">
                 <div class="col text-center">
                     <h4 class="display-4 font-weight-bold text-white">Viaje a Peru</h4>
                     <span class="text-white h4">Descubra el pais de los Incas</span>
                 </div>
-                <div class="col-4 text-center">
+                <div class="col-4 text-center d-none">
                     <form class="bg-white p-3 rounded-top">
                         <div class="row mb-3">
                             <div class="col">
@@ -408,21 +408,23 @@
         </div>
     </section>
 
-{{--    <section id="consulte" class="pt-5">--}}
-{{--        <div class="container-fluid">--}}
-{{--            <div class="row justify-content-center">--}}
-{{--                <div class="col-2">--}}
-{{--                    <img src="{{asset('images/logo-andes-y.png')}}" alt="" class="w-100">--}}
-{{--                </div>--}}
-{{--            </div>--}}
-{{--            <div class="row justify-content-center">--}}
-{{--                <div class="col-7">--}}
-{{--                    <h5 class="font-weight-bold text-center">CONSULTA DE VIAJES</h5>--}}
-{{--                    <form-inquire></form-inquire>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-{{--        </div>--}}
-{{--    </section>--}}
+    <section id="consulte" class="py-5 position-relative">
+        <div class="offer-banner">
+        <div class="container-fluid">
+            <div class="row justify-content-center">
+                <div class="col-2">
+                    <img src="{{asset('images/logo-yovana.png')}}" alt="" class="w-100">
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-7">
+                    <h5 class="font-weight-bold text-center">CONSULTA DE VIAJES</h5>
+                    <form-inquire></form-inquire>
+                </div>
+            </div>
+        </div>
+        </div>
+    </section>
 @endsection
 @push('scripts')
     <script>

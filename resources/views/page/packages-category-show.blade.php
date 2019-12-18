@@ -44,17 +44,55 @@
     <section class="bg-white py-5" id="title_section">
         <div class="container">
             <div class="row">
-                <div class="col-12 col-sm-7 col-md-8 col-xl-9">
-                    <div class="row" id="paquetes">
-                        <div class="col-12 mb-4">
-                            {{--<h3 class="text-g-yellow font-weight-bold">Tours</h3>--}}
-                            {{--                            <h1 class="text-secondary font-weight-bold">Cusco Tours</h1>--}}
-                            {!! $categorias->descripcion !!}
-                            <div class="alert alert-primary rounded-0 mt-4 text-center" role="alert">
-                                <h5 class="font-weight-normal">Operadores Locales en Perú: Los mejores guias de la región, encantadores hoteles, excursiones únicas, y amistosos representantes.
-                                    #gotoperu #TuconexionconPeru</h5>
+                <div class="col-12 col-sm-5 col-md-4 col-xl-3 d-none d-sm-block">
+                    <div class="sticky-top">
+{{--                        <nav id="navbar-scroll" class="navbar navbar-light p-0 mb-3 nav-goto-side w-100">--}}
+{{--                            <nav class="nav nav-pills flex-column w-100">--}}
+{{--                                <a class="nav-link active rounded-0 text-capitalize" href="#paquetes">Paquetes Clasicos</a>--}}
+{{--                                --}}{{--                                <a class="nav-link" href="#location">Localizacion</a>--}}
+{{--                                --}}{{--                                <a class="nav-link" href="#history">Testimonios</a>--}}
+{{--                                --}}{{--                                <a class="nav-link {{$h_resumen}}" href="#geography">Geography</a>--}}
+{{--                                --}}{{--                                <a class="nav-link" href="#hotels">Tips de viaje</a>--}}
+{{--                                <a class="nav-link" href="#clima">Clima actual en Cusco</a>--}}
+{{--                                --}}{{--<a class="nav-link" href="#photos">Photos</a>--}}
+{{--                            </nav>--}}
+{{--                        </nav>--}}
+
+                        {{--                        <div clpaquete_p.titul--}}
+
+{{--                        <div>--}}
+{{--                            <div class="tl-1"></div>--}}
+{{--                            <div class="tl-2"><img src="{{asset('images/logo-ave-grey.png')}}" alt="" class="w-100"></div>--}}
+{{--                            <div class="tl-3"></div>--}}
+{{--                        </div>--}}
+
+                        <div class="row">
+                            <div class="col">
+                                <ul class="list-group list-group-flush">
+                                    @foreach($all_category as $all_categorys)
+                                        <a href="{{route('category_show_path', $all_categorys->url)}}" class="list-group-item font-weight-bold text-secondary">
+                                            <img src="{{$all_categorys->imagen}}" alt="" width="40" height="40" class="rounded-circle" data-toggle="tooltip" data-placement="top" title="{{$all_categorys->nombre}}">
+                                            <span class="pl-3">{{$all_categorys->nombre}}</span>
+                                        </a>
+                                    @endforeach
+                                </ul>
                             </div>
                         </div>
+
+                    </div>
+
+                </div>
+                <div class="col-12 col-sm-7 col-md-8 col-xl-9">
+                    <div class="row" id="paquetes">
+{{--                        <div class="col-12 mb-4">--}}
+{{--                            --}}{{--<h3 class="text-g-yellow font-weight-bold">Tours</h3>--}}
+{{--                            --}}{{--                            <h1 class="text-secondary font-weight-bold">Cusco Tours</h1>--}}
+{{--                            {!! $categorias->descripcion !!}--}}
+{{--                            <div class="alert alert-primary rounded-0 mt-4 text-center" role="alert">--}}
+{{--                                <h5 class="font-weight-normal">Operadores Locales en Perú: Los mejores guias de la región, encantadores hoteles, excursiones únicas, y amistosos representantes.--}}
+{{--                                    #gotoperu #TuconexionconPeru</h5>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
 
                         @foreach($categoria_all as $category)
 
@@ -62,7 +100,7 @@
                                 <div class="col-12 col-sm-12 col-md-6 col-lg-6 d-flex mb-3">
                                     <div class="card w-100 shadow-sm">
                                         <div class="header-img-packages position-relative">
-                                            <a href="{{$category->paquete->url}}"><img class="card-img-top" src="{{$category->paquete->imagen}}" alt=""></a>
+                                            <a href="{{route('detail_path', $category->paquete->url)}}"><img class="card-img-top" src="{{$category->paquete->imagen}}" alt=""></a>
                                             <div class="position-absolute-bottom bg-rgba-dark-3 px-3 py-2">
                                                 <h5 class="text-white m-0">{{$category->paquete->titulo}}</h5>
 {{--                                                <small class="text-white">Cusco, Machu Picchu.</small>--}}
@@ -151,61 +189,24 @@
 
                     {{--                    </div>--}}
 
-                    <div class="row pt-5" id="clima">
+{{--                    <div class="row pt-5" id="clima">--}}
 
-                        <div class="col-12">
-                            <h3 class="font-weight-bold">Clima</h3>
-                            <div class="line-subtitle"></div>
-                        </div>
-                        <div class="col-12">
-                            <a class="weatherwidget-io" href="https://forecast7.com/en/n13d53n71d97/cusco/?unit=us" data-label_1="CUSCO" data-label_2="WEATHER" data-theme="original" >Cusco</a>
-                        </div>
+{{--                        <div class="col-12">--}}
+{{--                            <h3 class="font-weight-bold">Clima</h3>--}}
+{{--                            <div class="line-subtitle"></div>--}}
+{{--                        </div>--}}
+{{--                        <div class="col-12">--}}
+{{--                            <a class="weatherwidget-io" href="https://forecast7.com/en/n13d53n71d97/cusco/?unit=us" data-label_1="CUSCO" data-label_2="WEATHER" data-theme="original" >Cusco</a>--}}
+{{--                        </div>--}}
 
-                    </div>
+{{--                    </div>--}}
 
                     <div class="row" id="photos">
 
                     </div>
 
                 </div>
-                <div class="col-12 col-sm-5 col-md-4 col-xl-3 d-none d-sm-block">
-                    <div class="sticky-top">
-                        <nav id="navbar-scroll" class="navbar navbar-light p-0 mb-3 nav-goto-side w-100">
-                            <nav class="nav nav-pills flex-column w-100">
-                                <a class="nav-link active rounded-0 text-capitalize" href="#paquetes">Paquetes Clasicos</a>
-{{--                                <a class="nav-link" href="#location">Localizacion</a>--}}
-{{--                                <a class="nav-link" href="#history">Testimonios</a>--}}
-                                {{--                                <a class="nav-link {{$h_resumen}}" href="#geography">Geography</a>--}}
-{{--                                <a class="nav-link" href="#hotels">Tips de viaje</a>--}}
-                                <a class="nav-link" href="#clima">Clima actual en Cusco</a>
-                                {{--<a class="nav-link" href="#photos">Photos</a>--}}
-                            </nav>
-                        </nav>
 
-                        {{--                        <div clpaquete_p.titul--}}
-
-                        <div>
-                            <div class="tl-1"></div>
-                            <div class="tl-2"><img src="{{asset('images/logo-ave-grey.png')}}" alt="" class="w-100"></div>
-                            <div class="tl-3"></div>
-                        </div>
-
-                        <div class="row mt-4">
-                            <div class="col">
-                                <ul class="list-group list-group-flush">
-                                    @foreach($all_category as $all_categorys)
-                                    <a href="{{route('category_show_path', $all_categorys->url)}}" class="list-group-item font-weight-bold text-secondary">
-                                        <img src="{{$all_categorys->imagen}}" alt="" width="40" height="40" class="rounded-circle" data-toggle="tooltip" data-placement="top" title="{{$all_categorys->nombre}}">
-                                        <span class="pl-3">{{$all_categorys->nombre}}</span>
-                                    </a>
-                                    @endforeach
-                                </ul>
-                            </div>
-                        </div>
-
-                    </div>
-
-                </div>
             </div>
 
         </div>

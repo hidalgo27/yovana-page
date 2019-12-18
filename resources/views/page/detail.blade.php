@@ -43,24 +43,32 @@
             </div>
         </header>
 
-        <section>
-            <div class="nav-fixed">
-                <div id="navbar-scroll" class="list-group list-group-detail sticky-top">
-                    <a class="list-group-item list-group-item-detail list-group-item-action" href="#detalle" data-toggle="tooltip" data-placement="right" title="Detalle"><i data-feather="book-open" stroke-width="1"></i></a>
-                    <a class="list-group-item list-group-item-detail list-group-item-action" href="#incluye" data-toggle="tooltip" data-placement="right" title="Incluye"><i data-feather="check" stroke-width="1"></i></a>
-                    <a class="list-group-item list-group-item-detail list-group-item-action" href="#itinerario" data-toggle="tooltip" data-placement="right" title="Itinerario"><i data-feather="list" stroke-width="1"></i></a>
-                    <a class="list-group-item list-group-item-detail list-group-item-action" href="#destinos" data-toggle="tooltip" data-placement="right" title="Destinos"><i data-feather="map" stroke-width="1"></i></a>
-                    <a class="list-group-item list-group-item-detail list-group-item-action" href="#precios" data-toggle="tooltip" data-placement="right" title="Precios"><i data-feather="dollar-sign" stroke-width="1"></i></a>
-                    <a class="list-group-item list-group-item-detail list-group-item-action" href="#opcional" data-toggle="tooltip" data-placement="right" title="Opcional"><i data-feather="file-plus" stroke-width="1"></i></a>
-                    <a class="list-group-item list-group-item-detail list-group-item-action bg-g-yellow" href="#consulte" data-toggle="tooltip" data-placement="right" title="Consulte Ahora"><i data-feather="edit-2" stroke-width="1"></i></a>
+
+
+        <section class="my-4" id="title_section">
+
+                        {{--            <div class="nav-fixed">--}}
+            <div class="container sticky-top">
+            <div class="row">
+                <div class="col">
+                    <div id="navbar-scroll" class="list-group list-group-detail list-group-horizontal">
+                        <a class="list-group-item list-group-item-detail list-group-item-action" href="#detalle" data-toggle="tooltip" data-placement="right" title="Detalle"><i data-feather="book-open" stroke-width="1"></i> Descripción</a>
+{{--                        <a class="list-group-item list-group-item-detail list-group-item-action" href="#incluye" data-toggle="tooltip" data-placement="right" title="Incluye"><i data-feather="check" stroke-width="1"></i></a>--}}
+                        <a class="list-group-item list-group-item-detail list-group-item-action" href="#itinerario" data-toggle="tooltip" data-placement="right" title="Itinerario"><i data-feather="list" stroke-width="1"></i> Itinerario</a>
+                        <a class="list-group-item list-group-item-detail list-group-item-action" href="#destinos" data-toggle="tooltip" data-placement="right" title="Destinos"><i data-feather="map" stroke-width="1"></i> Destinos</a>
+                        <a class="list-group-item list-group-item-detail list-group-item-action" href="#precios" data-toggle="tooltip" data-placement="right" title="Precios"><i data-feather="dollar-sign" stroke-width="1"></i> Precios</a>
+                        <a class="list-group-item list-group-item-detail list-group-item-action" href="#opcional" data-toggle="tooltip" data-placement="right" title="Opcional"><i data-feather="file-plus" stroke-width="1"></i> Opcional</a>
+                        <a class="list-group-item list-group-item-detail list-group-item-action bg-g-yellow" href="#consulte" data-toggle="tooltip" data-placement="right" title="Consulte Ahora"><i data-feather="edit-2" stroke-width="1"></i> Consulte Ahora</a>
+                    </div>
                 </div>
             </div>
-        </section>
+            </div>
+                        {{--            </div>--}}
 
-        <section class="my-5" id="title_section">
             <div id="detalle">
                 <div class="container">
-                    <div class="row">
+
+                    <div class="row mt-3">
                         <div class="col-8">
                             <div class="row">
                                 <div class="col">
@@ -178,22 +186,11 @@
                 <div class="container-fluid px-0">
                     @php $day = 1; @endphp
                     @foreach($paquetes->paquete_itinerario as $itinerario)
-                        @if( $day%2 == 0)
+
                             <div class="row no-gutters align-items-center align-items-resumen" id="align-items-resumen-{{$itinerario->itinerarios->id}}">
 
-                                <div class="col-6">
-                                    <div class="swiper-container swiper-container-gallery">
-                                        <div class="swiper-wrapper">
-                                            @foreach($itinerario->itinerarios->itinerario_imagen as $imagen)
-                                                <a class="venobox swiper-slide" data-gall="myGallery" href="{{$imagen->nombre}}"><img src="{{$imagen->nombre}}" class="w-100"></a>
-                                            @endforeach
-                                        </div>
-                                        <!-- Add Pagination -->
-                                        <div class="swiper-pagination"></div>
-                                    </div>
-                                </div>
 
-                                <div class="col-6">
+                                <div class="col-7">
                                     <div class="p-5" id="box-resumen-{{$itinerario->itinerarios->id}}">
                                         <h4>Dia {{$day}}</h4>
                                         <div class="line-subtitle"></div>
@@ -218,37 +215,7 @@
                                         </div>
                                     </div>
                                 </div>
-
-                            </div>
-                        @else
-                            <div class="row no-gutters align-items-center align-items-resumen" id="align-items-resumen-{{$itinerario->itinerarios->id}}">
-                                <div class="col-6">
-                                    <div class="p-5" id="box-resumen-{{$itinerario->itinerarios->id}}">
-                                        <h4>Dia {{$day}}</h4>
-                                        <div class="line-subtitle"></div>
-                                        <p><mark class="font-weight-bold">{{$itinerario->itinerarios->titulo}}.</mark></p>
-                                        {!! $itinerario->itinerarios->resumen !!}
-                                        <button type="button" class="btn btn-link p-0 text-secondary font-weight-lighter" onclick="view_itinerary({{$itinerario->itinerarios->id}})">LEER MÁS</button>
-                                    </div>
-                                    <div class="invisible position-absolute-top bg-white" id="box-detail-{{$itinerario->itinerarios->id}}">
-                                        <div class="swiper-container swiper-container-detail">
-                                            <div class="swiper-wrapper">
-                                                <div class="swiper-slide">
-                                                    <h4>Dia {{$day}} <mark class="font-weight-bold">{{$itinerario->itinerarios->titulo}}.</mark></h4>
-                                                    <div class="line-subtitle"></div>
-                                                    {!! $itinerario->itinerarios->descripcion !!}
-                                                </div>
-                                            </div>
-                                            <!-- Add Scroll Bar -->
-                                            <div class="swiper-scrollbar"></div>
-                                            <div class="position-absolute-bottom text-center m-3">
-                                                <button type="button" class="btn btn-sm btn-dark shadow-sm" onclick="view_itinerary_resumen({{$itinerario->itinerarios->id}})">Ver Resumen</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-6">
+                                <div class="col-5">
                                     <div class="swiper-container swiper-container-gallery">
                                         <div class="swiper-wrapper">
                                             @foreach($itinerario->itinerarios->itinerario_imagen as $imagen)
@@ -259,11 +226,8 @@
                                         <div class="swiper-pagination"></div>
                                     </div>
                                 </div>
-
-
-
                             </div>
-                        @endif
+
                         @php $day++; @endphp
                     @endforeach
 
@@ -272,10 +236,15 @@
             </div>
 
             <div id="destinos">
-                <div id="incluye">
+                <div id="">
                     <div class="position-relative py-5">
                         <div class="offer-banner">
                             <div class="container">
+                                <div class="row">
+                                    <div class="col text-center">
+                                        <h3 class="mb-4"><span class="text-g-yellow">Destinos Incluidos</span></h3>
+                                    </div>
+                                </div>
                                 <div class="row mt-3 justify-content-around">
 
                                     @foreach($paquete_destinos->where('idpaquetes',$paquetes->id) as $paquete_destino)
@@ -340,23 +309,32 @@
                     </div>
                 </div>
             </div>
+            <div id="consulte">
+                <div class="container">
+                    <div class="row">
+                        <div class="col">
+                            <h6 class="font-weight-bold text-secondary mt-4"><span class="text-g-yellow">Consulte</span></h6>
+                            <p>Cotice este paquete llenando nuestro formulario. Nuestros asesores se contactarán  con usted a la brevedad.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="container-fluid">
+                    <div class="row justify-content-center my-4">
+                        <div class="col-2">
+                            <img src="{{asset('images/logo-yovana.png')}}" alt="" class="w-100">
+                        </div>
+                    </div>
+                    <div class="row justify-content-center">
+                        <div class="col-7">
+                            <h5 class="font-weight-bold text-center">CONSULTA DE VIAJES</h5>
+                            <form-inquire-detail :paquetes-id="{{$paquetes->id}}"></form-inquire-detail>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
 
-{{--        <section id="consulte">--}}
-{{--            <div class="container-fluid">--}}
-{{--                <div class="row justify-content-center my-4">--}}
-{{--                    <div class="col-2">--}}
-{{--                        <img src="{{asset('images/logo-andes-y.png')}}" alt="" class="w-100">--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--                <div class="row justify-content-center">--}}
-{{--                    <div class="col-7">--}}
-{{--                        <h5 class="font-weight-bold text-center">CONSULTA DE VIAJES</h5>--}}
-{{--                        <form-inquire-detail :paquetes-id="{{$paquetes->id}}"></form-inquire-detail>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-{{--        </section>--}}
+
 
         @endforeach
     @endsection
