@@ -77,20 +77,27 @@
                             </div>
                             <div class="row">
                                 <div class="col">
-                                    @foreach($paquetes->paquetes_categoria as $categoria)
-                                    <h6 class="font-weight-bold text-secondary mt-4"><span class="text-g-yellow">Categoría</span>: <mark>{{ucwords(strtolower($categoria->categoria->nombre))}}</mark></h6>
-                                    {!! $categoria->categoria->descripcion !!}
-                                    @endforeach
-
-                                        @foreach($dificultad->where('idpaquetes', $paquetes->id) as $dificultades)
-                                    <h6 class="font-weight-bold text-secondary mt-4"><span class="text-g-yellow">Demanda física</span>: <mark>{{$dificultades->dificultad->nombre}}</mark></h6>
-                                    <p>{!! $dificultades->dificultad->descripcion !!}</p>
-                                        @endforeach
-
-
-
+                                    <div class="card">
+                                        <div class="card-body">
+                                                @foreach($paquetes->paquetes_categoria as $categoria)
+                                                <h6 class="font-weight-bold text-secondary"><span class="text-g-yellow">Categoría</span>: <mark>{{ucwords(strtolower($categoria->categoria->nombre))}}</mark></h6>
+                                                {!! $categoria->categoria->descripcion !!}
+                                                @endforeach
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            @foreach($dificultad->where('idpaquetes', $paquetes->id) as $dificultades)
+                                                <h6 class="font-weight-bold text-secondary"><span class="text-g-yellow">Demanda física</span>: <mark>{{$dificultades->dificultad->nombre}}</mark></h6>
+                                                <p>{!! $dificultades->dificultad->descripcion !!}</p>
+                                            @endforeach
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
+
 
                         </div>
                         <div class="col-4">
