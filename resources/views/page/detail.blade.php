@@ -76,8 +76,8 @@
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col">
-                                    <div class="card">
+                                <div class="col d-flex">
+                                    <div class="card w-100">
                                         <div class="card-body">
                                                 @foreach($paquetes->paquetes_categoria as $categoria)
                                                 <h6 class="font-weight-bold text-secondary"><span class="text-g-yellow">Categoría</span>: <mark>{{ucwords(strtolower($categoria->categoria->nombre))}}</mark></h6>
@@ -86,8 +86,8 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col">
-                                    <div class="card">
+                                <div class="col d-flex">
+                                    <div class="card w-100">
                                         <div class="card-body">
                                             @foreach($dificultad->where('idpaquetes', $paquetes->id) as $dificultades)
                                                 <h6 class="font-weight-bold text-secondary"><span class="text-g-yellow">Demanda física</span>: <mark>{{$dificultades->dificultad->nombre}}</mark></h6>
