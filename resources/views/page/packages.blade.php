@@ -81,13 +81,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <!--            <div class="card-body">-->
 
-                            <!--                <span class="font-weight-normal text-secondary">-->
-                            <!--                    <i class="fa fa-map-marker-alt"></i>-->
-
-                            <!--                </span>-->
-                            <!--            </div>-->
                             <div class="card-footer bg-white">
                                 <div class="row">
                                     <div class="col text-center">
