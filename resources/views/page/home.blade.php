@@ -273,7 +273,7 @@
                                 <div class="blur"></div>
                                 <div class="black_hover_block_text">
                                     <ul class="text-center bg_black m-0 p-0">
-                                        <li>{{$categorias->url}}</li>
+                                        <li>{{$categorias->nombre}}</li>
                                         <div class="clearfix"></div>
                                     </ul>
                                     <h5 class="titl-h5">{{$categorias->nombre}}</h5>
