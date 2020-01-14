@@ -205,7 +205,7 @@ class HomepageController extends Controller
     public function formulario_diseno(Request $request)
     {
 
-        $from = 'hidalgochponce@gmail.com';
+        $from = 'info@incasperutours.travel';
 
         $category_all = '';
         if ($request->category_d){
