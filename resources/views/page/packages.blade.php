@@ -96,7 +96,7 @@
                                         {{--                                                    <p class="font-weight-bold text-red-primary h5 m-0">{{$paquetes->duracion}} Días</p>--}}
                                         @foreach($paquetes->precio_paquetes as $precio)
                                             @if($precio->estrellas == 3)
-                                                @if($precio->precio_t > 0)
+                                                @if($precio->precio_d > 0)
                                                     <p class="font-weight-bold text-center text-primary  m-0"><span class="text-dark">{{$paquetes->duracion}} Días</span> <i class="fas fa-long-arrow-alt-right"></i> <sup class="small"><small class="text-secondary">desde</small></sup> ${{$precio->precio_d}}<small>USD</small></p>
                                                 @else
                                                     <span class="text-danger">Consulte</span>
