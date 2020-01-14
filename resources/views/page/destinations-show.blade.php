@@ -134,7 +134,7 @@
                                                     </div>
                                                     <div class="col-auto">
                                                         @foreach($paquetes->precio_paquetes as $precio)
-                                                            @if($precio->estrellas == 2)
+                                                            @if($precio->estrellas == 3)
                                                                 @if($precio->precio_d > 0)
                                                                     {{--                                                                <p class="text-info font-weight-bold m-0 h5"><small><sup>form $</sup></small>{{$precio->precio_d}}<small>USD</small></p>--}}
                                                                     <p class="font-weight-bold text-primary h5 m-0"><sup class="small"><small>desde</small></sup> ${{$precio->precio_d}}<small>USD</small></p>
