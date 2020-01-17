@@ -1,139 +1,194 @@
-@extends('layouts.page.default')
+@extends('layouts.page.app')
 @section('content')
-    <header class="header-video-default position-relative">
-        @include('layouts.page.menu')
-        <div id="overlay" class="overlay-img">
-            <img src="{{asset('images/destinations/machu-picchu.jpg')}}" alt="" id="hero-vid">
+    <header class="header-detail">
+        <div class="overlay"></div>
+        {{--            <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">--}}
+        {{--                <source src="{{asset('media/Secuencia 06.mp4')}}" type="video/mp4">--}}
+        {{--            </video>--}}
+        <div class="homepage-video">
+            <img src="{{asset('images/packages/slider/AV612-1.jpg')}}" alt="">
         </div>
-        <div class="position-absolute bottom-n-1">
-            <img src="{{asset('images/pce.png')}}" alt="" class="img-fluid">
-        </div>
-
-        <div class="content-header">
-            <div class="container">
-                <div class="row content-header-row align-items-center">
-                    <div class="col text-center">
-                        <h3 class="text-white text-center h1">SÓ PASSEIOS</h3>
-                        <i class="fa fa-chevron-down text-white h1"></i>
+        <div class="container h-100">
+            <div class="row d-flex h-100 text-center align-items-center">
+                <div class="col w-100 text-white mt-5">
+                    <h1 class="font-weight-lighter h2 mt-5">PERÚ TOURS</h1>
+                    <div>
+                        <div class="tl-1"></div>
+                        {{--                        <div class="tl-2"><img src="{{asset('images/logo-andes-ave-white.png')}}" alt="" class="w-100"></div>--}}
+                        <div class="tl-3"></div>
                     </div>
-
+                    {{--                    <div class="mt-4">--}}
+                    {{--                        <a href="" class="text-white">Detalle</a> |--}}
+                    {{--                        <a href="" class="text-white">Itinerario</a> |--}}
+                    {{--                        <a href="" class="text-white">Precios</a> |--}}
+                    {{--                        <a href="" class="text-g-yellow font-weight-bold">Consulte Ahora</a>--}}
+                    {{--                    </div>--}}
+                    {{--                        <a href="#Inquire" class="btn btn-outline-g-yellow btn-lg h2 font-weight-normal mt-3">Diseña tu Viaje</a>--}}
+                    {{--                        <p class="lead mb-0">With HTML5 Video and Bootstrap 4</p>--}}
                 </div>
-
+            </div>
+        </div>
+        <div class="position-absolute-bottom p-2">
+            <div class="row justify-content-center">
+                <div class="col-auto text-center">
+                    <a href="#title_section" class="mx-2">
+                        <i data-feather="chevrons-down" class="text-white" stroke-width="1" height="50" width="50"></i>
+                    </a>
+                </div>
             </div>
         </div>
     </header>
-    @include('layouts.page.menu-mobil')
-    <section class="bg-white m-0">
-        <div class="container">
-            <div class="row">
-                <div class="col">
-                    {{Breadcrumbs::render('tours')}}
-                </div>
-            </div>
-        </div>
-    </section>
-    <section class="py-3 bg-white">
-        <div class="container">
-            <div class="row">
-                <div class="col">
-                    {{--<ul class="page-breadcrumb">--}}
-                        {{--<li>--}}
-                            {{--<i class="fa fa-home"></i>--}}
-                            {{--<a href="{{route('home_path')}}">Home</a>--}}
-                            {{--<i class="fa fa-angle-right"></i>--}}
-                        {{--</li>--}}
-                        {{--@for($i = 0; $i <= count(Request::segments()); $i++)--}}
-                            {{--<li>--}}
-                                {{--<a href="">{{Request::segment($i)}}</a>--}}
-                                {{--@if($i < count(Request::segments()) & $i > 0)--}}
-                                    {{--{!!'<i class="fa fa-angle-right"></i>'!!}--}}
-                                {{--@endif--}}
-                            {{--</li>--}}
-                        {{--@endfor--}}
-                    {{--</ul>--}}
-                </div>
-            </div>
-            <div class="row">
+
+
+    <section id="title_section">
+        <div class="container px-0">
+            <div class="row my-5">
                 <div class="col text-center">
-                    <h1 class="text-g-yellow">PASSEIOS EM PERU</h1>
-                    {{--<p class="h2 text-secondary pt-3">USTED TENDRÁ UNA EXPERIENCIA INIMAGINABLE</p>--}}
-                    {{--<p class="h4"></p>--}}
+                    <h2 class="font-weight-bold display-4 text-g-yellow">Tours <strong class="text-g-green">Destacados</strong></h2>
+                    <p class="lead">Nuestros tours más populares En Perú, Estos paquetes pueden ser usados como referencia para personalizar tu viaje. En INCAS PERU Nos especializamos en la elaboración de experiencias personalizadas basadas en sus preferencias; invitamos a revisar estos programas para tener una idea de los destinos más importantes, por ejemplo, Machu Picchu, Lake Titicaca, Nazca y el Amazonas.</p>
                 </div>
             </div>
-            <div class="row">
-                <div class="col">
-                    <p class="mb-0 lead text-secondary text-center"><b>Nossos passeios mais populares no Peru. Estes Tours podem ser usados como referência para personalizar sua própria viagem. Na GOTOPERU nos especializamos em criar experiências personalizadas de acordo com suas preferências; Convidamos você a rever esses programas para ter uma idéia dos destinos mais importantes, por exemplo: Cusco, Machu Picchu, Lago Titicaca, Nazca e Amazônia.</b></p>
-                </div>
 
-            </div>
         </div>
     </section>
 
-    <section class="pb-5 bg-white">
+    <section>
         <div class="container">
             <div class="row">
-                <div class="col">
-                    <div id="tours" class="d-sm-block pt-5">
-                        <div class="alert alert-info py-2 mb-1" role="alert">
-                            <h5 class="font-weight-bold m-0">Passeios Individuais</h5>
-                        </div>
-                        {{--<h5 class="text-secondary py-2"><i class="fa fa-chevron-right"></i> <b>Incluye:</b> hoteles, tours, traslados, entradas, desayunos, trenes.</h5>--}}
+                @foreach($paquete as $paquetes)
 
-                        @foreach($tours as $tour)
-                            <a href="{{route('itinerario_tours_show_path', str_replace(' ','-',strtolower($tour->titulo)))}}" class="list-group-item list-group-item-action">
-                                <div class="row no-gutters">
-                                    <div class="col-7 col-sm-5 text-primary">
-                                        <b>{{$tour->titulo}}</b>
-                                    </div>
 
-                                    <div class="col d-none d-md-inline">
-                                    <i class="fa fa-clock text-info"></i> {{ucwords(strtolower($tour->duracion))}}
-                                    </div>
-                                    <div class="col d-none d-sm-inline">
-                                        <i class="fa fa-map-marker-alt text-info"></i>
-                                        @php
-                                            $i = 1;
-                                            $num_des = count($tours_destinos->where('idtours',$tour->id));
-                                        @endphp
-                                        @foreach($tours_destinos->where('idtours',$tour->id) as $tour_destino)
-                                            {{$tour_destino->destinos->nombre}}@if($i < $num_des),@endif
-                                            @php $i++; @endphp
-                                        @endforeach
-                                    </div>
-                                    <div class="col col-sm-2 text-right">
-                                        <b>
-                                            @if($tour->precio < 0)
-                                                <span class="text-danger">Pida una cotización</span>
-                                            @else
-                                                <sup>$</sup>{{$tour->precio_g}}<small>USD</small>
-                                            @endif
-                                            {{--@if($paquetes->precio == 0 OR $paquetes->precio == NULL)--}}
-                                            {{--@foreach($paquetes->precio_paquetes as $precio)--}}
-                                            {{--@if($precio->estrellas == 2)--}}
-                                            {{--@if($precio->precio == 0)--}}
-                                            {{--<span class="text-danger">Pida una cotización</span>--}}
-                                            {{--@else--}}
-                                            {{--<sup>$</sup>{{$precio->precio}}<small>USD</small>--}}
-                                            {{--@endif--}}
-                                            {{--@endif--}}
-                                            {{--@endforeach--}}
-                                            {{--@else--}}
-                                            {{--@if($paquetes->precio < 0)--}}
-                                            {{--<span class="text-danger">Pida una cotización</span>--}}
-                                            {{--@else--}}
-                                            {{--<sup>$</sup>{{$paquetes->precio}}<small>USD</small>--}}
-                                            {{--@endif--}}
-                                            {{--@endif--}}
-                                        </b>
+                    <div class="col-12 col-sm-12 col-md-6 col-lg-4 d-flex mb-4">
+                        <div class="card w-100 shadow-sm">
+                            <div class="header-img-packages position-relative">
+                                <a href="{{route('detail_path', $paquetes->url)}}"><img class="card-img-top" src="{{$paquetes->imagen}}" alt=""></a>
+                                <div class="position-absolute-bottom bg-rgba-dark-3 px-3 py-2">
+                                    {{--                                                <h5 class="text-white m-0">{{$paquetes->titulo}}</h5>--}}
+                                    <div class="row">
+                                        <div class="col">
+                                            <small class="text-white">
+                                                <i class="fas fa-map-marker-alt"></i>
+                                                @php
+                                                    $i = 1;
+                                                    $num_des = count($paquete_destinos->where('idpaquetes',$paquetes->id));
+                                                @endphp
+                                                @foreach($paquete_destinos->where('idpaquetes',$paquetes->id) as $paquete_destino)
+                                                    {{ucwords(strtolower($paquete_destino->destinos->nombre))}}@if($i < $num_des),@else.@endif
+                                                    @php $i++; @endphp
+                                                @endforeach
+                                            </small>
+                                        </div>
                                     </div>
                                 </div>
-                            </a>
-                        @endforeach
+                            </div>
 
+                            <div class="card-footer bg-white">
+                                <div class="row">
+                                    <div class="col text-center">
+                                        <h5 class="font-weight-bold text-secondary m-0">{{$paquetes->titulo}}</h5>
+                                    </div>
+                                </div>
+                                <div class="row mt-2">
+                                    {{--                                                <div class="col">--}}
+                                    {{--                                                    --}}
+                                    {{--                                                </div>--}}
+                                    <div class="col text-center">
+                                        {{--                                                    <p class="font-weight-bold text-red-primary h5 m-0">{{$paquetes->duracion}} Días</p>--}}
+                                        @foreach($paquetes->precio_paquetes as $precio)
+                                            @if($precio->estrellas == 3)
+                                                @if($precio->precio_d > 0)
+                                                    <p class="font-weight-bold text-center text-primary  m-0"><span class="text-dark">{{$paquetes->duracion}} Días</span> <i class="fas fa-long-arrow-alt-right"></i> <sup class="small"><small class="text-secondary">desde</small></sup> ${{$precio->precio_d}}<small>USD</small></p>
+                                                @else
+                                                    <span class="text-danger">Consulte</span>
+                                                @endif
+                                            @endif
+                                        @endforeach
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
                     </div>
-                </div>
+
+                @endforeach
+
             </div>
+
+
         </div>
     </section>
 
-@stop
+    {{--        <div data-spy="scroll" data-target="#list-example" data-offset="0" class="scrollspy-example">--}}
+    {{--            <h4 id="list-item-1">Item 1</h4>--}}
+    {{--            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur error eveniet ipsum perferendis quam quos saepe sit soluta! Explicabo facere molestiae quod recusandae voluptatem. Ad assumenda debitis nam natus nihil?</p>--}}
+    {{--            <h4 id="list-item-2">Item 2</h4>--}}
+    {{--            <p>...</p>--}}
+    {{--            <h4 id="list-item-3">Item 3</h4>--}}
+    {{--            <p>...</p>--}}
+    {{--            <h4 id="list-item-4">Item 4</h4>--}}
+    {{--            <p>...</p>--}}
+    {{--            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab, aliquam architecto corporis dicta error facilis ipsam magni, mollitia necessitatibus odio quasi quo, repudiandae saepe sapiente sed. Cum qui sed veritatis!--}}
+    {{--        </div>--}}
+    {{--    <section id="consulte" class="pt-5">--}}
+    {{--        <div class="container-fluid">--}}
+    {{--            <div class="row justify-content-center my-4">--}}
+    {{--                <div class="col-2">--}}
+    {{--                    <img src="{{asset('images/logo-andes-y.png')}}" alt="" class="w-100">--}}
+    {{--                </div>--}}
+    {{--            </div>--}}
+    {{--            <div class="row justify-content-center">--}}
+    {{--                <div class="col-7">--}}
+    {{--                    <h5 class="font-weight-bold text-center">CONSULTA DE VIAJES</h5>--}}
+    {{--                    <form-inquire></form-inquire>--}}
+    {{--                </div>--}}
+    {{--            </div>--}}
+    {{--        </div>--}}
+    {{--    </section>--}}
+
+@endsection
+
+@push('scripts')
+    <script>
+        var swiper = new Swiper('.swiper-container-gallery', {
+            spaceBetween: 30,
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            // navigation: {
+            //     nextEl: '.swiper-button-next',
+            //     prevEl: '.swiper-button-prev',
+            // },
+        });
+
+        var swiper = new Swiper('.swiper-container-detail', {
+            direction: 'vertical',
+            slidesPerView: 'auto',
+            freeMode: true,
+            scrollbar: {
+                el: '.swiper-scrollbar',
+            },
+            mousewheel: true,
+        });
+
+        function view_itinerary() {
+            $('#box-resumen').addClass('d-none');
+            $('#box-detail').removeClass('invisible');
+            $('.align-items-resumen').removeClass('align-items-center');
+            // $('#box-resumen').addClass('d-none');
+            // $('#box-resumen').removeClass('d-block');
+            // $('#box-detail').addClass('d-block');
+            // $('#box-detail').removeClass('d-none');
+            // $('.box-detail').show();
+            view_itinerary_resumen
+        }
+
+        function view_itinerary_resumen() {
+            $('#box-resumen').removeClass('d-none');
+            $('#box-detail').addClass('invisible');
+            $('.align-items-resumen').addClass('align-items-center');
+        }
+
+    </script>
+@endpush
+

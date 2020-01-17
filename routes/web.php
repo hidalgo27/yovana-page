@@ -62,6 +62,12 @@ Route::get('/packages/', [
     'as' => 'packages_path',
 ]);
 
+//TOURS
+Route::get('/peru-tours/', [
+    'uses' => 'Page\HomepageController@tours',
+    'as' => 'tours_path',
+]);
+
 
 //detail
 Route::get('/paquetes/{url}', [

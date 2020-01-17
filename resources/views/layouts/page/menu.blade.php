@@ -62,6 +62,7 @@
 {{--                </li>--}}
 {{--            </ul>--}}
 {{--        </li>--}}
+        <li><a href="{{route('tours_path')}}">PERU TOURS</a></li>
         <li><a href="{{route('destination_path')}}">DESTINOS EN PERÚ</a>
 {{--            <ul>--}}
 {{--                <li><a href="http://marioloncarek.com">Today</a></li>--}}
@@ -69,7 +70,7 @@
 {{--                <li><a href="#">Sport</a></li>--}}
 {{--            </ul>--}}
         </li>
-        <li><a href="#">SOBRE NOSOTROS</a></li>
-        <li><a href="#">RESPONSABILIDAD SOCIAL</a></li>
+        <li><a href="{{route('sobre_nosotros_path')}}">SOBRE NOSOTROS</a></li>
+{{--        <li><a href="#">RESPONSABILIDAD SOCIAL</a></li>--}}
     </ul>
 </div>
