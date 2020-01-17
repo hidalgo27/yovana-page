@@ -32,8 +32,15 @@
                 <div class="col-auto">
                     <a href="{{route('home_path')}}"><img src="{{asset('images/logo-yovana.png')}}" width="250" alt="logo andesviagens" class="img-fluid"></a>
                 </div>
-                <div class="col-3 text-right">
-                    <a href="#consulte" class="btn btn-red-primary float-right ml-3 font-weight-bold px-4 rounded-0">COTIZAR VIAJE</a>
+                <div class="col-5 text-right">
+                    <div class="row align-items-center no-gutters">
+                        <div class="col text-right">
+                            <span class="font-weight-bold h5 mx-4 text-white"><i data-feather="phone" class="text-white mx-auto" stroke-width="1"></i> +51 (084) 611096</span>
+                        </div>
+                        <div class="col-auto">
+                            <a href="#consulte" class="btn btn-red-primary btn-block float-right ml-3 font-weight-bold px-4 rounded-0">COTIZAR VIAJE</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
