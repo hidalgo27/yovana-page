@@ -15,7 +15,24 @@
     <link href="{{ asset('themify-icons/themify-icons.css') }}" rel="stylesheet">
 
     <meta name="csrf-token" content="{{ csrf_token()  }}">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-156569551-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
 
+        gtag('config', 'UA-156569551-1');
+    </script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-153RV528DW"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-153RV528DW');
+    </script>
 </head>
 <body data-spy="scroll" data-target="#navbar-scroll">
 <div id="app">
