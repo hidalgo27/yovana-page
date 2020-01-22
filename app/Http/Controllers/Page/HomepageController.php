@@ -17,8 +17,8 @@ use Illuminate\Support\Facades\Response;
 class HomepageController extends Controller
 {
     public function index(){
-        $paquete = TPaquete::with('paquetes_destinos.destinos','paquetes_categoria.categoria', 'precio_paquetes')->where('is_paquete', 1)->get();
-        $tours = TPaquete::with('paquetes_destinos.destinos','paquetes_categoria.categoria', 'precio_paquetes')->where('is_tours', 1)->get();
+        $paquete = TPaquete::with('paquetes_destinos.destinos','paquetes_categoria.categoria', 'precio_paquetes')->where('is_paquete', 1)->where('estado', 1)->get();
+        $tours = TPaquete::with('paquetes_destinos.destinos','paquetes_categoria.categoria', 'precio_paquetes')->where('is_tours', 1)->where('estado', 1)->get();
         $paquete_destinos = TPaqueteDestino::with('destinos')->get();
         $categoria = TCategoria::where('estado', 1)->get();
         $destino = TDestino::where('estado', 1)->get();
