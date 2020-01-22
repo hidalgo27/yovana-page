@@ -52,7 +52,7 @@
                 <div class="col-5 text-right">
                     <div class="row align-items-center no-gutters">
                         <div class="col text-right">
-                            <span class="font-weight-bold h5 mx-4 text-white"><i data-feather="phone" class="text-white mx-auto" stroke-width="1"></i> +51 (084) 611096</span>
+                            <span class="font-weight-bold h5 mx-4 text-white"><i data-feather="phone" class="text-white mx-auto" stroke-width="1"></i> +51 (084) 655455</span>
                         </div>
                         <div class="col-auto">
                             <a href="#consulte" class="btn btn-red-primary btn-block float-right ml-3 font-weight-bold px-4 rounded-0">COTIZAR VIAJE</a>
@@ -69,7 +69,20 @@
 
 
     @yield('content')
-
+    <div class="redes-fixed">
+        <div class="container-fluid">
+            <div class="row justify-content-end">
+                <div class="col-auto">
+                    <div class="bg-light rounded px-3 mx-3 shadow clearfix float-right">
+                        <a href="https://api.whatsapp.com/send?phone=51969700487" target="_blank" class="font-weight-bold text-dark stretched-link">
+                            <img src="{{asset('images/icons/whatsapp-i.png')}}" class="py-1" alt="logo whatsapp" width="50" data-toggle="tooltip" data-placement="top" title="Perú">
+                            Escríbenos por WhatsApp
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <footer>
         <img src="{{asset('images/footer.png')}}" alt="" class="w-100">
     </footer>

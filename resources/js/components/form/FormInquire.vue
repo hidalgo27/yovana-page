@@ -246,7 +246,7 @@
         </div>
         <div class="row">
             <div class="col text-right">
-                <a href="mailto:info@gotoperu.com.mx" class="btn btn-link font-weight-bold py-2 px-0">info@incasperutours.travel</a>
+                <a href="mailto:nfo@incasperutours.travel" class="btn btn-link font-weight-bold py-2 px-0">info@incasperutours.travel</a>
             </div>
         </div>
         <div class="row mt-4" v-if="!formshow">

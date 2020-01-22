@@ -53,10 +53,10 @@
                 <div class="col">
                     <div id="navbar-scroll" class="list-group list-group-detail list-group-horizontal">
                         <a class="list-group-item list-group-item-detail list-group-item-action" href="#detalle" data-toggle="tooltip" data-placement="right" title="Detalle"><i data-feather="book-open" stroke-width="1"></i> Descripción</a>
-{{--                        <a class="list-group-item list-group-item-detail list-group-item-action" href="#incluye" data-toggle="tooltip" data-placement="right" title="Incluye"><i data-feather="check" stroke-width="1"></i></a>--}}
                         <a class="list-group-item list-group-item-detail list-group-item-action" href="#itinerario" data-toggle="tooltip" data-placement="right" title="Itinerario"><i data-feather="list" stroke-width="1"></i> Itinerario</a>
                         <a class="list-group-item list-group-item-detail list-group-item-action" href="#destinos" data-toggle="tooltip" data-placement="right" title="Destinos"><i data-feather="map" stroke-width="1"></i> Destinos</a>
                         <a class="list-group-item list-group-item-detail list-group-item-action" href="#precios" data-toggle="tooltip" data-placement="right" title="Precios"><i data-feather="dollar-sign" stroke-width="1"></i> Precios</a>
+                        <a class="list-group-item list-group-item-detail list-group-item-action" href="#incluye" data-toggle="tooltip" data-placement="right" title="Incluye"><i data-feather="check" stroke-width="1"></i></a>
                         <a class="list-group-item list-group-item-detail list-group-item-action" href="#opcional" data-toggle="tooltip" data-placement="right" title="Opcional"><i data-feather="file-plus" stroke-width="1"></i> Opcional</a>
                         <a class="list-group-item list-group-item-detail list-group-item-action bg-g-yellow" href="#consulte" data-toggle="tooltip" data-placement="right" title="Consulte Ahora"><i data-feather="edit-2" stroke-width="1"></i> Consulte Ahora</a>
                     </div>
@@ -153,7 +153,7 @@
 {{--                <div class="tl-2"><img src="{{asset('images/logo-ave-grey.png')}}" alt="" class="w-100"></div>--}}
 {{--                <div class="tl-3"></div>--}}
 {{--            </div>--}}
-            <div id="incluye">
+            <div>
                 <div class="position-relative py-5 mt-4">
                     <div class="offer-banner">
                         <div class="container">
@@ -276,7 +276,7 @@
                     <div class="row mt-5">
                         <div class="col">
                             <h6 class="font-weight-bold text-secondary mt-4"><span class="text-g-yellow">Precios:</span></h6>
-                            <p>Los precios estan basados en doble acomodación.</p>
+                            <p>Los precios estan basados en doble acomodación y cateogria 3 estrellas.</p>
                             <table class="table table-borderless border">
                                 <thead class="thead-dark">
                                     <tr class="text-center">
@@ -306,12 +306,34 @@
                 </div>
             </div>
 
+            <div id="incluye">
+                <div class="container">
+                    <div class="row">
+                        <div class="col">
+                            <h6 class="font-weight-bold text-secondary mt-4"><span class="text-g-yellow">Incluye</span></h6>
+                            {!! $paquetes->incluye !!}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col">
+                            <h6 class="font-weight-bold text-secondary mt-4"><span class="text-g-yellow">No incluye</span></h6>
+                            {!! $paquetes->noincluye !!}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <div id="opcional">
                 <div class="container">
                     <div class="row">
                         <div class="col">
                             <h6 class="font-weight-bold text-secondary mt-4"><span class="text-g-yellow">Opcional</span></h6>
-                            <p>Disfrute de lo mas importante de Cusco con los expertos, en cantidad de dias que se adaptan a su itinerario. Los esperamos!</p>
+                            {!! $paquetes->opcional !!}
                         </div>
                     </div>
                 </div>
@@ -333,7 +355,8 @@
                     </div>
                     <div class="row justify-content-center">
                         <div class="col-7">
-                            <h5 class="font-weight-bold text-center">CONSULTA DE VIAJES</h5>
+                            <h4 class="font-weight-bold text-center">PREGUNTE ESTE PAQUETE</h4>
+                            <h5 class="font-weight-bold text-center text-red-dark">{{$paquetes->titulo}} | {{$paquetes->duracion}}D/{{$paquetes->duracion - 1}}N</h5>
                             <form-inquire-detail :paquetes-id="{{$paquetes->id}}"></form-inquire-detail>
                         </div>
                     </div>

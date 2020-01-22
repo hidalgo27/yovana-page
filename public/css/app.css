@@ -768,7 +768,7 @@ header .overlay {
   width: 100%;
   left: 0;
   right: 0;
-  z-index: 2;
+  z-index: 5;
 }
 
 .bg-rgba-dark-3 {
@@ -1225,6 +1225,14 @@ header .overlay {
   height: auto;
   box-sizing: border-box;
   padding: 3rem;
+}
+
+.redes-fixed {
+  position: fixed;
+  width: 100%;
+  bottom: 2% !important;
+  right: -9px;
+  z-index: 2;
 }
 
 /*!

@@ -101596,7 +101596,7 @@ var staticRenderFns = [
           "a",
           {
             staticClass: "btn btn-link font-weight-bold py-2 px-0",
-            attrs: { href: "mailto:info@gotoperu.com.mx" }
+            attrs: { href: "mailto:nfo@incasperutours.travel" }
           },
           [_vm._v("info@incasperutours.travel")]
         )
@@ -102215,7 +102215,7 @@ var staticRenderFns = [
           "a",
           {
             staticClass: "btn btn-link font-weight-bold py-2 px-0",
-            attrs: { href: "mailto:info@gotoperu.com.mx" }
+            attrs: { href: "mailto:info@incasperutours.travel" }
           },
           [_vm._v("info@incasperutours.travel")]
         )

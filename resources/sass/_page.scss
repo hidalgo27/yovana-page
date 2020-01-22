@@ -496,7 +496,7 @@ header .overlay {
     width: 100%;
     left: 0;
     right: 0;
-    z-index: 2;
+    z-index: 5;
 }
 .bg-rgba-dark-3 {
     background: rgba(0, 0, 0, 0.3) !important;
@@ -907,3 +907,15 @@ header .overlay {
 //.icon-estrella:before {
 //    content: "\e912";
 //}
+.redes-fixed{
+    //margin: 0 auto;
+    position: fixed;
+    width: 100%;
+    //padding: 30px 10px 30px 10px;
+    //background: #00bdff;
+    //color: white;
+    //text-align: center;
+    bottom: 2% !important;
+    right: -9px;
+    z-index: 2;
+}
