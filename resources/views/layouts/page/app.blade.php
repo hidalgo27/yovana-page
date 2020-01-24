@@ -85,6 +85,15 @@
     </div>
     <footer>
         <img src="{{asset('images/footer.png')}}" alt="" class="w-100">
+        <div class="w-100 bg-dark">
+            <div class="container">
+                <div class="row">
+                    <div class="col text-center">
+                        <p class="small text-white m-2">Todos los derechos reservados | Incas Perú Tours</p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </footer>
 
 </div>
