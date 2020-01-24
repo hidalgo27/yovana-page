@@ -89,7 +89,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col text-center">
-                        <p class="small text-white m-2">Todos los derechos reservados | Incas Perú Tours</p>
+                        <p class="small text-white m-2">Todos los derechos reservados | Incas Perú Tours 2020.</p>
                     </div>
                 </div>
             </div>
