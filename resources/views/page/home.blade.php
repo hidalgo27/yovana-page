@@ -24,8 +24,9 @@
         <div class="position-absolute-bottom p-2">
             <div class="row pb-5 justify-content-between mb-5">
                 <div class="col text-center">
-                    <h4 class="display-4 font-weight-bold text-white">Viaje a Peru</h4>
-                    <span class="text-white h4">Descubra el pais de los Incas</span>
+                    <h4 class="display-4 font-weight-bold text-white">Viaje a Perú</h4>
+                    <span class="text-white d-block h4">Descubra el país de los Incas</span>
+                    <a href="#consulte" class="btn btn-danger ml-3 font-weight-bold px-4 rounded-0">PREGUNTE AHORA</a>
                 </div>
 
 {{--                <div class="col-4 text-center d-none">--}}
@@ -520,7 +521,7 @@
                 </div>
             </div>
             <div class="row justify-content-center">
-                <div class="col-7">
+                <div class="col-10">
                     <h5 class="font-weight-bold text-center">CONSULTA DE VIAJES</h5>
                     <form-inquire></form-inquire>
                 </div>
