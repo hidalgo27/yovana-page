@@ -70,18 +70,14 @@
 
     @yield('content')
     <div class="redes-fixed">
-        <div class="container-fluid">
-            <div class="row justify-content-end">
-                <div class="col-auto">
+
                     <div class="bg-light rounded px-3 mx-3 shadow clearfix float-right">
                         <a href="https://api.whatsapp.com/send?phone=51969700487" target="_blank" class="font-weight-bold text-dark stretched-link">
                             <img src="{{asset('images/icons/whatsapp-i.png')}}" class="py-1" alt="logo whatsapp" width="50" data-toggle="tooltip" data-placement="top" title="Perú">
                             Escríbenos por WhatsApp
                         </a>
                     </div>
-                </div>
-            </div>
-        </div>
+
     </div>
     <footer>
         <img src="{{asset('images/footer.png')}}" alt="" class="w-100">

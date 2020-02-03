@@ -354,7 +354,7 @@
                         </div>
                     </div>
                     <div class="row justify-content-center">
-                        <div class="col-7">
+                        <div class="col-6">
                             <h4 class="font-weight-bold text-center">PREGUNTE ESTE PAQUETE</h4>
                             <h5 class="font-weight-bold text-center text-red-dark">{{$paquetes->titulo}} | {{$paquetes->duracion}}D/{{$paquetes->duracion - 1}}N</h5>
                             <form-inquire-detail :paquetes-id="{{$paquetes->id}}"></form-inquire-detail>

@@ -9,7 +9,7 @@
             {{--                <iframe title="GotoPeru background video" src="https://player.vimeo.com/video/361847703?background=1" width="100%" height="100" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>--}}
 {{--            <iframe src="https://player.vimeo.com/video/361847703?background=1&autoplay=1&loop=1&title=0&byline=0&portrait=0&muted=1"  frameborder="0" allow="autoplay; fullscreen"></iframe>--}}
 
-                <img src="{{asset('images/slider-home/slider-home-1.jpg')}}" alt="">
+                <img src="{{asset('images/packages/slider/AV412-1.jpg')}}" alt="">
 
         </div>
 {{--        <div class="container h-100">--}}
@@ -27,6 +27,7 @@
                     <h4 class="display-4 font-weight-bold text-white">Viaje a Perú</h4>
                     <span class="text-white d-block h4">Descubra el país de los Incas</span>
                     <a href="#consulte" class="btn btn-danger ml-3 font-weight-bold px-4 rounded-0">PREGUNTE AHORA</a>
+                    <a href="#oferta-mes" class="btn btn-info ml-3 font-weight-bold px-4 rounded-0">OFERTA DEL MES</a>
                 </div>
 
 {{--                <div class="col-4 text-center d-none">--}}
@@ -230,8 +231,47 @@
         </div>
     </section>
 
+    <section class="position-relative mt-5" id="oferta-mes">
+        <div class="bg-info pt-1"></div>
+        <div class="offer-banner">
+            <div class="w-100 pl-0 container-fluid">
+                <div class="row no-gutters align-items-center">
+                    <div class="col-7">
+{{--                        <img src="{{asset('images/video.jpg')}}" alt="" class="w-100">--}}
+                        <div class="swiper-container swiper-container-gallery">
+                            <div class="swiper-wrapper">
+                                <a class="venobox swiper-slide" data-gall="myGallery" href="{{asset('images/packages/slider/AV704-1.jpg')}}"><img src="{{asset('images/packages/slider/AV704-1.jpg')}}" class="w-100"></a>
+                                <a class="venobox swiper-slide" data-gall="myGallery" href="{{asset('images/packages/slider/AV504-2.jpg')}}"><img src="{{asset('images/packages/slider/AV504-2.jpg')}}" class="w-100"></a>
+                                <a class="venobox swiper-slide" data-gall="myGallery" href="{{asset('images/packages/slider/AV500-1.jpg')}}"><img src="{{asset('images/packages/slider/AV500-1.jpg')}}" class="w-100"></a>
+                                <a class="venobox swiper-slide" data-gall="myGallery" href="{{asset('images/packages/slider/AV600-2.jpg')}}"><img src="{{asset('images/packages/slider/AV600-2.jpg')}}" class="w-100"></a>
 
-    <section class="position-relative mt-5">
+                            </div>
+                            <!-- Add Pagination -->
+                            <div class="swiper-pagination"></div>
+                        </div>
+                    </div>
+                    <div class="col text-center">
+                        <div class="p-4">
+                            <span class="font-weight-bold text-secondary">Todo Incluido</span>
+                            <h4 class="font-weight-bold mb-4 h1">OFERTA DEL MES</h4>
+                            <div class="bg-white rounded p-2 mb-2 shadow-sm">
+                                <p class="lead font-weight-bold m-0 text-secondary">Cusco, Machu Picchu, Ollantaytambo, Pisac, Valle Sagrado.</p>
+                            </div>
+                            <p>Tours, traslados, entradas, desayuno, trenes.</p>
+                            <del><sup>Antes $</sup><span class="h5">698</span><small>USD</small></del>
+                            <i class="fas text-primary fa-long-arrow-alt-right"></i>
+                            <sup>Ahora $</sup><span class="h1 font-weight-bold text-danger">518</span><small>USD</small>
+
+                            <a href="paquetes/cusco-y-machupicchu-flexible" class="btn btn-block btn-primary font-weight-bold mt-5">Ver detalles</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="position-relative">
         <div class="offer py-5">
             <div class="container">
 {{--                <div class="col text-center">--}}

@@ -4,205 +4,261 @@
 
         <div v-if="formshow">
             <div v-show="tap_form_show">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="row mt-5">
+                            <div class="col text-center">
+                                <h6 class="font-weight-bold">CALIDAD DEL HOTEL</h6>
+                                <p class="font-weight-bold">(<span class="text-primary">Opcional:</span> Puede seleccionar más de una categoria de hotel.)</p>
+                            </div>
+                        </div>
 
-                <div class="row mt-5">
-                    <div class="col text-center">
-                        <h6 class="font-weight-bold">CALIDAD DEL HOTEL</h6>
-                        <p class="font-weight-bold">(<span class="text-primary">Opcional:</span> Puede seleccionar más de una categoria de hotel.)</p>
+                        <div class="row align-items-center no-gutters">
+
+                            <div class="col">
+                                <div class="row mt-2 justify-content-center">
+                                    <div class="col-auto">
+
+                                        <el-checkbox-group v-model="checkedCategories" @change="handleCheckedCitiesChange" fill="#00b4e9" text-color="#ffffff">
+                                            <el-checkbox-button v-for="(categories, indice) in category" :label="categories.nombre" :key="categories.value" size="medium">
+                                                <!--                                    <el-avatar src="https://yovana.s3-us-west-1.amazonaws.com/destinations/1574460035212cusco-machupicchu_1574460039.jpg" class="d-block mx-auto"></el-avatar>-->
+                                                {{categories.nombre}}
+                                                <span class="d-block small font-weight-bold mt-2 text-dark">{{indice + 2}} estrellas</span>
+                                            </el-checkbox-button>
+                                        </el-checkbox-group>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row align-items-center no-gutters">
+
+                            <div class="col px-3">
+                                <div class="row mt-4">
+                                    <div class="col text-center">
+                                        <h6 class="font-weight-bold">NUMERO DE PASAJEROS</h6>
+                                    </div>
+                                </div>
+                                <div class="row mt-2 no-gutters">
+                                    <div class="col text-center">
+                                        <el-input-number v-model="numeropasajeros" @change="handleChangePasajeros" :min="1" :max="10"></el-input-number>
+                                    </div>
+                                </div>
+                            </div>
+
+<!--                            <div class="col px-3">-->
+<!--                                <div class="row mt-4">-->
+<!--                                    <div class="col text-center">-->
+<!--                                        <h6 class="font-weight-bold">DURACIÓN DE VIAJE</h6>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                                <div class="row mt-2 no-gutters">-->
+<!--                                    <div class="col text-center">-->
+<!--                                        <el-input-number v-model="duracion" @change="handleChangeDuracion" :min="1" :max="10"></el-input-number>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </div>-->
+                        </div>
+
                     </div>
-                </div>
-
-                <div class="row align-items-center no-gutters">
-                    <!--                    <div class="col-2 text-center rounded-left bg-secondary">-->
-                    <!--                        <div class="py-4 text-white">-->
-                    <!--                            <i class="el-icon-s-home"></i>-->
-                    <!--                        </div>-->
-                    <!--                    </div>-->
                     <div class="col">
-                        <div class="row mt-2 justify-content-center">
-                            <div class="col-auto">
-                                <!--                            <template v-for="categoriaForm in category_hotel">-->
-                                <!--                                <categoria-form v-bind:categoriaForm="categoriaForm" v-bind:categoriasSeleccionadosForm="categoriasSeleccionadosForm" v-on:checked="selectCategoryForm"></categoria-form>-->
-                                <!--                            </template>-->
-                                <el-checkbox-group v-model="checkedCategories" @change="handleCheckedCitiesChange" fill="#00b4e9" text-color="#ffffff">
-                                    <el-checkbox-button v-for="(categories, indice) in category" :label="categories.nombre" :key="categories.value" size="medium">
-                                        <!--                                    <el-avatar src="https://yovana.s3-us-west-1.amazonaws.com/destinations/1574460035212cusco-machupicchu_1574460039.jpg" class="d-block mx-auto"></el-avatar>-->
-                                        {{categories.nombre}}
-                                        <span class="d-block small font-weight-bold mt-2 text-dark">{{indice + 2}} estrellas</span>
-                                    </el-checkbox-button>
-                                </el-checkbox-group>
+                        <div class="row mb-3 justify-content-center align-items-center">
+                            <!--                            <div class="col-2 col-md-1 text-center rounded bg-secondary">-->
+                            <!--                                <div class="py-4 text-white">-->
+                            <!--                                    <i class="far fa-user"></i>-->
+                            <!--                                </div>-->
+                            <!--                            </div>-->
+                            <div class="col px-3">
+                                <p class="font-weight-bold small"><span class="text-danger">*</span>Nombre Completo</p>
+                                <el-input
+                                    placeholder="Nombre Completo"
+                                    v-model="el_nombre"
+                                    clearable>
+                                </el-input>
+                            </div>
+                        </div>
+
+                        <div class="row mb-3 align-items-center">
+                            <!--                            <div class="col-2 col-md-1 text-center rounded bg-secondary">-->
+                            <!--                                <div class="py-4 text-white">-->
+                            <!--                                    <i class="far fa-envelope"></i>-->
+                            <!--                                </div>-->
+                            <!--                            </div>-->
+                            <div class="col px-3">
+                                <p class="font-weight-bold small"><span class="text-danger">*</span>Email</p>
+                                <el-input
+                                    placeholder="Email"
+                                    v-model="el_email"
+                                    clearable>
+                                </el-input>
+                            </div>
+                        </div>
+
+                        <div class="row mb-3 align-items-center">
+                            <!--                            <div class="col-2 col-md-1 text-center rounded bg-secondary">-->
+                            <!--                                <div class="py-4 text-white">-->
+                            <!--                                    <i class="far fa-calendar"></i>-->
+                            <!--                                </div>-->
+                            <!--                            </div>-->
+
+                            <div class="col px-3">
+                                <p class="font-weight-bold small">Teléfono</p>
+                                <vue-tel-input v-model="el_telefono"></vue-tel-input>
+                            </div>
+
+                            <div class="col px-3">
+                                <p class="font-weight-bold small">Fecha de Viaje</p>
+                                <el-date-picker
+                                    v-model="el_fecha"
+                                    type="date"
+                                    placeholder="Fecha de viaje">
+                                </el-date-picker>
+                            </div>
+
+                        </div>
+
+                        <!--                        <div class="row mb-3 align-items-center">-->
+                        <!--&lt;!&ndash;                            <div class="col-2 col-md-1 text-center rounded bg-secondary">&ndash;&gt;-->
+                        <!--&lt;!&ndash;                                <div class="py-4 text-white">&ndash;&gt;-->
+                        <!--&lt;!&ndash;                                    <i class="fas fa-phone-alt"></i>&ndash;&gt;-->
+                        <!--&lt;!&ndash;                                </div>&ndash;&gt;-->
+                        <!--&lt;!&ndash;                            </div>&ndash;&gt;-->
+                        <!--                            <div class="col px-3">-->
+                        <!--                                <vue-tel-input v-model="el_telefono"></vue-tel-input>-->
+                        <!--                            </div>-->
+                        <!--                        </div>-->
+
+                        <div class="row mb-3 align-items-center">
+                            <!--                            <div class="col-2 col-md-1 text-center rounded bg-secondary">-->
+                            <!--                                <div class="py-4 text-white">-->
+                            <!--                                    <i class="far fa-edit"></i>-->
+                            <!--                                </div>-->
+                            <!--                            </div>-->
+                            <div class="col px-3">
+                                <p class="font-weight-bold  small">¿Alguna Duda?</p>
+                                <el-input
+                                    type="textarea"
+                                    :autosize="{ minRows: 2, maxRows: 4}"
+                                    placeholder="¿Tienes alguna duda o pregunta?"
+                                    v-model="el_textarea">
+                                </el-input>
+
                             </div>
                         </div>
                     </div>
                 </div>
 
-
-
-                <div class="row align-items-center no-gutters">
-                    <!--                    <div class="col-2 text-center rounded-left bg-secondary">-->
-                    <!--                        <div class="py-4 text-white">-->
-                    <!--                            <i class="fas fa-users"></i>-->
-                    <!--                        </div>-->
-                    <!--                    </div>-->
-                    <div class="col px-3">
-                        <div class="row mt-4">
-                            <div class="col text-center">
-                                <h6 class="font-weight-bold">NUMERO DE PASAJEROS</h6>
-                            </div>
-                        </div>
-                        <div class="row mt-2 no-gutters">
-                            <div class="col text-center">
-                                <el-input-number v-model="numeropasajeros" @change="handleChangePasajeros" :min="1" :max="10"></el-input-number>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col px-3">
-                        <div class="row mt-4">
-                            <div class="col text-center">
-                                <h6 class="font-weight-bold">DURACIÓN DE VIAJE</h6>
-                            </div>
-                        </div>
-                        <div class="row mt-2 no-gutters">
-                            <div class="col text-center">
-                                <el-input-number v-model="duracion" @change="handleChangeDuracion" :min="1" :max="10"></el-input-number>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
-
-
-                <!--                <div class="row align-items-center no-gutters border">-->
-                <!--                    <div class="col-2 text-center rounded-left bg-secondary">-->
-                <!--                        <div class="py-4 text-white">-->
-                <!--                            <i class="far fa-clock"></i>-->
-                <!--                        </div>-->
-                <!--                    </div>-->
-                <!--                    <div class="col px-3">-->
-                <!--                        <div class="row mt-2 no-gutters">-->
-
-                <!--                            <template v-for="duracionForm in durations_form">-->
-                <!--                                <duracion-form v-bind:duracionForm="duracionForm" v-bind:duracionSeleccionadosForm="duracionSeleccionadosForm" v-on:checked="selectDuracionForm"></duracion-form>-->
-                <!--                            </template>-->
-
-                <!--                            <div class="col-2">-->
-                <!--                                <div class="input-group input-group-sm">-->
-                <!--                                    <input type="text" class="form-control font-weight-bold" placeholder="Especifica">-->
-                <!--                                </div>-->
-                <!--                            </div>-->
-                <!--                        </div>-->
-                <!--                    </div>-->
-                <!--                </div>-->
 
             </div>
 
 
-            <transition name="fade">
-                <div v-show="!tap_form_show">
-                    <div class="container">
-                        <div class="row mt-5 justify-content-center">
-                            <div class="col-8">
-                                <div class="row mb-3 align-items-center">
-                                    <!--                            <div class="col-2 col-md-1 text-center rounded bg-secondary">-->
-                                    <!--                                <div class="py-4 text-white">-->
-                                    <!--                                    <i class="far fa-user"></i>-->
-                                    <!--                                </div>-->
-                                    <!--                            </div>-->
-                                    <div class="col px-3">
-                                        <p class="font-weight-bold text-secondary small"><span class="text-danger">*</span>Nombre Completo</p>
-                                        <el-input
-                                            placeholder="Nombre Completo"
-                                            v-model="el_nombre"
-                                            clearable>
-                                        </el-input>
-                                    </div>
-                                </div>
+<!--            <transition name="fade">-->
+<!--                <div v-show="!tap_form_show">-->
+<!--                    <div class="container">-->
+<!--                        <div class="row mt-5 justify-content-center">-->
+<!--                            <div class="col-8">-->
+<!--                                <div class="row mb-3 align-items-center">-->
+<!--                                    &lt;!&ndash;                            <div class="col-2 col-md-1 text-center rounded bg-secondary">&ndash;&gt;-->
+<!--                                    &lt;!&ndash;                                <div class="py-4 text-white">&ndash;&gt;-->
+<!--                                    &lt;!&ndash;                                    <i class="far fa-user"></i>&ndash;&gt;-->
+<!--                                    &lt;!&ndash;                                </div>&ndash;&gt;-->
+<!--                                    &lt;!&ndash;                            </div>&ndash;&gt;-->
+<!--                                    <div class="col px-3">-->
+<!--                                        <p class="font-weight-bold text-secondary small"><span class="text-danger">*</span>Nombre Completo</p>-->
+<!--                                        <el-input-->
+<!--                                            placeholder="Nombre Completo"-->
+<!--                                            v-model="el_nombre"-->
+<!--                                            clearable>-->
+<!--                                        </el-input>-->
+<!--                                    </div>-->
+<!--                                </div>-->
 
-                                <div class="row mb-3 align-items-center">
-                                    <!--                            <div class="col-2 col-md-1 text-center rounded bg-secondary">-->
-                                    <!--                                <div class="py-4 text-white">-->
-                                    <!--                                    <i class="far fa-envelope"></i>-->
-                                    <!--                                </div>-->
-                                    <!--                            </div>-->
-                                    <div class="col px-3">
-                                        <p class="font-weight-bold text-secondary small"><span class="text-danger">*</span>Email</p>
-                                        <el-input
-                                            placeholder="Email"
-                                            v-model="el_email"
-                                            clearable>
-                                        </el-input>
-                                    </div>
-                                </div>
+<!--                                <div class="row mb-3 align-items-center">-->
+<!--                                    &lt;!&ndash;                            <div class="col-2 col-md-1 text-center rounded bg-secondary">&ndash;&gt;-->
+<!--                                    &lt;!&ndash;                                <div class="py-4 text-white">&ndash;&gt;-->
+<!--                                    &lt;!&ndash;                                    <i class="far fa-envelope"></i>&ndash;&gt;-->
+<!--                                    &lt;!&ndash;                                </div>&ndash;&gt;-->
+<!--                                    &lt;!&ndash;                            </div>&ndash;&gt;-->
+<!--                                    <div class="col px-3">-->
+<!--                                        <p class="font-weight-bold text-secondary small"><span class="text-danger">*</span>Email</p>-->
+<!--                                        <el-input-->
+<!--                                            placeholder="Email"-->
+<!--                                            v-model="el_email"-->
+<!--                                            clearable>-->
+<!--                                        </el-input>-->
+<!--                                    </div>-->
+<!--                                </div>-->
 
-                                <div class="row mb-3 align-items-center">
-                                    <!--                            <div class="col-2 col-md-1 text-center rounded bg-secondary">-->
-                                    <!--                                <div class="py-4 text-white">-->
-                                    <!--                                    <i class="far fa-calendar"></i>-->
-                                    <!--                                </div>-->
-                                    <!--                            </div>-->
+<!--                                <div class="row mb-3 align-items-center">-->
+<!--                                    &lt;!&ndash;                            <div class="col-2 col-md-1 text-center rounded bg-secondary">&ndash;&gt;-->
+<!--                                    &lt;!&ndash;                                <div class="py-4 text-white">&ndash;&gt;-->
+<!--                                    &lt;!&ndash;                                    <i class="far fa-calendar"></i>&ndash;&gt;-->
+<!--                                    &lt;!&ndash;                                </div>&ndash;&gt;-->
+<!--                                    &lt;!&ndash;                            </div>&ndash;&gt;-->
 
-                                    <div class="col px-3">
-                                        <p class="font-weight-bold text-secondary small">Teléfono</p>
-                                        <vue-tel-input v-model="el_telefono"></vue-tel-input>
-                                    </div>
+<!--                                    <div class="col px-3">-->
+<!--                                        <p class="font-weight-bold text-secondary small">Teléfono</p>-->
+<!--                                        <vue-tel-input v-model="el_telefono"></vue-tel-input>-->
+<!--                                    </div>-->
 
-                                    <div class="col px-3">
-                                        <p class="font-weight-bold text-secondary small">Fecha de Viaje</p>
-                                        <el-date-picker
-                                            v-model="el_fecha"
-                                            type="date"
-                                            placeholder="Fecha de viaje">
-                                        </el-date-picker>
-                                    </div>
+<!--                                    <div class="col px-3">-->
+<!--                                        <p class="font-weight-bold text-secondary small">Fecha de Viaje</p>-->
+<!--                                        <el-date-picker-->
+<!--                                            v-model="el_fecha"-->
+<!--                                            type="date"-->
+<!--                                            placeholder="Fecha de viaje">-->
+<!--                                        </el-date-picker>-->
+<!--                                    </div>-->
 
-                                </div>
+<!--                                </div>-->
 
-                                <!--                        <div class="row mb-3 align-items-center">-->
-                                <!--&lt;!&ndash;                            <div class="col-2 col-md-1 text-center rounded bg-secondary">&ndash;&gt;-->
-                                <!--&lt;!&ndash;                                <div class="py-4 text-white">&ndash;&gt;-->
-                                <!--&lt;!&ndash;                                    <i class="fas fa-phone-alt"></i>&ndash;&gt;-->
-                                <!--&lt;!&ndash;                                </div>&ndash;&gt;-->
-                                <!--&lt;!&ndash;                            </div>&ndash;&gt;-->
-                                <!--                            <div class="col px-3">-->
-                                <!--                                <vue-tel-input v-model="el_telefono"></vue-tel-input>-->
-                                <!--                            </div>-->
-                                <!--                        </div>-->
+<!--                                &lt;!&ndash;                        <div class="row mb-3 align-items-center">&ndash;&gt;-->
+<!--                                &lt;!&ndash;&lt;!&ndash;                            <div class="col-2 col-md-1 text-center rounded bg-secondary">&ndash;&gt;&ndash;&gt;-->
+<!--                                &lt;!&ndash;&lt;!&ndash;                                <div class="py-4 text-white">&ndash;&gt;&ndash;&gt;-->
+<!--                                &lt;!&ndash;&lt;!&ndash;                                    <i class="fas fa-phone-alt"></i>&ndash;&gt;&ndash;&gt;-->
+<!--                                &lt;!&ndash;&lt;!&ndash;                                </div>&ndash;&gt;&ndash;&gt;-->
+<!--                                &lt;!&ndash;&lt;!&ndash;                            </div>&ndash;&gt;&ndash;&gt;-->
+<!--                                &lt;!&ndash;                            <div class="col px-3">&ndash;&gt;-->
+<!--                                &lt;!&ndash;                                <vue-tel-input v-model="el_telefono"></vue-tel-input>&ndash;&gt;-->
+<!--                                &lt;!&ndash;                            </div>&ndash;&gt;-->
+<!--                                &lt;!&ndash;                        </div>&ndash;&gt;-->
 
-                                <div class="row mb-3 align-items-center">
-                                    <!--                            <div class="col-2 col-md-1 text-center rounded bg-secondary">-->
-                                    <!--                                <div class="py-4 text-white">-->
-                                    <!--                                    <i class="far fa-edit"></i>-->
-                                    <!--                                </div>-->
-                                    <!--                            </div>-->
-                                    <div class="col px-3">
-                                        <p class="font-weight-bold text-secondary small">¿Alguna Duda?</p>
-                                        <el-input
-                                            type="textarea"
-                                            :autosize="{ minRows: 2, maxRows: 4}"
-                                            placeholder="¿Tienes alguna duda o pregunta?"
-                                            v-model="el_textarea">
-                                        </el-input>
+<!--                                <div class="row mb-3 align-items-center">-->
+<!--                                    &lt;!&ndash;                            <div class="col-2 col-md-1 text-center rounded bg-secondary">&ndash;&gt;-->
+<!--                                    &lt;!&ndash;                                <div class="py-4 text-white">&ndash;&gt;-->
+<!--                                    &lt;!&ndash;                                    <i class="far fa-edit"></i>&ndash;&gt;-->
+<!--                                    &lt;!&ndash;                                </div>&ndash;&gt;-->
+<!--                                    &lt;!&ndash;                            </div>&ndash;&gt;-->
+<!--                                    <div class="col px-3">-->
+<!--                                        <p class="font-weight-bold text-secondary small">¿Alguna Duda?</p>-->
+<!--                                        <el-input-->
+<!--                                            type="textarea"-->
+<!--                                            :autosize="{ minRows: 2, maxRows: 4}"-->
+<!--                                            placeholder="¿Tienes alguna duda o pregunta?"-->
+<!--                                            v-model="el_textarea">-->
+<!--                                        </el-input>-->
 
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
 
-                    </div>
-                </div>
-            </transition>
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </transition>-->
 
-            <div class="row mt-5">
-                <div class="col text-right">
-                    <button type="button" class="btn btn-info btn-lg text-white font-weight-bold" v-on:click="tap_form_show = !tap_form_show" v-if="tap_form_show === true">
-                        Siguiente >>
-                    </button>
-                    <button type="button" class="btn btn-secondary btn mx-3 text-white font-weight-normal" v-on:click="tap_form_show = !tap_form_show" v-else>
-                        < Atrás
-                    </button>
-                    <button type="submit" class="btn btn-success btn-lg text-white font-weight-bold" v-if="tap_form_show === false" v-show="btnviewdesign">
+            <div class="row justify-content-center mt-3">
+                <div class="col-4 text-center">
+<!--                    <button type="button" class="btn btn-info btn-lg text-white font-weight-bold" v-on:click="tap_form_show = !tap_form_show" v-if="tap_form_show === true">-->
+<!--                        Siguiente >>-->
+<!--                    </button>-->
+<!--                    <button type="button" class="btn btn-secondary btn mx-3 text-white font-weight-normal" v-on:click="tap_form_show = !tap_form_show" v-else>-->
+<!--                        < Atrás-->
+<!--                    </button>-->
+<!--                    <button type="submit" class="btn btn-success btn-lg text-white font-weight-bold" v-if="tap_form_show === false" v-show="btnviewdesign">-->
+<!--                        Enviar-->
+<!--                    </button>-->
+                    <button type="submit" class="btn btn-block btn-success btn-lg text-white font-weight-bold" v-show="btnviewdesign">
                         Enviar
                     </button>
                     <transition name="fade">
